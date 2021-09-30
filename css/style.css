@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+/* Made with ❤️ by evenstar3905 in MIT License */
+/* ©2021 evenstar3905 */
+body {
+	background-image: linear-gradient(45deg, #b2a2cd 25%, #5f5370 25%, #5f5370 50%, #b2a2cd 50%, #b2a2cd 75%, #5f5370 75%, #5f5370 100%);
+	background-size: 59.40px 59.40px;
+	background-attachment: fixed;
+	background-position: center;
+	
+	font-family: source-sans-pro;
+	
+	padding: 0;
+	margin: 0;
+	
+	font-style: normal;
+	font-weight: 200;
+}
+.glass_main {
+	width: 75%;
+	max-height: auto;
+	margin: 4em auto;
+	padding: 2em;
+	justify-content: center;
+	color: white;
+	align-items: center;
+	border-radius: 8px;
+	backdrop-filter: blur(9px);
+	-webkit-backdrop-filter: blur(9px);
+	box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+	background-color: rgba(0,191,255, 0);
+}
+.container {
+	display: flex;
+}
+.container_half {
+	flex: 1;
+	min-width: 50%;
+}
+a:visited {
+	color: #00bfff;
+    text-decoration: none;
+	font-weight:bold;
+}
+a:link {
+	color: #00bfff;
+    text-decoration: none;
+	font-weight:bold;
+}
+a:link:hover {
+	color: #00bfff;
+	text-decoration-line: underline;
+	font-weight:bold;
+}
+img {
+	max-width: 100%;
+    max-height: 100%;
+	display: block;
+	margin: 0 auto;
+	top: -50%;
+	left: -50%;
+	border-radius: 50%;
+	overflow: hidden;
+	vertical-align: middle;
+}
+.fcn_warning {
+	background: #FFFFFF;
+	color: #FF0000;
+	border-radius: 3px;
+}

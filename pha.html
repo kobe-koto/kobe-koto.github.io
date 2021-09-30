@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" id="favicon" href="./images/info.svg" />
+		<title>pha | kobe koto's page</title>
+	</head>
+	<body style="background: #000000">
+		<video id="pha" controls="controls" autoplay="autoplay"> 
+			<source src="./media/pha.mp4" type="video/mp4"/>
+			<embed src="./media/pha.mp4"
+				type="audio/x-pn-realaudio-plugin"
+				loop="false"
+				height="auto"
+				width="auto" />
+		</video>
+		<img id="btn" class="active" src="./images/info.svg" alt="" />
+		<script>
+			var video = document.getElementById('pha');
+			$("#btn").bind("touchstart", function autoplay() {
+			if(audio !== null) {
+			//检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+			//alert(audio.paused);
+			if(audio.paused) {
+			audio.play(); //audio.play();// 这个就是播放
+			$("#btn").addClass("active")
+			} else {
+			audio.pause(); // 这个就是暂停
+			$("#btn").removeClass("active")
+			}
+			}
+			})
+			//Shot on iPhone.
+			$("html").one('touchstart',function(){
+			audio.play();
+			})
+			//don't look at my SHIT code pls
+		</script>
+	</body>
+</html>

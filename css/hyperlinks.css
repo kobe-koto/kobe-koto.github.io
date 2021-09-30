@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* Made with heart by evenstar3905 in MIT License */
+/* copyright 2021 evenstar3905 */
+a:visited {
+	color: #00bfff;
+    text-decoration: none;
+	font-weight:bold;
+}
+a:link {
+	color: #00bfff;
+    text-decoration: none;
+	font-weight:bold;
+}
+a:link:hover {
+	color: #00bfff;
+	text-decoration-line: underline;
+	font-weight:bold;
+}
