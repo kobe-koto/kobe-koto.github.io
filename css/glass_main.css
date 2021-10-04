@@ -2,7 +2,7 @@
 /* Made with heart by evenstar3905 in MIT License */
 /* copyright 2021 evenstar3905 */
 .glass_main {
-	width: 75%;
+	max-width: 75%;
 	max-height: auto;
 	margin: 4em auto;
 	padding: 2em;
