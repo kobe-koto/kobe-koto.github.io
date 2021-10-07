@@ -10,7 +10,17 @@ a:link {
 }
 a:link:hover {
 	color: #00bfff;
-	text-decoration-line: underline
+	text-decoration-line: underline;
+}
+.abuttonlikelink {
+	color: #00bfff;
+    text-decoration: none;
+	cursor: pointer;
+}
+.abuttonlikelink:hover {
+	color: #00bfff;
+	text-decoration-line: underline;
+	cursor: pointer;
 }
 body {
 	font-family: source-sans-pro;

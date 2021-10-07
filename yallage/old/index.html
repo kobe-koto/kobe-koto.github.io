@@ -6,6 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="./css/style.css" type="text/css" rel="stylesheet">
 		<title>Yallage | Homepage</title>
+		<script>
+			function show(todoID) {
+				document.getElementById(todoID).style.display = "block";
+			}
+			function hide(todoID) {
+				document.getElementById(todoID).style.display = "none";
+			}
+		</script>
 	</head>
 	<body>
 		<div class="main1">
@@ -26,28 +34,12 @@
 					<p><a href="./raj2g.html"><font color="#ff0000">[教程][重要] 如何注册犽之谷账户并使用账户加入游戏</font></a></p>
 					<p><a href="https://report.yallage.com/d/32-faq">[公告][重要] FAQ 常见问题集合</a></p>
 					<p><a href="https://report.yallage.com/d/1">[公告][重要] 犽之谷支持中心用户协议</a></p>
-					<p><a href="http://afdian.net/@Yallage"><font color="#1ba4e4">在爱发电</font></a><a>或者</a><button style="background-color: ;border: none;font-size: medium;color: #1ba4e4;" onclick="document.getElementById('langlang').style.display = "block";document.getElementById('shou').style.display = 'block';">扫狼狼的微信支付二维码</button>
-						<a>赞助犽之谷</a></p>
-					
-
-                            <script>
-                                function ssss() {
-                                    document.getElementById('langlang').style.display = "block";
-                                    document.getElementById('shou').style.display = "block";
-                                }
-
-                                function cccc() {
-                                    document.getElementById('langlang').style.display = "none";
-                                    document.getElementById('shou').style.display = "block";
-                                }
-                            </script>
-                            <img src="./images/wepay.webp" style="display: none; border-radius: 5px; max-height: none; width: 400px;" id="langlang" alt="" />
-                            <a class="urlpro"
-							   style="display: none;"
-							   onclick="
-										document.getElementById('langlang').style.display = "none";
-										document.getElementById('shou').style.display = "block";"
-							   id="shou">收回</a>
+					<p>在<a class="urlpro" href="http://afdian.net/@Yallage" target="_blank">爱发电</a>或者扫<span class="abuttonlikelink" style="background-color: rgba(0, 0, 0, 0);border: none;font-size: medium;" onclick="show('llwpQR');">狼狼的微信支付二维码</span>赞助犽之谷</p>
+					<span id="llwpQR" style="display: none;">
+						<span class="abuttonlikelink" onclick="hide('llwpQR');">收回</span>
+						<br />
+						<img src="./images/wepay.webp" style="border-radius: 4px; width: 40%;" alt="" />
+					</span>
 					<p><a href="./Yallage_res.html">推荐启动器及相关下载链接</a></p>
 					<br />
 					<h4>犽之谷现在拥有3个<font color="#ff0000">Minecraft服务器IP</font>，请自行检测可用性。</h4>
@@ -61,15 +53,15 @@
 			<p align="center">百寶箱</p>
 			<p align="center">
 			<a><strong> | </strong></a>
-			<a href="https://afdian.net/@LTCat">PCL2的"官網"</a>
+			<a href="https://afdian.net/@LTCat">PCL2的爱发电</a>
 			<a><strong> | </strong></a>
 			<a href="https://afdian.net/p/0164034c016c11ebafcb52540025c377">PCL2 正式版下载</a>
 			<a><strong> | </strong></a>
-			<a href="https://hmcl.huangyuhui.net/">Hello Minecraft! Launcher 官方網站</a>
+			<a href="https://hmcl.huangyuhui.net/">Hello Minecraft! Launcher 官方网站</a>
 			<a><strong> | </strong></a>
-			<a href="http://ci.huangyuhui.net/job/HMCL/">Hello Minecraft! Launcher 發佈頁</a>
+			<a href="http://ci.huangyuhui.net/job/HMCL/">Hello Minecraft! Launcher 发布页</a>
 			<a><strong> | </strong></a>
-			<a href="https://www.minecraft.net">Minecraft官方網站</a>
+			<a href="https://www.minecraft.net">Minecraft 官方网站</a>
 			<a><strong> | </strong></a>
 			</p>
 			
@@ -77,7 +69,7 @@
 			
 			<p align="center">声明：本网站并非Yallage官方网站</p>
 			<p align="center">如果对网站内容有什么建议，可以联系: kobe_koto@outlook.com</p>
-			<p align="center">要访问以前的网站，请点击这个<a href="./old/index.html">链接</a></p>
+			<p align="center">要访问新的网站，请点击这个<a href="../index.html">链接</a></p>
 			<p align="center">&copy;2021 - <strong>kobe-koto</strong></p>
 			<p align="center">Made with ❤️ by evestar3905 in MIT License</p>
 			<p align="center">Open Source Code in <a href="https://github.com/kobe-koto/kobe-koto.github.io">GitHub</a> (MIT License)</p>

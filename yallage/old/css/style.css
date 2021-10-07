@@ -15,11 +15,20 @@ a:link {
 }
 a:link:hover {
 	color: #ae00d0;
-	text-decoration-line: underline
+	text-decoration-line: underline;
+}
+.abuttonlikelink {
+	color: #ae00d0;
+    text-decoration: none;
+	cursor: pointer;
+}
+.abuttonlikelink:hover {
+	color: #ae00d0;
+	text-decoration-line: underline;
+	cursor: pointer;
 }
 img {
 	max-width: 100%;
-	max-height: 15em;
 }
 .info {
 	display: grid;
