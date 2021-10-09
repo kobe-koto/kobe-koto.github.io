@@ -267,7 +267,7 @@ footer .footer_column p {
 	background: #000000;
 	padding: cover;
 	margin-top: cover;
-	border-radius: 3.5px;
+	border-radius: 3px;
 	transition-duration: 0.6s;
 }
 .button1:hover{
