@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /images/
+Disallow: /css/
+Disallow: /media/
+Disallow: /JCoffee/files/
+Disallow: /yallage/css/
+Disallow: /yallage/images/
+Disallow: /yallage/old/css/
+Disallow: /yallage/old/images/
+Disallow: /*.png$
+Disallow: /*.webp$
+Disallow: /*.js$
+Disallow: /*.css$
+Crawl-delay: 60
+Allow:/

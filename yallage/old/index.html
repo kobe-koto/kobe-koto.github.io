@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" href="./images/Yallage_ico.webp" type="image/x-icon">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="./css/style.css" type="text/css" rel="stylesheet">
+		<link href="./css/statement.css" type="text/css" rel="stylesheet">
+		<script src="./js/hideandshow.js"></script>
 		<title>Yallage | Homepage</title>
-		<script>
-			function show(todoID) {
-				document.getElementById(todoID).style.display = "block";
-			}
-			function hide(todoID) {
-				document.getElementById(todoID).style.display = "none";
-			}
-		</script>
 	</head>
 	<body>
 		<div class="main1">
@@ -73,6 +66,13 @@
 			<p align="center">&copy;2021 - <strong>kobe-koto</strong></p>
 			<p align="center">Made with ❤️ by evestar3905 in AGPL-3.0 License</p>
 			<p align="center">Open Source Code in <a href="https://github.com/kobe-koto/kobe-koto.github.io">GitHub</a> (AGPL-3.0 License)</p>
+		</div>
+		<div id="statement" class="statement">
+			<h3>还请注意: </h3>
+			<p>本网站并非Yallage官方网站</p>
+			<p>继续使用即代表您已知晓该网站内容不受Yallage的技术支持、且开源代码的使用受AGPL-3.0 License之约束，并愿意自行承担一切后果。</p>
+			<p>&copy;2021 - <strong>kobe-koto</strong></p>
+			<p align="left" class="abuttonlikelink" onClick="hide('statement')">关闭此窗口 &amp; 我已知悉</p>
 		</div>
 	</body>
 </html>

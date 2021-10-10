@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* Made with heart by evenstar3905 in AGPL-3.0 License License */
+/* copyright 2021 evenstar3905 */
+.statement {
+	position: fixed;
+	width: auto;
+	height: auto;
+	z-index: 999;
+	left: 1.5%;
+	bottom: 3%;
+	background-color: #202124;
+	border-radius: 4px;
+	padding: 1%;
+	color: #FFFFFF;
+	display: block;
+	font-size: small;
+}
