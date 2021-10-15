@@ -4,13 +4,15 @@
 /* div is best */
 .shakecolor_button {
 	border:1px solid #eee;
-	padding:6px;
 	animation:shakecolor_button-m 20s linear infinite;
 	animation-direction:alternate;
 	border-radius:3px;
 	hwidth: auto;
 	height: auto;
 	cursor: pointer;
+	background-color: rgba(0,0,0,0);
+	width: max-content;
+	padding: 8px 15px;
 }
 .shakecolor_button:hover {
 	animation:shakecolor_button-x 0.3s linear infinite;
@@ -18,15 +20,20 @@
 .shakecolor_button p a:hover {
 	animation:shakecolor_button-a 1s linear infinite;
 }
+.shakecolor_button a:hover {
+	animation:shakecolor_button-a 1s linear infinite;
+}
+.shakecolor_button p:hover {
+	animation:shakecolor_button-a 1s linear infinite;
+}
 .shakecolor_button p {
-	color:#fff;
-	margin-bottom:0px;
+	color:#ffffff;
+	margin:0;
 }
 .shakecolor_button p a {
-	padding:5px 15px;
-	color:#9a9da0;
+	color:#ffffff;
 	text-decoration:none;
-	display:block;
+	padding: 8px 15px;
 }
 @keyframes shakecolor_button-m {
 	10% {
