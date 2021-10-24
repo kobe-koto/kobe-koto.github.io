@@ -1,1 +1,0 @@
-# kobe-koto.github.io
