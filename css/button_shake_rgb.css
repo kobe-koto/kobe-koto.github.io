@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* Made with heart by evenstar3905 in AGPL-3.0 License License */
 /* copyright 2021 evenstar3905 */
-/* div is best */
+/* for example: <button class="shakecolor_button"><p><a>your word</a></p></div> */
 .shakecolor_button {
 	border:1px solid #eee;
 	animation:shakecolor_button-m 20s linear infinite;
@@ -12,7 +12,7 @@
 	cursor: pointer;
 	background-color: rgba(0,0,0,0);
 	width: max-content;
-	padding: 8px 15px;
+	padding: 0;
 }
 .shakecolor_button:hover {
 	animation:shakecolor_button-x 0.3s linear infinite;
@@ -28,12 +28,15 @@
 }
 .shakecolor_button p {
 	color:#ffffff;
-	margin:0;
+	padding: 0;
+	margin: unset;
 }
 .shakecolor_button p a {
 	color:#ffffff;
 	text-decoration:none;
 	padding: 8px 15px;
+	margin: unset;
+	display: block;
 }
 @keyframes shakecolor_button-m {
 	10% {
