@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* Made with heart by evenstar3905 in AGPL-3.0 License License */
+/* copyright 2021 evenstar3905 */
+a:visited {
+	color: #00bfff;
+    text-decoration: none;
+}
+a:link {
+	color: #00bfff;
+    text-decoration: none;
+}
+a:link:hover {
+	color: #00bfff;
+	text-decoration-line: underline;
+}
+.abuttonlikelink {
+	color: #00bfff;
+    text-decoration: none;
+	cursor: pointer;
+}
+.abuttonlikelink:hover {
+	color: #00bfff;
+	text-decoration-line: underline;
+	cursor: pointer;
+}
+.navlink {
+	color: #FFFFFF;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0);
+	border: unset;
+	font-size: medium;
+	font-weight: bold;
+}
+.navlink:hover {
+	color: #2C9AB7;
+}

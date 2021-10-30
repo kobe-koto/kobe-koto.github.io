@@ -7,8 +7,8 @@ Disallow: /yallage/css/
 Disallow: /yallage/images/
 Disallow: /yallage/old/css/
 Disallow: /yallage/old/images/
-Disallow: /blog1/
 Disallow: /*.png$
+Disallow: /*.jpg$
 Disallow: /*.webp$
 Disallow: /*.js$
 Disallow: /*.css$

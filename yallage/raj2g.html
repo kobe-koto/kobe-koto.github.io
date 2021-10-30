@@ -4,7 +4,10 @@
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="./images/Yallage_icon.webp" />
 		<link href="./css/singlePageTemplate.css" rel="stylesheet" type="text/css">
+		<link href="./css/hyperlinks.css" rel="stylesheet" type="text/css">
 		<link href="./css/statement.css" rel="stylesheet" type="text/css">
+		<link href="./css/warning.css" rel="stylesheet" type="text/css">
+		<link href="./css/img.css" type="text/css" rel="stylesheet">
 		<script src="./js/hideandshow.js"></script>
 		<title>Reg &amp; Game | Yallage</title>
 		<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
@@ -26,9 +29,9 @@
 				</a>
 				<nav>
 					<ul>
-						<li><a href="./index.html"><font color="#FFFFFF">主页</font></a></li>
-						<li><a href="https://login.yallage.com"><font color="#FFFFFF">账户中心</font></a></li>
-						<li><a href="https://report.yallage.com"><font color="#FFFFFF">支持中心</font></a></li>
+						<li><button href="./index.html" class="navlink">主页</button></li>
+						<li><button href="https://login.yallage.com" class="navlink">账户中心</button></li>
+						<li><button href="https://report.yallage.com" class="navlink">支持中心</button></li>
 					</ul>
 				</nav>
 			</header>
@@ -45,7 +48,13 @@
 			<!-- About Section -->
 			<div class="gallery">
 				<h2 class="hidden">raj2g</h2>
-				<ol style="list-style-type:decimal">
+					<div class="warning">
+						<h3><img class="svg" style="width: 27px;height: 27px;margin-bottom: -7px;" alt="" src="./images/warning.svg" />请注意: </h3>
+						<h3>Yallage的外置验证地址是 https://login.yallage.com/api/yggdrasi/</h3>
+						<h3>Yallage的外置验证注册地址是 https://login.yallage.com/</h3>
+						<h3>您需要验证邮箱才能正常游玩游戏.当您按照正规流程注册犽之谷账户中心之后,您会收到noreply@yallage.com发来的名为<a title="不同语言可能有所不同">"在 犽之谷账户中心 上驗證您的電子郵件地址"</a>的邮件,届时请点击邮件附带的链接进行验证。</h3>
+						<h3>目前,Yallage的外置登录现出现故障,只能使用正版登录.</h3>
+					</div>
 					<!-- list -->
 					<section id="list">
 						<h3><a href="#list" name="#list"><font color="#000000">目录</font></a></h3>
@@ -68,7 +77,7 @@
 								<h4><a href="https://report.yallage.com/d/32-faq"><strong>Frequently Asked Questions - FAQ常见问题集合<img src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></strong></a></h4>
 								<h4><strong>*正版用户可以直接进入服务器</strong></h4>
 								<li>前往 <a href="https://login.yallage.com/"><font color="#ff0000">犽之谷账户中心</font></a> 注册账号<strong>（Outlook 邮箱不受支持，其他邮箱可能需要等待 5 ~ 7 分钟才能收到验证邮件）</strong></li>
-								<li><font color="#FF0000">请注意：如果您此前已经在犽之谷游戏内注册了账号，并且已经游玩了一段时间，请使用此前在犽之谷服务器内使用的玩家名作为账户中心的角色名！否则您将丢失您此前的游戏进度！同时，如果您此前游玩服务器同样使用的是正版账号，我们推荐您使用正版账号直接登录游戏服务器！</font></li>
+								<li class="warning"><img class="svg" alt="" src="./images/warning.svg" />请注意：如果您此前已经在犽之谷游戏内注册了账号，并且已经游玩了一段时间，请使用此前在犽之谷服务器内使用的玩家名作为账户中心的角色名！否则您将丢失您此前的游戏进度！同时，如果您此前游玩服务器同样使用的是正版账号，我们推荐您使用正版账号直接登录游戏服务器！</li>
 								<li>在犽之谷账户中心注册后，前往注册填写的邮箱内激活账户，激活账户后即可自由设置皮肤。</li>
 								<li>完成以上步骤后，<strong>请务必牢记您的帐号密码</strong>，若丢失密码，您仍然可以前往犽之谷账户中心使用注册时填写的邮箱找回密码。此账号<strong>通用于犽之谷反馈中心、犽之谷游戏服务器内、注册账号的账户中心</strong>。从第四步开始，我们将介绍如何在启动器中<strong>添加犽之谷账户中心为认证服务器</strong>，并登录游戏，如果您熟悉如何在启动器中添加第三方认证服务器，那么只需要登录后即可畅玩犽之谷
 									<br />
@@ -82,7 +91,7 @@
 							<h3><a name="hmcl"><font color="#ff0000">HMCL</font></a>使用第三方认证服务器</h3>
 							<ol style="list-style-type:decimal">
 								<h4><strong>*感谢hanbings提供的教程</strong></h4>
-								<h4><strong>*对于Linux和Mac用户，您需要先下载Java，并在HMCL所在目录下执行 <font color="#FF0000">java -jar "HMCL启动器程序名.jar"</font> 才能运行HMCL</strong></h4>
+								<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" /><strong>*对于Linux和Mac用户，您需要先下载Java，并在HMCL所在目录下执行 <font color="#FF0000">java -jar "HMCL启动器程序名.jar"</font> 才能运行HMCL</strong></h4>
 								<li>打开HMCL启动器，并点击新建玩家
 									<br />
 									<img src="./images/hmcl_01.webp" alt="" />
@@ -109,8 +118,8 @@
 						<section id="PCL">
 							<h3><a name="pcl"><font color="#ff0000">PCL</font></a>使用第三方认证服务器</h3>
 							<ol style="list-style-type:decimal">
-								<h4><strong>*感谢Pickaxe提供的教程</strong></h4>
-								<h4><strong>*PCL仅支持Windows</strong></h4>
+								<h4><strong>感谢Pickaxe提供的教程</strong></h4>
+								<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />*PCL仅支持Windows系统</h4>
 								<li>打开PCL启动器，并点击版本设置
 									<br />
 									<img src="./images/pcl_01.webp" alt="" />
@@ -161,8 +170,8 @@
 							<section id="UTM">
 								<h4><a name="utm">UTM安装简述</a></h4>
 								<ol style="list-style-type:decimal">
-									<h4><font color="#FF0000">必须注意，由于一个 iOS 的系统漏洞，在退出 UTM 时必须使用主界面左上角的叉按钮或者虚拟机运行时工具栏上的关闭按钮，不可在 App 切换器里上滑 UTM 卡片来强制关闭。否则，UTM 可能无法启动或者导致死机，需要重启设备才能恢复正常</font></h4>
-									<li>在创建虚拟机前，您需要先下载好欲安装的系统镜像，并导入到您的设备上。轻触UTM SE主界面右上角的加号按钮，便可呼出创建虚拟机界面</li>
+									<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />必须注意，由于一个 iOS 的系统漏洞，在退出 UTM 时必须使用主界面左上角的叉按钮或者虚拟机运行时工具栏上的关闭按钮，不可在 App 切换器里上滑 UTM 卡片来强制关闭。否则，UTM 可能无法启动或者导致死机，需要重启设备才能恢复正常</h4>
+									<li>在创建虚拟机前，您需要先下载好欲安装的系统镜像，并导入到您的设备上。点击UTM SE主界面右上角的加号按钮，可呼出创建虚拟机界面</li>
 									<img src="./images/ios_01.webp" alt="" />
 									<li>新建好虚拟机之后请按物理机器的方法安装系统</li>
 									<li>安装完成之后视虚拟系统和个人喜好选择Minecraft启动器即可</li>
@@ -171,7 +180,7 @@
 							<section id="pojavLauncher">
 								<h3><a name="pojavLauncher">ios/ipad os使用PojavLauncher登录正版账号</a></h3>
 								<ol style="list-style-type:decimal">
-									<h4>*您只能越狱后使用 PojavLauncher</h4>
+									<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />您只能越狱后使用 PojavLauncher</h4>
 									<li>下载 PojavLauncher(需要openJDK支持
 										<a href="https://apt.procurs.us/pool/main/iphoneos-arm64/1700/openjdk-16-jre_16.0.0+git20201217.8383f41-2_iphoneos-arm.deb">下载openJDK<img src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a> 
 										<a href="https://www.ios-repo-updates.com/repository/procursus/package/openjdk-16-jre/">源页面<img src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a>
@@ -186,7 +195,6 @@
 							</section>
 						</section>
 						<!-- Reg End -->
-				</ol>
 			</div>
 			<!-- Copyrights Section -->
 			<div class="copyright">

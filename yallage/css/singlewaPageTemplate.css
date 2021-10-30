@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Body */
 body {
 	font-family: source-sans-pro;
 	background-color: #f2f2f2;
@@ -9,10 +10,7 @@ body {
 	font-style: normal;
 	font-weight: 200;
 }
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
+
 /* Container */
 .container {
 	width: 90%;
@@ -21,12 +19,13 @@ img {
 	height: 1000px;
 	background-color: #FFFFFF;
 }
+
 /* Navigation */
 header {
-	width: 90%;
-	height: max-content;
+	width: 100%;
+	height: 5%;
 	background-color: #52bad5;
-	position: fixed;
+	border-bottom: 1px solid #2C9AB7;
 }
 .logo {
 	color: #fff;
@@ -64,7 +63,6 @@ ul li a {
 }
 ul li:hover a {
 	color: #2C9AB7;
-	text-decoration: none;
 }
 .hero_header {
 	color: #FFFFFF;
@@ -74,12 +72,11 @@ ul li:hover a {
 	margin-bottom: 0px;
 	margin-left: 0px;
 	letter-spacing: 4px;
-	text-shadow: 2px 2px 8px #000000;
 }
+
 /* Hero Section */
 .hero {
-	background: url("../images/herobg.webp") no-repeat;
-	background-size: cover; 
+	background-color: #B3B3B3;
 	padding-top: 150px;
 	padding-bottom: 150px;
 }
@@ -94,7 +91,6 @@ ul li:hover a {
 	font-weight: lighter;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	text-shadow: 2px 2px 12px #000000;
 }
 /* About Section */
 .text_column {
@@ -114,7 +110,6 @@ ul li:hover a {
 	display: inline-block;
 	background-color: #FFFFFF;
 	margin-top: 0px;
-	clear: both;
 }
 /* Stats Gallery */
 .stats {
@@ -122,13 +117,15 @@ ul li:hover a {
 	margin-bottom: 5px;
 }
 .gallery {
+	clear: both;
+	display: inline-block;
+	width: 100%;
 	background-color: #FFFFFF;
-	/* [disabled]min-width: 400px; */
+	/* [disabled]min-width: 400px;
+*/
 	padding-bottom: 35px;
-	padding-top: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-top: 0px;
+	padding-top: 0px;
+	margin-top: -5px;
 	margin-bottom: 0px;
 }
 .thumbnail {
@@ -154,7 +151,7 @@ ul li:hover a {
 /* Parallax Section */
 .banner {
 	background-color: #2D9AB7;
-	background-image: url(../images/parallax.webp);
+	background-image: url(../images/parallax.png);
 	height: 400px;
 	background-attachment: fixed;
 	background-size: cover;
@@ -234,23 +231,10 @@ footer .footer_column p {
 	border: 3px solid #FFFFFF;
 	color: #FFFFFF;
 	transition: all 0.3s linear;
-	background-color: rgba(0,0,0,0);
 }
 .button:hover {
 	background-color: #FEFEFE;
 	color: #C4C4C4;
-	cursor: pointer;
-}
-.button1{
-	border: none;
-	background: #202124;
-	padding: cover;
-	margin-top: cover;
-	border-radius: 3px;
-	transition-duration: 0.6s;
-}
-.button1:hover{
-	box-shadow: 0 12px 16px 0 rgba(169,169,169,0.19),0 17px 50px 0 rgba(169,169,169,0.19);
 	cursor: pointer;
 }
 .copyright {
@@ -265,10 +249,12 @@ footer .footer_column p {
 	border-top-width: 2px;
 }
 .footer_banner {
-	background-color: #cbcbcb;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	background-color: #B3B3B3;
+	padding-top: 60px;
+	padding-bottom: 60PX;
 	margin-bottom: 0px;
+	background-image: url(../images/pattern.png);
+	background-repeat: repeat;
 }
 footer {
 	display: inline-block;
@@ -305,34 +291,6 @@ nav ul li {
 	margin-left: 0px;
 	width: 100%;
 	text-align: center;
-}
-
-nav {
-	float: right;
-	width: 50%;
-	text-align: right;
-	margin-right: 25px;
-}
-header nav ul {
-	list-style: none;
-	float: right;
-}
-nav ul li {
-	float: left;
-	color: #FFFFFF;
-	font-size: 14px;
-	text-align: left;
-	margin-right: 25px;
-	letter-spacing: 2px;
-	font-weight: bold;
-	transition: all 0.3s linear;
-}
-ul li a {
-	color: #FFFFFF;
-	text-decoration: none;
-}
-ul li:hover a {
-	color: #2C9AB7;
 }
 .text_column {
 	width: 100%;
