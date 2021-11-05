@@ -17,6 +17,7 @@ a:link:hover {
 	color: #00bfff;
     text-decoration: none;
 	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
 }
 .abuttonlikelink:hover {
 	color: #00bfff;
@@ -31,6 +32,7 @@ a:link:hover {
 	border: unset;
 	font-size: medium;
 	font-weight: bold;
+	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
 }
 .navlink:hover {
 	color: #2C9AB7;

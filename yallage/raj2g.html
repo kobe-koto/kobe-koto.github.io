@@ -22,16 +22,15 @@
 		<!-- Main Container -->
 		<div class="container">
 			<!-- Navigation -->
-			<header style="position: unset;height: 5%;width: 100%;"></header>
 			<header style="top: 0;">
 				<a href="./index.html">
 					<h4 class="logo">Yallage</h4>
 				</a>
 				<nav>
 					<ul>
-						<li><button href="./index.html" class="navlink">主页</button></li>
-						<li><button href="https://login.yallage.com" class="navlink">账户中心</button></li>
-						<li><button href="https://report.yallage.com" class="navlink">支持中心</button></li>
+						<li><button onClick="window.open('./index.html');" class="navlink">主页</button></li>
+						<li><button onClick="window.open('https://login.yallage.com');" class="navlink">账户中心</button></li>
+						<li><button onClick="window.open('https://report.yallage.com');" class="navlink">支持中心</button></li>
 					</ul>
 				</nav>
 			</header>
@@ -55,21 +54,23 @@
 						<h3>您需要验证邮箱才能正常游玩游戏.当您按照正规流程注册犽之谷账户中心之后,您会收到noreply@yallage.com发来的名为<a title="不同语言可能有所不同">"在 犽之谷账户中心 上驗證您的電子郵件地址"</a>的邮件,届时请点击邮件附带的链接进行验证。</h3>
 						<h3>目前,Yallage的外置登录现出现故障,只能使用正版登录.</h3>
 					</div>
+					<hr align="center" width="95%" color="#987cb9" size="1" />
 					<!-- list -->
 					<section id="list">
 						<h3><a href="#list" name="#list"><font color="#000000">目录</font></a></h3>
 						<ol style="list-style-type:decimal">
 							<strong>
 								<p class="abuttonlikelink" style="cursor: pointer;color: #000000;">**如果您还不知道Yallage的IP是什么，那只能说明您是个寄吧了**</p>
-								<p><a href="#basics"><font color="#000000">注册&amp;基本信息</font></a></p>
-								<p><a href="#hmcl"><font color="#000000">HMCL(Windows/Linux/Mac)</font></a></p>
-								<p><a href="#pcl"><font color="#000000">PCL(Windows)</font></a></p>
-								<p><a href="#mcinabox"><font color="#000000">MCinaBox(Android)</font></a></p>
-								<p><a href="#utm"><font color="#000000">UTM虚拟机(iOS)</font></a></p>
-								<p><a href="#pojavLauncher"><font color="#000000">PojavLauncher启动器(仅正版)(iOS)</font></a></p>
+								<li><a href="#basics"><font color="#000000">注册&amp;基本信息</font></a></li>
+								<li><a href="#hmcl"><font color="#000000">HMCL(Windows/Linux/Mac)</font></a></li>
+								<li><a href="#pcl"><font color="#000000">PCL(Windows)</font></a></li>
+								<li><a href="#mcinabox"><font color="#000000">MCinaBox(Android)</font></a></li>
+								<li><a href="#utm"><font color="#000000">UTM虚拟机(iOS)</font></a></li>
+								<li><a href="#pojavLauncher"><font color="#000000">PojavLauncher启动器(仅正版)(iOS)</font></a></li>
 							</strong>
 						</ol>
 					</section>
+					<hr align="center" width="95%" color="#987cb9" size="1" />
 					<!--Reg Yallage Acc -->
 					<section id="RYA">
 						<h3><a name="basics"><strong>注册犽之谷账户中心</strong></a></h3>
@@ -86,6 +87,7 @@
 								</li>
 							</ol>
 						</section>
+						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- HMCL Reg -->
 						<section id="HMCL">
 							<h3><a name="hmcl"><font color="#ff0000">HMCL</font></a>使用第三方认证服务器</h3>
@@ -94,26 +96,27 @@
 								<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" /><strong>*对于Linux和Mac用户，您需要先下载Java，并在HMCL所在目录下执行 <font color="#FF0000">java -jar "HMCL启动器程序名.jar"</font> 才能运行HMCL</strong></h4>
 								<li>打开HMCL启动器，并点击新建玩家
 									<br />
-									<img src="./images/hmcl_01.webp" alt="" />
+									<img src="./images/raj2g/hmcl_01.webp" alt="" />
 								</li>
 								<li>选择外置登录
 									<br />
-									<img src="./images/hmcl_02.webp" alt="" />
+									<img src="./images/raj2g/hmcl_02.webp" alt="" />
 								</li>
 								<li>添加犽之谷账户中心地址 https://login.yallage.com/api/yggdrasil
 									<br />
-									<img src="./images/hmcl_03.webp" alt="" />
+									<img src="./images/raj2g/hmcl_03.webp" alt="" />
 								</li>
 								<li>点击下一步后在对应框内填入账户中心注册的账户
 									<br />
-									<img src="./images/hmcl_04.webp" alt="" />
+									<img src="./images/raj2g/hmcl_04.webp" alt="" />
 								</li>
 								<li>点击确定后如下图所示为登录成功
 									<br />
-									<img src="./images/hmcl_05.webp" alt="" />
+									<img src="./images/raj2g/hmcl_05.webp" alt="" />
 								</li>
 							</ol>
 						</section>
+						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- PCL Reg -->
 						<section id="PCL">
 							<h3><a name="pcl"><font color="#ff0000">PCL</font></a>使用第三方认证服务器</h3>
@@ -122,27 +125,28 @@
 								<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />*PCL仅支持Windows系统</h4>
 								<li>打开PCL启动器，并点击版本设置
 									<br />
-									<img src="./images/pcl_01.webp" alt="" />
+									<img src="./images/raj2g/pcl_01.webp" alt="" />
 								</li>
 								<li>点击设置，在最下面找到登陆方式，选择<font color="#ff0000">"第三方登陆: Authlib-injector"</font>
 									<br />
-									<img src="./images/pcl_02.webp"
+									<img src="./images/raj2g/pcl_02.webp"
 										 alt="" />
 								</li>
 								<li>认证服务器填写: https://login.yallage.com/api/yggdrasil 注册链接填写: https://login.yallage.com/
 									<br />
-									<img src="./images/pcl_03.webp" alt="" />
+									<img src="./images/raj2g/pcl_03.webp" alt="" />
 								</li>
 								<li>如下图所示输入账号密码并登录
 									<br />
-									<img src="./images/pcl_04.webp" alt="" />
+									<img src="./images/raj2g/pcl_04.webp" alt="" />
 								</li>
 								<li>如下图所示即为登录成功
 									<br />
-									<img src="./images/pcl_05.webp" alt="" />
+									<img src="./images/raj2g/pcl_05.webp" alt="" />
 								</li>
 							</ol>
 						</section>
+						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- MCinaBox Reg -->
 						<section id="MCinaBox">
 							<h3><a name="mcinabox">安卓手机<font color="#ff0000">MCinaBox</font>使用第三方认证服务器</a></h3>
@@ -164,6 +168,7 @@
 								</iframe>
 							</ol>
 						</section>
+						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- I(PAD) OS Reg -->
 						<section id="I(PAD) OS">
 							<h3>iPheone 和 iPad 使用第三方认证服务器</h3>
@@ -172,11 +177,12 @@
 								<ol style="list-style-type:decimal">
 									<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />必须注意，由于一个 iOS 的系统漏洞，在退出 UTM 时必须使用主界面左上角的叉按钮或者虚拟机运行时工具栏上的关闭按钮，不可在 App 切换器里上滑 UTM 卡片来强制关闭。否则，UTM 可能无法启动或者导致死机，需要重启设备才能恢复正常</h4>
 									<li>在创建虚拟机前，您需要先下载好欲安装的系统镜像，并导入到您的设备上。点击UTM SE主界面右上角的加号按钮，可呼出创建虚拟机界面</li>
-									<img src="./images/ios_01.webp" alt="" />
+									<img src="./images/raj2g/ios_01.webp" alt="" />
 									<li>新建好虚拟机之后请按物理机器的方法安装系统</li>
 									<li>安装完成之后视虚拟系统和个人喜好选择Minecraft启动器即可</li>
 								</ol>
 							</section>
+							<hr align="center" width="95%" color="#987cb9" size="1" />
 							<section id="pojavLauncher">
 								<h3><a name="pojavLauncher">ios/ipad os使用PojavLauncher登录正版账号</a></h3>
 								<ol style="list-style-type:decimal">

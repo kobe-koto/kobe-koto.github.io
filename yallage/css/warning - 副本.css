@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* Made with heart by evenstar3905 in AGPL-3.0 License License */
+/* copyright 2021 evenstar3905 */
+.warning {
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 6px;
+	padding: 12px;
+	border-color: rgba(255,145,145,255);
+	background-color: rgba(253,225,225,120);
+	font-weight: bold;
+	width: fit-content;
+}
+.warning img {
+	display: unset;
+}

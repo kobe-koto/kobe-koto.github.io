@@ -1,7 +1,6 @@
 @charset "utf-8";
 /* Made with heart by evenstar3905 in AGPL-3.0 License License */
 /* copyright 2021 evenstar3905 */
-/* div is best */
 body {
 	background-color: #222223;
 	margin: 3em 1em;
@@ -54,10 +53,6 @@ img {
 	margin-bottom: 0.3em;
 	align-content: center;
 }
-.main1 h1 {
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-}
 a.disabled {
 	pointer-events: none;
 	cursor: default;
@@ -73,16 +68,18 @@ a.disabled {
 }
 button{
 	border: none;
-	background: #000000;
-	padding: cover;
-	margin-top: cover;
-	border-radius:4px;
-	transition-duration: 0.6s;
+	background: #202124;
+	padding: 4px 8px;
+	margin: 0;
+	border-radius:3px;
+	transition: all 0.35s cubic-bezier(0.74, 0.51, 1, 1.24);
 }
 button:hover{
-	box-shadow: 0 12px 16px 0 rgba(169,169,169,0.19),0 17px 50px 0 rgba(169,169,169,0.19);
+	box-shadow: 0 12px 16px 0 rgba(169,169,169,0.45),0 17px 50px 0 rgba(169,169,169,0.45);
+	cursor: pointer;
 }
 .main {
+	color: #2f4f4f;
 	width: 80%;
 	max-height: auto;
 	margin: 5em auto;
@@ -90,18 +87,6 @@ button:hover{
 	background-color: #03d0bf;
 	border-radius: 0.5em;
 	box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.02);
-}
-@media (max-width: 700px) {
-	div.main {
-		margin: 0 auto;
-		width: auto;
-	}
-}
-@media (max-width: 700px) {
-	div.main1 {
-		margin: 0 auto;
-		width: auto;
-	}
 }
 h1 {
 	line-height: 130%;
