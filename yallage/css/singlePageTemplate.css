@@ -136,7 +136,8 @@ ul li:hover a {
 .gallery img {
     max-width: 100%;
     max-height: 100%;
-    margin: 6px 0;
+    margin-top: 6px;
+	margin-bottom: 6px;
 }
 .thumbnail {
 	width: 25%;

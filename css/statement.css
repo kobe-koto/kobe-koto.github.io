@@ -8,13 +8,13 @@
 	z-index: 999;
 	left: 1.5%;
 	bottom: 3%;
-	background-color: #202124;
+	background-color: rgba(32,33,36,0.85);
 	border-radius: 4px;
-	padding: 1%;
 	color: #FFFFFF;
 	display: block;
 	font-size: small;
 	padding: 1.3em;
+	backdrop-filter: blur(2.1px);
 }
 .statement p,h1,h2,h3,h4,h5,h6 {
 	margin-top: 0.5em;

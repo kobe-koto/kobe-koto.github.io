@@ -29,7 +29,7 @@ a:link:hover {
 	text-decoration: none;
 	cursor: pointer;
 	background-color: rgba(0,0,0,0);
-	border: unset;
+	border: none;
 	font-size: medium;
 	font-weight: bold;
 	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
