@@ -6,7 +6,8 @@
 		<link href="./css/singlePageTemplate.css" rel="stylesheet" type="text/css">
 		<link href="./css/hyperlinks.css" rel="stylesheet" type="text/css">
 		<link href="./css/statement.css" rel="stylesheet" type="text/css">
-		<script src="./js/hideandshow.js"></script>
+		<script src="./js/hideandshow.js" language="javascript"></script>
+		<script src="./js/rwcookie.js" language="javascript"></script>
 		<title>Homepage | Yallage</title>
 		<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -125,8 +126,14 @@
 			<p>本网站并非Yallage官方网站</p>
 			<p>继续使用即代表您已知晓该网站内容不受Yallage的技术支持、且开源代码的使用受AGPL-3.0 License之约束，并愿意自行承担一切后果。</p>
 			<p style="margin-bottom: 1.6em;">&copy;2021 - <strong>kobe-koto</strong></p>
-			<p align="right" style="margin-top: 0;"><a class="abuttonlikelink" onClick="hide('statement')">关闭此窗口 &amp; 我已知悉</a></p>
+			<p align="right" style="margin-top: 0;"><a class="abuttonlikelink" onClick="hide('statement');setCookie('IsRead','ture');">关闭此窗口 &amp; 我已知悉</a></p>
 		</div>
+		<script>
+			var isreaded = getCookie("IsRead");
+			if (isreaded = "ture") {
+				hide("statement");
+			};
+		</script>
 		<!-- Main Container Ends -->
 	</body>
 </html>

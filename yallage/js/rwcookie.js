@@ -1,18 +1,26 @@
 // Encoding: UTF-8
 
-function writecookie(name,value) {
-	document.cookie = name=value;
-}
-function readcookie(name) {
-	if (document.cookie.length > 0) {
-		c_start = document.cookie.indexOf(name + "=")
-			if (c_start != -1) {
-				c_start = c_start + name.length + 1
-				c_end = document.cookie.indexOf(";", c_start)
-			if (c_end == -1) c_end = document.cookie.length
-			//document.write(document.cookie.substring(c_start,c_end)+"<br>");
-			var cookies= unescape(document.cookie.substring(c_start, c_end))  // 取出值 
-			alert(sss)
-		}
+// cookie中存值
+function setCookie(name,value) {
+	if (value) {
+		var days = 1; //定义一天
+		var exp = new Date();
+		exp.setTime(exp.getTime() + days * 24 * 60 * 60 * 1000);
+		// 写入Cookie, toGMTString将时间转换成字符串
+		document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString;
 	}
-}
+	console.log ("setcookie");
+};
+
+// cookie中取值
+function getCookie(name) {
+	var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)"); //匹配字段
+	if (arr = document.cookie.match(reg)) {
+		return unescape(arr[2]);
+	} else {
+		return null;
+	}
+	console.log ("getcookie");
+};
+
+
