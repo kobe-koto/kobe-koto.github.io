@@ -9,7 +9,7 @@ function setCookie(name,value) {
 		// 写入Cookie, toGMTString将时间转换成字符串
 		document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString;
 	}
-	console.log ("setcookie");
+	console.log ("Cookie-set " + name + " = " + value);
 };
 
 // cookie中取值
@@ -20,7 +20,7 @@ function getCookie(name) {
 	} else {
 		return null;
 	}
-	console.log ("getcookie");
+	console.log ("Cookie-get " + name);
 };
 
 
