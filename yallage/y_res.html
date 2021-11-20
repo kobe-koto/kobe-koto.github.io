@@ -114,6 +114,10 @@
 			var isreaded = getCookie("IsRead");
 			if (isreaded == "ture") {
 				hide("statement");
+			} else {
+				if (isreaded == "false") {} else {
+					setCookie("IsRead","false");
+				};
 			};
 		</script>
 		<!-- Main Container Ends -->
