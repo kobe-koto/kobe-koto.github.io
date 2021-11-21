@@ -24,13 +24,14 @@ function getCookie(name) {
 };
 
 // 清除指定cookie值
-function delCookie (name) {
+function delCookie(name) {
 	var exp = new Date();
 	exp.setTime(exp.getTime() - 1);
 	var cval = setCookie(name);
 	if (cval && cval != null) {
 		document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString()
 	}
+	console.log ("Cookie-del " + name);
 };
 
 // 清除全部cookie值
@@ -43,10 +44,11 @@ function clearCookie() {
 			document.cookie = keys[i] +'=0;expires=' + new Date( 0).toUTCString() + ";path=/video_learning" + ";domain=localhost";
 		}
 	}
+	console.log ("Cookie-clear ALL");
 };
 
 // cookie中存值(存放多长时间)
-function setCookie(name, value, expiredays) {
+function setTimeCookie(name,value,expiredays) {
 	if (value) {
 		var days = 1; //定义一天
 		var exp = new Date();
@@ -54,6 +56,7 @@ function setCookie(name, value, expiredays) {
 		// 写入Cookie, toGMTString将时间转换成字符串
 		document.cookie = name + "=" + escape(value) + ((expiredays==null) ? "" : ";expires=" + exp.toGMTString()) + ";path=/" + ";domain=localhost";
 	}
+	console.log ("Cookie-set " + name + value + "expiretimes "+ expiredays);
 };
 
 // cookie中获取域名
@@ -71,4 +74,5 @@ function GetCookieDomain() {
 		}
 	}
 	return '.' + host;
+	console.log ("Cookie-getDomain " + name + '.' + host);
 }
