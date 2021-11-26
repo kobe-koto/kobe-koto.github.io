@@ -20,23 +20,11 @@
 .shakecolor_button p a:hover {
 	animation:shakecolor_button-a 1s linear infinite;
 }
-.shakecolor_button a:hover {
-	animation:shakecolor_button-a 1s linear infinite;
-}
-.shakecolor_button p:hover {
-	animation:shakecolor_button-a 1s linear infinite;
-}
-.shakecolor_button p {
-	color:#ffffff;
-	padding: 0;
-	margin: unset;
-}
 .shakecolor_button p a {
 	color:#ffffff;
 	text-decoration:none;
 	padding: 8px 15px;
 	margin: unset;
-	display: block;
 }
 @keyframes shakecolor_button-m {
 	10% {

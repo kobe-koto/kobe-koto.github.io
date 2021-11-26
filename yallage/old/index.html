@@ -78,6 +78,16 @@
 			<p style="margin-bottom: 1.6em;">&copy;2021 - <strong>kobe-koto</strong></p>
 			<p align="right" style="margin-top: 0;"><a class="abuttonlikelink" onClick="hide('statement')">关闭此窗口 &amp; 我已知悉</a></p>
 		</div>
+		<script>
+			var isreaded = getCookie("IsRead");
+			if (isreaded == "ture") {
+				hide("statement");
+			} else {
+				if (isreaded == "false") {} else {
+					setCookie("IsRead","false");
+				};
+			};
+		</script>
 	</body>
 </html>
 

@@ -3,15 +3,13 @@
 /* copyright 2021 evenstar3905 */
 .glass_main {
 	max-width: 75%;
-	max-height: auto;
+	height: auto;
 	margin: 4em auto;
 	padding: 2em;
-	justify-content: center;
 	color: white;
-	align-items: center;
 	border-radius: 8px;
 	backdrop-filter: blur(9px);
 	-webkit-backdrop-filter: blur(9px);
 	box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
-	background-color: rgba(0,191,255, 0);
+	background-color: rgba(0,0,0,0.30);
 }

@@ -35,7 +35,7 @@ function delCookie(name) {
 };
 
 // 清除全部cookie值
-// 注意：清除cookie的时候，需要同时删除path和domain，否则会出现cookie没有被清除的情况出现。
+// 注意：清除cookie的时候清除的情况，需要同时删除path和domain，否则会出现cookie没有被出现。
 function clearCookie() {
 	var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
 	if (keys) {
@@ -73,6 +73,6 @@ function GetCookieDomain() {
 			host = strAry[strAry.length - 2] + "." + strAry[strAry.length - 1];
 		}
 	}
+	console.log ("Cookie-getDomain " + '.' + host);
 	return '.' + host;
-	console.log ("Cookie-getDomain " + name + '.' + host);
 }
