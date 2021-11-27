@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	
+			<div id="darkandlight" class="dpmodeswich" style="display: none;" onclick="dpmodeswich();">
+			<img id="dpmodeswichimg" alt="" src="./images/moon.svg" />
+		</div>
+		<script language="javascript">
+			function dpmodeswich(){
+				var dpmode = document.getElementById("dpmodeswichimg").src;
+				
+				if (dpmode == "./images/moon.svg" />') {
+					document.getElementById("dpmodeswichimg").src = "./images/sun.svg";
+				} else if (dpmode == "./images/sun.svg" />') {
+					document.getElementById("dpmodeswichimg").src = "./images/moon.svg";
+				} else {};
+				
+				console.log ("sucess shell");
+				
+				// document.getElementById('darkandlight').innerHTML='LIGHT';
+				// if dpmode=dark=setlight dpmode=light=setdark
+			}
+		</script>
+</body>
+</html>
