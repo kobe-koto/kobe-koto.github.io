@@ -139,18 +139,47 @@
 			};
 		</script>
 		<!-- Main Container Ends -->
-		<div id="warniii" style="position: fixed;width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0,255,255,0.60);backdrop-filter: blur(25px);">
-			<div style="position: fixed;top: 50%;left: 50%;right: 50%;transform: translateX(-50%) translateY(-50%);width: 60%;margin: auto;">
-				<div class="warning" style="background-color: rgba(0,0,0,0);border: none;">
-					<h3 align="center"><img class="svg" style="width: 27px;height: 27px;margin-bottom: -7px;" alt="" src="./images/warning.svg" />请注意: </h3>
-					<h3>Yallage的外置验证地址是 https://login.yallage.com/api/yggdrasi/</h3>
-					<h3>Yallage的外置验证注册地址是 https://login.yallage.com/</h3>
-					<h3>您需要验证邮箱才能正常游玩游戏.当您按照正规流程注册犽之谷账户中心之后,您会收到noreply@yallage.com发来的名为<a title="不同语言可能有所不同">"在 犽之谷账户中心 上驗證您的電子郵件地址"</a>的邮件,届时请点击邮件附带的链接进行验证。</h3>
-					<h3>目前,Yallage的外置登录现出现故障(证书问题),只能使用正版登录.</h3>
-				</div>
-				<button class="shakecolor_button" style="margin: 50px auto;display: block;background-color: rgba(255,250,240,0.35);" onClick="hide('warniii');"><p><a><font color="#000000">ENTER</font></a></p></button>
+		<div id="warnscreen" class="warnscreen">
+			<div style="position: absolute;top: 50%;left: 50%;right: 50%;transform: translateX(-50%) translateY(-50%);width: fit-content;max-width: 100%;margin: auto;padding: 1%;transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);">
+				<h2><svg id="warnscreenimg1" style="width: 27px;height: 27px;margin-bottom: -7px;" width="16" height="16" stroke="currentColor" viewBox="0 0 24 24" fill="rgba(0,0,0,0)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>请注意<svg id="warnscreenimg2" style="width: 27px;height: 27px;margin-bottom: -7px;" width="16" height="16" stroke="currentColor" viewBox="0 0 24 24" fill="rgba(0,0,0,0)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></h2>
+				<h3>本网站并非Yallage官方网站</h3>
+				<h3>继续使用即代表您已知晓该网站内容不受Yallage的技术支持,且开源代码的使用受AGPL-3.0 License之约束,并愿意自行承担一切后果.</h3>
+				<br />
+				<h3>(推荐)server.vcraft.top</h3>
+				<h3 title="合作服务器">(或许支持离线&amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
+				<br />
+				<h3>Yallage的外置验证地址是 https://login.yallage.com/api/yggdrasi/</h3>
+				<h3>Yallage的外置验证注册地址是 https://login.yallage.com/</h3>
+				<h3>当您按照注册完成 犽之谷账户中心 之后,您会收到noreply@yallage.com发来的名为<a title="不同语言可能有所不同">"在 犽之谷账户中心 上驗證您的電子郵件地址"</a>的邮件,届时请点击邮件附带的链接进行验证.否则无法正常使用您的账号.</h3>
+				<h3>目前,Yallage的外置登录现出现故障(证书问题),只能使用正版登录.</h3>
+				<button id="warnscreen_button" class="shakecolor_button" style="margin: 50px auto;display: block;background-color: rgba(255,250,240,0.25);" onClick="hwscreen();"><p><a id="warnscreen_button_word" style="color: #000000;">ENTER</a></p></button>
 			</div>
 		</div>
-		
+		<script>
+			var isreaded = getCookie("IsRead");
+			if (isreaded == "ture") {
+				hide("warnscreen");
+			} else if (isreaded == "false") {} else {
+				setCookie("IsRead","false");
+			};
+			function hwscreen() {
+				function sleep(time) {
+					return new Promise((resolve) => setTimeout(resolve, time));
+				};
+				document.getElementById("warnscreenimg1").fill = "rgba(0,0,0,0)";
+				document.getElementById("warnscreenimg2").fill = "rgba(0,0,0,0)";
+				document.getElementById("warnscreen").style.color ="rgba(0,0,0,0)";
+				document.getElementById("warnscreen_button").style.backgroundColor ="rgba(0,0,0,0)";
+				document.getElementById("warnscreen_button").style.border ="rgba(0,0,0,0)";
+				document.getElementById("warnscreen_button_word").style.color ="rgba(0,0,0,0)";
+				sleep(400).then(() => {
+					document.getElementById("warnscreen").style.backgroundColor ="rgba(0,0,0,0)";
+					document.getElementById("warnscreen").style.backdropFilter ="none";
+					sleep(200).then(() => {
+						document.getElementById("warnscreen").style.display ="none";
+					});
+				});
+			}
+		</script>
 	</body>
 </html>
