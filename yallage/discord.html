@@ -246,17 +246,35 @@
 				<h3>(主服务器)server.vcraft.top</h3>
 				<h3 title="合作服务器">(离线&amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
 				<br />
-				<!-- <h3>Yallage的外置验证地址是 https://login.yallage.com/api/yggdrasi/</h3> -->
-				<!-- <h3>Yallage的外置验证注册地址是 https://login.yallage.com/</h3> -->
-				<!-- <h3>当您按照注册完成 犽之谷账户中心 之后,您会收到noreply@yallage.com发来的名为<a title="不同语言可能有所不同">"在 犽之谷账户中心 上驗證您的電子郵件地址"</a>的邮件,届时请点击邮件附带的链接进行验证.否则无法正常使用您的账号.</h3> -->
 				<h3>目前,Yallage的外置登录现出现故障(证书问题),只能使用正版登录.</h3>
+				<table align="center" style="font-weight: bold;border-width: 1px;border-style: solid;border-radius: 6px;border-color: rgba(255,145,145,0.65);background-color: rgba(253,225,225,0.50);">
+					<tr><td>欢迎来到讶之谷</td><td>新人请看群公告</td></tr>
+					<tr><td>外置维修正版登</td><td>问题都在公告里</td></tr>
+					<tr><td>进来别问ip多少</td><td>还有问题找客服</td></tr>
+					<tr><td>别问外置行了没</td><td>好了必会发公告</td></tr>
+					<tr><td><a href="javascript:xueyuswordImg('show');" id="xw" style="color: #005a78;">劇透内容</a></td><td align="right"><a style="font-size: larger;">初雪语</a> 留</td></tr>
+				</table>
+				<img src="./images/20211204131946.jpg" alt="" id="xueyusword-img" style="height: 0vh;margin-top: 0px;" />
+				<script>
+					function xueyuswordImg(mode) {
+						if (mode == "show") {
+							document.getElementById("xueyusword-img").style.height = "30vh";
+							document.getElementById("xueyusword-img").style.marginTop = "6px";
+							document.getElementById("xw").href = "javascript:xueyuswordImg('hide');";
+						} else if (mode == "hide") {
+							document.getElementById("xueyusword-img").style.height = "0vh";
+							document.getElementById("xueyusword-img").style.marginTop = "0px";
+							document.getElementById("xw").href = "javascript:xueyuswordImg('show');";
+						};
+					}
+					
+				</script>
 				<button id="warnscreen_button" class="shakecolor_button" style="margin: 50px auto;display: block;background-color: rgba(255,250,240,0.25);" onClick="setCookie('IsReadWarn','ture');hwscreen();"><p style="color: #232323;"><a id="warnscreen_button_word">ENTER</a></p></button>
 			</div>
 		</div>
 		
 		<div id="darkandlight" class="dpmodeswich" onclick="dpmodeswich();">
 			<img class="dpmodeswichimg" id="dpmodeswichimg" alt="" src="./images/moon.svg" />
-			<!-- <div id="dpmodeswichimg" class="dpmodeswichimg" style="background-image: url('./images/moon.svg');"></div> -->
 		</div>
 
 		<noscript>
@@ -271,58 +289,6 @@
 				</div>
 			</div>
 		</noscript>
-
-		<script>
-			var isreaded = getCookie("IsReadWarn");
-			if (isreaded == "ture") {
-				hide("warnscreen_bg");
-			} else if (isreaded == "false") {} else {
-				setCookie("IsReadWarn","false");
-			};
-			function sleep(time) {
-				return new Promise((resolve) => setTimeout(resolve, time));
-			};
-			function hwscreen() {
-				document.getElementById("warnscreenimg1").fill = "rgba(0,0,0,0)";
-				document.getElementById("warnscreenimg2").fill = "rgba(0,0,0,0)";
-				document.getElementById("warnscreen_button").style.backgroundColor ="rgba(0,0,0,0)";
-				document.getElementById("warnscreen_button").style.border ="rgba(0,0,0,0)";
-				document.getElementById("warnscreen_button_word").style.color ="rgba(0,0,0,0)";
-				document.getElementById("warnscreen_bg").style.color ="rgba(0,0,0,0)";
-				sleep(350).then(() => {
-					document.getElementById("warnscreen_bg").style.backgroundColor ="rgba(0,0,0,0)";
-					document.getElementById("warnscreen_bg").style.backdropFilter ="none";
-					document.getElementById("warnscreen_button").style.display ="none";
-					document.getElementById("warnscreen_words").style.display ="none";
-					sleep(350).then(() => {
-						document.getElementById("warnscreen_bg").style.display ="none";
-					});
-				});
-			}
-			var dpmode = document.getElementById("centercss").attributes.href.value;
-			if (dpmode == "./css/full_night.css") { 
-				// to light
-				document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
-			} else if (dpmode == "./css/full_light.css") {
-				// to night
-				document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
-			};
-			function dpmodeswich(){
-				var dpmode = document.getElementById("centercss").attributes.href.value;
-				if (dpmode == "./css/full_night.css") { 
-					// to light
-					document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
-					document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
-					console.log ("sun: to light");
-				} else if (dpmode == "./css/full_light.css") {
-					// to night
-					document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
-					document.getElementById("centercss").attributes.href.value = "./css/full_night.css";
-					console.log ("moon: to night");
-				} else {
-					console.log ("what?");
-				};
-			}
-		</script>
+		
 	</body>
 </html>
