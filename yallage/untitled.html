@@ -1,30 +1,102 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>无标题文档</title>
 
-<body>
-	
-			<div id="darkandlight" class="dpmodeswich" style="display: none;" onclick="dpmodeswich();">
-			<img id="dpmodeswichimg" alt="" src="./images/moon.svg" />
+	</head>
+	<body>
+		<div id="darkandlight" class="dpmodeswich" onclick="dpmodeswich();">
+			<img class="dpmodeswichimg" id="dpmodeswichimg" alt="" src="./images/moon.svg" />
+			<!-- <div id="dpmodeswichimg" class="dpmodeswichimg" style="background-image: url('./images/moon.svg');"></div> -->
 		</div>
+		
+		<style>
+			body {
+				transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);
+			}
+			.dpmodeswich {
+				position: fixed;
+				right: 1.5%;
+				bottom: 3%;
+				border-radius: 50vh;
+				background-color: rgba(41,41,41,0.60);
+				width: 50px;
+				height: 50px;
+				transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
+			}
+			.dpmodeswich:hover {
+				cursor: pointer;
+				box-shadow: 0 12px 16px 0 rgba(169,169,169,0.45),0 17px 50px 0 rgba(169,169,169,0.45);
+			}
+			.dpmodeswichimg {
+				width: 32px;
+				height: 32px;
+				background-repeat: no-repeat;
+				background-position: center;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+			}
+		</style>
+		
 		<script language="javascript">
 			function dpmodeswich(){
-				var dpmode = document.getElementById("dpmodeswichimg").src;
+				var dpmode = document.getElementById("dpmodeswichimg").attributes[3].value; // for img
+
 				
-				if (dpmode == "./images/moon.svg" />') {
-					document.getElementById("dpmodeswichimg").src = "./images/sun.svg";
-				} else if (dpmode == "./images/sun.svg" />') {
-					document.getElementById("dpmodeswichimg").src = "./images/moon.svg";
-				} else {};
-				
-				console.log ("sucess shell");
+				if (dpmode == "./images/moon.svg") { 
+					// to light
+					document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
+					document.body.style.backgroundColor = "#ffffff";
+					console.log ("sun: to light");
+				} else if (dpmode == "./images/sun.svg") {
+					// to night
+					document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
+					document.body.style.backgroundColor = "#232323";
+					console.log ("moon: to night");
+				} else {
+					console.log ("what?");
+				};
+
+
+
+				/* var dpmode = document.getElementById("dpmodeswichimg").attributes.style.value; // for div-bg
+
+				if (dpmode == "background-image: url('./images/moon.svg')") { 
+					// to light
+					document.getElementById("dpmodeswichimg").attributes.style.value = "background-image: url('./images/sun.svg')";
+					console.log ("sun: to light");
+				} else if (dpmode == "background-image: url('./images/sun.svg')") {
+					// to night
+					document.getElementById("dpmodeswichimg").attributes.style.value = "background-image: url('./images/moon.svg')";
+					console.log ("moon: to night");
+				} else {
+					console.log ("what?");
+				}; */
+				// "background-image: url('./images/moon.svg');"
+
 				
 				// document.getElementById('darkandlight').innerHTML='LIGHT';
 				// if dpmode=dark=setlight dpmode=light=setdark
+										/* var dpmode = document.getElementById("dpmodeswichimg").attributes.style.value; // for div-bg
+						if (dpmode == "background-image: url('./images/moon.svg')") { 
+							// to light
+							document.getElementById("dpmodeswichimg").attributes.style.value = "background-image: url('./images/sun.svg')";
+							console.log ("sun: to light");
+						} else if (dpmode == "background-image: url('./images/sun.svg')") {
+							// to night
+							document.getElementById("dpmodeswichimg").attributes.style.value = "background-image: url('./images/moon.svg')";
+							console.log ("moon: to night");
+						} else {
+							console.log ("what?");
+						}; */
+						// "background-image: url('./images/moon.svg');"
+						// document.getElementById('darkandlight').innerHTML='LIGHT';
+						// if dpmode=dark=setlight dpmode=light=setdark
 			}
 		</script>
-</body>
+		
+	</body>
 </html>

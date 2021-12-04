@@ -1,13 +1,12 @@
 @charset "utf-8";
 /* Made with heart by evenstar3905 in AGPL-3.0 License License */
 /* copyright 2021 evenstar3905 */
-/* for example: <button class="shakecolor_button"><p><a>your word</a></p></div> */
 .shakecolor_button {
 	border:1px solid #eee;
 	animation:shakecolor_button-m 20s linear infinite;
 	animation-direction:alternate;
 	border-radius:3px;
-	hwidth: auto;
+	/* hwidth: auto; */
 	height: auto;
 	cursor: pointer;
 	background-color: rgba(0,0,0,0);
@@ -17,13 +16,16 @@
 .shakecolor_button:hover {
 	animation:shakecolor_button-x 0.3s linear infinite;
 }
-.shakecolor_button p a:hover {
+.shakecolor_button p:hover {
 	animation:shakecolor_button-a 1s linear infinite;
 }
-.shakecolor_button p a {
-	color:#ffffff;
-	text-decoration:none;
+.shakecolor_button p {
+	margin: 0;
 	padding: 8px 15px;
+	color:#ffffff;
+}
+.shakecolor_button p a {
+	text-decoration:none;
 	margin: unset;
 }
 @keyframes shakecolor_button-m {
@@ -57,7 +59,8 @@
 	100% {
 		border-color:#ffa198;
 	}
-}@keyframes shakecolor_button-x {
+}
+@keyframes shakecolor_button-x {
 	 10% {
 		 transform:translate(-0.5px,1.5px) rotate(0.5deg);
 		 border-color:#ffbebe;
@@ -98,35 +101,36 @@
 		 transform:translate(-0.5px,-0.5px) rotate(-1.5deg);
 		 border-color:#bed8ff;
 	 }
- }@keyframes shakecolor_button-a {
-		10% {
-			color:#ff9292;
-		}
-		20% {
-			color:#f09eff;
-		}
-		30% {
-			color:#9397ff;
-		}
-		40% {
-			color:#9fb8ff;
-		}
-		50% {
-			color:#9fd7ff;
-		}
-		60% {
-			color:#9fffd2;
-		}
-		70% {
-			color:#dfff9f;
-		}
-		80% {
-			color:#ffd49f;
-		}
-		90% {
-			color:#ffc29f;
-		}
-		100% {
-			color:#ffa198;
-		}
+}
+@keyframes shakecolor_button-a {
+	10% {
+		color:#ff9292;
 	}
+	20% {
+		color:#f09eff;
+	}
+	30% {
+		color:#9397ff;
+	}
+	40% {
+		color:#9fb8ff;
+	}
+	50% {
+		color:#9fd7ff;
+	}
+	60% {
+		color:#9fffd2;
+	}
+	70% {
+		color:#dfff9f;
+	}
+	80% {
+		color:#ffd49f;
+	}
+	90% {
+		color:#ffc29f;
+	}
+	100% {
+		color:#ffa198;
+	}
+}

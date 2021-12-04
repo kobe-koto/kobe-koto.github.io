@@ -34,16 +34,3 @@ a:link:hover {
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 }
-.navlink {
-	color: #FFFFFF;
-	text-decoration: none;
-	cursor: pointer;
-	background-color: rgba(0,0,0,0);
-	border: none;
-	font-size: medium;
-	font-weight: bold;
-	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
-}
-.navlink:hover {
-	color: #2C9AB7;
-}
