@@ -1,8 +1,10 @@
 User-agent: *
 Disallow: /images/
+Disallow: /js/
+Disallow: /somefiles/
+Disallow: \_old-repo&doc-backup/
 Disallow: /css/
 Disallow: /media/
-Disallow: /JCoffee/files/
 Disallow: /yallage/css/
 Disallow: /yallage/images/
 Disallow: /yallage/old/css/

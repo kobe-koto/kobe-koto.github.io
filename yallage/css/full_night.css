@@ -1,4 +1,6 @@
-@charset "UTF-8";
+@charset "utf-8";
+/* Made with heart by kobe-koto in AGPL-3.0 License License */
+/* copyright 2021 kobe-koto */
 * {
 	transition: all 0.2s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
@@ -203,7 +205,7 @@ ul li:hover a {
 /* Parallax Section */
 .banner {
 	background-color: #2D9AB7;
-	background-image: url("../images/parallax.webp");
+	background-image: url("../images/parallax.png");
 	background-position: right;
 	display: flow-root;
 	padding: 50px 0;

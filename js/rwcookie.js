@@ -1,4 +1,6 @@
 // Encoding: UTF-8
+// Made with heart by kobe-koto in AGPL-3.0 License License
+// copyright 2021 kobe-koto
 
 // cookie中存值
 function setCookie(name,value) {

@@ -1,11 +1,11 @@
 @charset "utf-8";
-/* Made with heart by evenstar3905 in AGPL-3.0 License License */
-/* copyright 2021 evenstar3905 */
+/* Made with heart by kobe-koto in AGPL-3.0 License License */
+/* copyright 2021 kobe-koto */
 ::-webkit-scrollbar-thumb {
 	border-radius: 10px;
-    /* background: linear-gradient(to bottom, #f284ff 1%,#31cae6 100%); */
+	background: linear-gradient(to bottom, #f284ff 16%,#31cae6 57%,#20a53a 150%);
+	/* background: linear-gradient(to bottom, #f284ff 1%,#31cae6 100%); */
 	/* background: linear-gradient(to bottom, #f284ff 16%,#31cae6 57%,#20a53a 73%); */
-    background: linear-gradient(to bottom, #f284ff 16%,#31cae6 57%,#20a53a 150%)
 }
 ::-webkit-scrollbar {
 	width: 10px;

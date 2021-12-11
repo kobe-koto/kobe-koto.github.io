@@ -1,6 +1,7 @@
 ﻿// Encoding: UTF-8
 // Made with heart by kobe-koto in AGPL-3.0 License License
-// Copyright 2021 kobe-koto
+// copyright 2021 kobe-koto
+
 function show(ElementID) {
 	document.getElementById(ElementID).style.display = "unset";
 	console.log("Show Element ID = " + ElementID)
