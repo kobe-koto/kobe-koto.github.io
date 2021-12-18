@@ -6,5 +6,23 @@
 }
 .container_half {
 	flex: 1;
-	min-width: 50%;
+	width: 50%;
+}
+.container_1-3 {
+	flex: 1;
+	width: 33.333333%;
+}
+/* for old ↑ */
+
+/* new */
+.column_root {
+	display: flex;
+}
+.column_half {
+	flex: 1;
+	width: 50%;
+}
+.column_1-3 {
+	flex: 1;
+	width: 33.333333%;
 }

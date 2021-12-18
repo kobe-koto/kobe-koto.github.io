@@ -11,72 +11,106 @@
 		<link href="./css/button_shake_rgb.css" type="text/css" rel="stylesheet">
 		<link href="./css/scroolbar_rgb.css" type="text/css" rel="stylesheet">
 		<title>Index | kobe koto</title>
+		<style>
+			/* 記得用“animation-play-state: paused;”而不是“animation：none”！！ */
+			body {
+				background-image: url(./images/backgrounds/Minecraft01.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: fixed;
+				background-position: center;
+			}
+			img {
+				border-radius: 4px;
+			}
+			.icon {
+				max-height: 90%;
+				max-width: 45%;
+				border-radius: 50%;
+				margin: auto;
+				overflow: hidden;
+				display: block;
+			}
+			#blured {
+				filter: blur(60px);
+			}
+		</style>
 	</head>
 	<body>
-		<!-- info -->
+		
 		<div class="glass_main">
-			<div class="container">
+			<div class="column_root">
 				<!-- Left content -->
-				<div class="container_half" style="width: 40%;">
+				<div class="column_half" style="width: 40%;">
 					<br />
-					<img src="./images/icon.webp"
-						 style="max-height: 90%;
-								max-width: 45%;
-								border-radius: 50%;
-								margin: auto;
-								display: block;
-								overflow: hidden;"
-						 alt=""/>
+					<img src="./images/icon.png" class="icon" id="blured" alt="" title="這裏應該有個圖片才對🤔(看到這個括弧記得提醒我)"/>
 					<br />
 					<h2 align="center">kobekoto</h2>
 					<h4 align="center"><a>rks11.88|全网最拉</a></h4>
 				</div>
 				<!-- Right content -->
-				<div class="container_half" style="width: 60%;">
+				<div class="column_half" style="width: 60%;">
 					<h4>这里是kobe koto.</h4>
-					<img src="./images/图标组75.webp" alt="" style="margin-top: -35%;">
+					<img src="./images/Tencent-in-Rec.png" alt="" title="騰訊有難，八方點贊。（"><h4>騰訊有難，八方點贊。（</h4>
+
+
 					<!-- <p>13岁，是学生。住在下北泽的别墅区一带，<font title="我也不知道为什么（笑）">被酸梅喜欢了。</font>我不抽烟，酒仅止于浅尝。早上1:30点睡，每天要睡足9个小时。睡前，我一定喝一杯温牛奶，然后做20分钟的柔软操，上了床，翻来覆去。医生都说我很正常。</p> -->
 					<p><img src="./images/location.svg" alt="" style="height: auto;width: auto;margin-right: 5px;margin-bottom: -2px;">幻想乡</p>
 					<p><a href="https://space.bilibili.com/275678621">Bilibili: @神户_筝</a></p>
 					<p><a href="https://music.163.com/#/user/home?id=1352374026">CloudMusic: @kobe-koto</a></p>
 					<p><a href="https://twitter.com/evestar3905">Twitter: @evestar3905</a></p>
+					<p><a href="javascript:void(0);" title="new!">Facebook: @kobe koto(看到這個括弧記得叫我補連結)</a></p>
 				</div>
 			</div>
 		</div>
+
 		<div class="glass_main" style="text-align: center;">
 			<h3>somethings</h3>
 			
 			<hr align="center" width="87%" color="#987cb9" size="1" />
 			
-			<div class="container">
-				<div class="container_half" style="width: 33.333333%;min-width:33.333333%;">
+			<div class="column_root">
+				<div class="column_1-3">
 					<p><a href="./yallage/index.html">Yallage主页</a></p>
 					<p><a href="./yallage/old/index.html">(以前的)Yallge主页</a></p>
 					<br />
 				</div>
-				<div class="container_half" style="width: 33.333333%;min-width:33.333333%;">
+				<div class="column_1-3">
 					<p><a href="./webpage/treatment_hypotension/404.html">低血压专治[01]</a></p>
 					<p><a href="./webpage/treatment_hypotension/new_server.html">低血压专治[02]</a></p>
 					<p><a href="./webpage/treatment_hypotension/warning_s.html">低血压专治[03]</a></p>
 				</div>
-				<div class="container_half" style="width: 33.333333%;min-width:33.333333%;">
+				<div class="column_1-3">
 					<p><a href="./webpage/jcoffee.html">☕ 与您</a></p>
 					<p><a href="./webpage/fcnews.html">五班快讯</a></p>
 				</div>
 			</div>
+
+			<hr align="center" width="80%" color="#987cb9" size="1" />
+
+			<div class="column_root">
+				<div class="column_half">
+					<p><a href="./webpage/index.html">更多Pages</a></p>
+				</div>
+				<div class="column_half">
+					<p><a href="./somefiles/index.html">更多Files</a></p>
+				</div>
+			</div>
 		</div>
+
 		<div class="glass_main">
 			<p align="center"><button class="button_cyber" onClick="window.open('https://www.bilibili.com/video/BV1GJ411x7h7/');">🎵Never Gonna Give You Up🎵</button></p>
 			<p align="center"><button class="shakecolor_button" onClick="window.open('https://www.bilibili.com/video/BV1GJ411x7h7/');" style="margin: auto;"><p><a> ❤️  姜  太  公  钓  鱼  ❤️</a></p></button></p>
 			
 			<hr align="center" width="87%" color="#987cb9" size="1" />
 			
-			<img title="一般VAN样传送门(笑)" src="./images/bh_1.webp" style="border-radius: 50%;margin: auto;display: block;overflow: hidden;" height="40%" width="40%" alt="" />
+			<img title="一般VAN样传送门(笑)" src="./images/bh_1.png" style="border-radius: 50%;margin: auto;display: block;overflow: hidden;" height="40%" width="40%" alt="" />
 		</div>
+
 		<div class="glass_main" style="text-align: center;">
 			<h5>对网站内容的建议，联系: <a href="mailto:kobe_koto@outlook.com">kobe_koto@outlook.com</a> 或 <a href="https://github.com/kobe-koto/kobe-koto.github.io/issues">在GitHub上提交开头为"&#91;Index&#93;"的Issues</a></h5>
-			<h5>Made with ❤️ by kobe koto in AGPL-3.0 License</h5>
-			<h5>Open Source Code in <a href="https://github.com/kobe-koto/kobe-koto.github.io">GitHub</a> (AGPL-3.0 License)</h5>
+			<h5>Made with ❤️ by kobe koto in <a href="./LICENSE.html">AGPL-3.0 License</a></h5>
+			<h5>Open Source Code in <a href="https://github.com/kobe-koto/kobe-koto.github.io">GitHub</a> (<a href="./LICENSE.html">AGPL-3.0 License</a>)</h5>
 			<h4>&copy;2021 - <strong>kobe-koto</strong></h4>
 		</div>
 	</body>

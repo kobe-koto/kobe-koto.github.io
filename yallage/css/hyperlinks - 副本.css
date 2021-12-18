@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* Made with heart by kobe-koto in AGPL-3.0 License License */
+/* copyright 2021 kobe-koto */
+a:visited {
+	color: #00bfff;
+    text-decoration: none;
+	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
+}
+a:link {
+	color: #00bfff;
+    text-decoration: none;
+	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
+}
+a:link:hover {
+	background-color: rgba(80,211,255,0.58);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #00bfff;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.abuttonlikelink {
+	color: #00bfff;
+    text-decoration: none;
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
+}
+.abuttonlikelink:hover {
+	color: #00bfff;
+	cursor: pointer;
+	background-color: rgba(80,211,255,0.58);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}

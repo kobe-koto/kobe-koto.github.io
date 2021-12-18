@@ -2,7 +2,7 @@
 /* Made with heart by kobe-koto in AGPL-3.0 License License */
 /* copyright 2021 kobe-koto */
 * {
-	transition: all 0.2s cubic-bezier(0.68,-0.55,0.27,1.55);
+	transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 .dpmodeswich {
 	position: fixed;
@@ -29,6 +29,9 @@
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
 	user-select: none;
+}
+#list a {
+	color: #000000;
 }
 .navlink {
 	color: #FFFFFF;
@@ -124,7 +127,7 @@ ul li:hover a {
 }
 /* Hero Section */
 .hero {
-	background: url("../images/herobg.webp") no-repeat;
+	background: url("../images/herobg.png") no-repeat;
 	background-size: cover; 
 	padding-top: 150px;
 	padding-bottom: 150px;
@@ -334,7 +337,7 @@ footer {
 /* Mobile */
 @media (max-width: 320px) {
 	.hero {
-		background: url("../images/herobg.webp") no-repeat;
+		background: url("../images/herobg.png") no-repeat;
 		background-size: cover; 
 		padding-top: 185px;
 		padding-bottom: 150px;
@@ -451,7 +454,7 @@ footer {
 /* Small Tablets */
 @media (min-width: 321px)and (max-width: 767px) {
 	.hero {
-		background: url("../images/herobg.webp") no-repeat;
+		background: url("../images/herobg.png") no-repeat;
 		background-size: cover; 
 		padding-top: 185px;
 		padding-bottom: 150px;
@@ -557,7 +560,7 @@ footer {
 /* Small Desktops */
 @media (min-width: 768px) and (max-width: 1096px) {
 	.hero {
-		background: url("../images/herobg.webp") no-repeat;
+		background: url("../images/herobg.png") no-repeat;
 		background-size: cover; 
 		padding-top: 185px;
 		padding-bottom: 150px;

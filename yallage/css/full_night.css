@@ -13,6 +13,7 @@
 	width: 50px;
 	height: 50px;
 	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
+	user-select: none;
 }
 .dpmodeswich:hover {
 	cursor: pointer;
@@ -27,6 +28,9 @@
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
+}
+#list a {
+	color: #ffffff;
 }
 .navlink {
 	color: #232323;
@@ -111,7 +115,7 @@ ul li:hover a {
 	text-decoration: none;
 }
 .hero_header {
-	color: #FFFFFF;
+	color: #dedede;
 	text-align: center;
 	margin-top: 0px;
 	margin-right: 0px;
@@ -122,7 +126,7 @@ ul li:hover a {
 }
 /* Hero Section */
 .hero {
-	background: url("../images/herobg.webp") no-repeat;
+	background: url("../images/herobg.png") no-repeat;
 	background-size: cover; 
 	padding-top: 150px;
 	padding-bottom: 150px;
@@ -284,8 +288,8 @@ footer .footer_column p {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 2px;
-	border: 3px solid #FFFFFF;
-	color: #FFFFFF;
+	border: 3px solid #a7a7a7;
+	color: #a7a7a7;
 	transition: all 0.3s linear;
 	background-color: rgba(0,0,0,0);
 }
@@ -318,7 +322,7 @@ footer .footer_column p {
 	border-top-width: 2px;
 }
 .footer_banner {
-	background-color: #cbcbcb;
+	background-color: #333333;
 	padding-top: 50px;
 	padding-bottom: 50px;
 	margin-bottom: 0px;
@@ -333,7 +337,7 @@ footer {
 /* Mobile */
 @media (max-width: 320px) {
 	.hero {
-		background: url("../images/herobg.webp") no-repeat;
+		background: url("../images/herobg.png") no-repeat;
 		background-size: cover; 
 		padding-top: 185px;
 		padding-bottom: 150px;
@@ -450,7 +454,7 @@ footer {
 /* Small Tablets */
 @media (min-width: 321px)and (max-width: 767px) {
 	.hero {
-		background: url("../images/herobg.webp") no-repeat;
+		background: url("../images/herobg.png") no-repeat;
 		background-size: cover; 
 		padding-top: 185px;
 		padding-bottom: 150px;
@@ -556,7 +560,7 @@ footer {
 /* Small Desktops */
 @media (min-width: 768px) and (max-width: 1096px) {
 	.hero {
-		background: url("../images/herobg.webp") no-repeat;
+		background: url("../images/herobg.png") no-repeat;
 		background-size: cover; 
 		padding-top: 185px;
 		padding-bottom: 150px;
