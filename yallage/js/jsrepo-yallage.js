@@ -70,4 +70,5 @@ window.onload=function(){
 		setCookie("display-mode","light");
 		// 如果沒有定義(或值異常)displayMode，則設定為默認light模式 + 重置cookie。
 	};
+};;
 };
