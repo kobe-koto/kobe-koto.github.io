@@ -3,16 +3,6 @@
 // copyright 2021 kobe-koto
 
 function hwscreen() {
-	document.getElementById("warnscreenimg1").fill = "rgba(0,0,0,0)";
-	document.getElementById("warnscreenimg2").fill = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_button").style.backgroundColor = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_button").style.border = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_button_word").style.color = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_bg").style.color = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_bg").style.backgroundColor = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_bg").style.backdropFilter = "none";
-	document.getElementById("warnscreen_button").style.display = "none";
-	document.getElementById("warnscreen_words").style.display = "none";
 	document.getElementById("warnscreen_bg").style.display = "none";
 };
 
@@ -62,5 +52,4 @@ window.onload=function(){
 		setCookie("display-mode","light");
 		// 如果沒有定義(或值異常)displayMode，則設定為默認light模式 + 重置cookie。
 	};
-};
 };

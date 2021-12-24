@@ -224,45 +224,17 @@
 				<p>如果对网站内容有什么建议，可以联系: <a href="mailto:kobe_koto@outlook.com">kobe_koto@outlook.com</a> 或<a href="https://github.com/kobe-koto/kobe-koto.github.io/issues"> 在GitHub提交以"&#91;Yallgae&#93;"开头的Issues.</a></p>
 				<p>要访问以前的网站，请点击这个<a href="./old/index.html">链接</a></p>
 				<p>&copy;2021 - <strong>kobe-koto</strong></p>
-				<p>Made with ❤️ by evestar3905 in <a href="../LICENSE.html">AGPL-3.0 License</a></p>
+				<p>Made with ❤️ by kobe-koto in <a href="../LICENSE.html">AGPL-3.0 License</a></p>
 				<p>Open Source Code in <a href="https://github.com/kobe-koto/kobe-koto.github.io">GitHub</a> (<a href="../LICENSE.html">AGPL-3.0 License</a>)</p>
 			</div>
 		</div>
-		<!-- Main Container Ends -->
-		
-		<div id="darkandlight" class="dpmodeswich" onclick="dpmodeswich();">
+		<!-- display mode swich -->
+		<div class="dpmodeswich" id="dpmodeswich" onclick="dpmodeswich();">
 			<img class="dpmodeswichimg" id="dpmodeswichimg" alt="" src="./images/moon.svg" />
 		</div>
-
-		<div class="warnscreen_bg" id="warnscreen_bg">
-			<div class="warnscreen_words" id="warnscreen_words">
-				<h2>
-					<svg id="warnscreenimg1" style="width: 27px;height: 27px;margin-bottom: -7px;" width="16" height="16" stroke="currentColor" viewBox="0 0 24 24" fill="rgba(0,0,0,0)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-					请注意
-					<svg id="warnscreenimg2" style="width: 27px;height: 27px;margin-bottom: -7px;" width="16" height="16" stroke="currentColor" viewBox="0 0 24 24" fill="rgba(0,0,0,0)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-				</h2>
-				<h3>本网站并非Yallage官方网站</h3>
-				<h3>继续使用即代表您已知晓该网站内容不受Yallage的技术支持,且开源代码的使用受<a href="../LICENSE.html">AGPL-3.0 License</a>之约束,并愿意自行承担一切后果.</h3>
-				<h3>同时,本网站使用Cookie优化您的体验.</h3>
-				<br />
-				<h3>Yallage服务器地址为</h3>
-				<h3>(主服务器)server.vcraft.top</h3>
-				<h3 title="合作服务器">(离线&amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
-				<br />
-				<h3>目前,Yallage的外置登录现出现故障(数据库问题),只能使用正版登录.</h3>
-				<table align="center" style="font-weight: bold;border-width: 1px;border-style: solid;border-radius: 6px;border-color: rgba(255,145,145,0.65);background-color: rgba(253,225,225,0.50);">
-					<tr><td>欢迎来到讶之谷</td><td>新人请看群公告</td></tr>
-					<tr><td>外置维修正版登</td><td>问题都在公告里</td></tr>
-					<tr><td>进来别问ip多少</td><td>还有问题找客服</td></tr>
-					<tr><td>别问外置行了没</td><td>好了必会发公告</td></tr>
-					<tr><td></td><td align="right"><a style="font-size: larger;">初雪语</a> 留</td></tr>
-				</table>
-				<button id="warnscreen_button" class="shakecolor_button" style="margin: 50px auto;display: block;background-color: rgba(255,250,240,0.25);" onClick="setCookie('IsReadWarn','ture');hwscreen();"><p style="color: #232323;"><a id="warnscreen_button_word">ENTER</a></p></button>
-			</div>
-		</div>
-
+		<!-- noscript warning -->
 		<noscript>
-			<div class="warnscreen_bg" id="noscript_warning" style="background-color: rgba(255, 0, 0, 0.6);">
+			<div class="warnscreen_bg" style="background-color: rgba(255, 0, 0, 0.6);">
 				<div class="warnscreen_words">
 					<h1 style="text-align: center;color: #ffffff;">
 						<svg style="width: 30px;height: 30px;margin-bottom: -4px;" width="16" height="16" stroke="currentColor" viewBox="0 0 24 24" fill="rgba(0,0,0,0)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
@@ -273,6 +245,37 @@
 				</div>
 			</div>
 		</noscript>
-		
+		<!-- statement part -->
+		<div class="warnscreen_bg" id="warnscreen_bg" style="display: none;">
+			<div class="warnscreen_words">
+				<h2>
+					<img src="./images/warning.svg" style="width: 27px;height: 27px;margin-bottom: -7px;" alt="">
+					<a>请注意</a>
+					<img src="./images/warning.svg" style="width: 27px;height: 27px;margin-bottom: -7px;" alt="">
+				</h2>
+				<h3>本网站并非Yallage官方网站</h3>
+				<h3>继续使用即代表您已知晓该网站内容不受Yallage的技术支持,且开源代码的使用受<a href="../LICENSE.html">AGPL-3.0 License</a>之约束,并愿意自行承担一切后果.</h3>
+				<h3>同时,本网站使用Cookie优化您的体验.</h3>
+				<br />
+				<h3>Yallage服务器地址为</h3>
+				<h3>(主服务器)server.vcraft.top</h3>
+				<h3 title="合作服务器">(离线&amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
+				<br />
+				<h3 style="color: rgb(255, 150, 150);">目前,Yallage的外置登录现出现故障(数据库问题),只能使用正版登录.</h3>
+				<button class="shakecolor_button" style="margin: 50px auto;display: block;" onClick="setCookie('IsReadWarn','ture');hide('warnscreen_bg');"><p style="color: #232323;"><a>ENTER</a></p></button>
+			</div>
+		</div>
+		<!-- 用 windowforchoose(title,word,link) 來定義 -->
+		<div class="warnscreen_bg" id="center_bg" style="display:none;">
+			<div class="warnscreen_words">
+				<h2 id="center_title"></h2>
+				<h4 id="center_words"></h4>
+				<span style="margin: 50px auto;">
+					<button class="shakecolor_button"><p><a id="click_button" href="">好</a></p></button>
+					<button class="shakecolor_button" onClick="hide('center_bg');"><p><a>不要</a></p></button>
+				</span>
+			</div>
+		</div>
+		<!-- Main Container End -->
 	</body>
 </html>
