@@ -25,10 +25,12 @@
 		<div class="container">
 			<!-- Navigation -->
 			<header style="top: 0;">
-				<a href="./index.html"><h4 class="logo">Yallage</h4></a>
+				<h4>
+					<button class="logo" onClick="window.open('./index.html')" style="background: none;border: none;font-size: large;">Yallage</button>
+				</h4>
 				<nav>
 					<ul>
-						<li><button onClick="window.open('./index.html');" class="navlink">主页</button></li>
+						<li><button onClick="window.open('./index.html');" class="navlink">&nbsp;主&nbsp;&nbsp;页&nbsp;</button></li>
 						<li><button onClick="window.open('https://login.yallage.com');" class="navlink">账户中心</button></li>
 						<li><button onClick="window.open('https://report.yallage.com');" class="navlink">支持中心</button></li>
 					</ul>
@@ -282,5 +284,6 @@
 			</div>
 		</div>
 		<!-- Main Container End -->
+		<script language="javascript">windowload();</script>
 	</body>
 </html>

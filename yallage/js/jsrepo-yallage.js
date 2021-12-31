@@ -7,48 +7,39 @@ function windowforchoose (title,word,link) {
 	document.getElementById("center_title").innerHTML = title;
 	document.getElementById("center_words").innerHTML = word;
 	document.getElementById("click_button").attributes.href.value = link;
-}; // 如函數所示。。。看不懂真的沒救了吧。。
+	// 如函數所示。。。看不懂真的沒救了吧。。
+};
 
 function changePageType(UA) {
 	// 用"navigator.userAgent"來獲得瀏覽器UA & 使用正則表達式查找匹配字段。
 	if (UA == "auto") {
 		if (navigator.userAgent.match(/(rv)/i)) {
 			// 我感jio這個是IE。。。
-			var UAType = "IE";
-			return UAType;
+			return "IE";
 		} else if (navigator.userAgent.match(/(iPhone|Android)/i)) {
 			windowforchoose ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
-			var UAType = "Mobie";
-			return UAType;
+			return "Mobie";
 		} else if (navigator.userAgent.match(/(iPad|Pad|HD)/i)) {
 			windowforchoose ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
-			var UAType = "Pad";
-			return UAType;
+			return "Pad";
 		} else if (navigator.userAgent.match(/(Mac|Windows)/i)) {
-			var UAType = "Desktop";
-			return UAType;
+			return "Desktop";
 		} else {
-			var UAType = "Others";
-			return UAType;
+			return "Others";
 		};
 	} else {
 		// 調試用，同上。
 		if (UA.match(/(rv)/i)) {
 			// 我感jio這個是IE。。。
-			var UAType = "IE";
-			return UAType;
+			return "IE";
 		} else if (UA.match(/(iPhone|Android)/i)) {
-			var UAType = "Mobie";
-			return UAType;
+			return "Mobie";
 		} else if (UA.match(/(iPad|Pad|HD)/i)) {
-			var UAType = "Pad";
-			return UAType;
+			return "Pad";
 		} else if (UA.match(/(Mac|Windows)/i)) {
-			var UAType = "Desktop";
-			return UAType;
+			return "Desktop";
 		} else {
-			var UAType = "Others";
-			return UAType;
+			return "Others";
 		};
 	};
 };
@@ -78,7 +69,7 @@ function dpmodeswich(){
 	};
 };
 
-window.onload=function windowload (){
+function windowload () {
 
 	// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
 	if (window.outerHeight > window.outerWidth) {
@@ -97,20 +88,31 @@ window.onload=function windowload (){
 		show("warnscreen_bg");
 	};
 
-	// 判斷Cookie中displayMode為何，設定與之相應的css和img。↓
-	if (getCookie("display-mode") == "light") {
+	// 優先判斷系統/瀏覽器配色主題，設定與之相應的css和img。
+	if (window.matchMedia('(prefers-color-scheme: light)').matches) {
 		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
 		document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
 		// light模式。
-	} else if (getCookie("display-mode") == "night") {
+	} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
 		document.getElementById("centercss").attributes.href.value = "./css/full_night.css";
 		// night模式。
 	} else {
-		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
-		document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
-		setCookie("display-mode","light");
-		// 如果沒有定義(或值異常)displayMode，則設定為默認light模式 + 重置cookie。
+	// 判斷Cookie中displayMode為何，設定與之相應的css和img。↓
+		if (getCookie("display-mode") == "light") {
+			document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
+			document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
+			// light模式。
+		} else if (getCookie("display-mode") == "night") {
+			document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
+			document.getElementById("centercss").attributes.href.value = "./css/full_night.css";
+			// night模式。
+		} else {
+			document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
+			document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
+			setCookie("display-mode","light");
+			// 如果沒有定義(或值異常)displayMode，則設定為默認light模式 + 重置cookie。
+		};
 	};
 };
 
