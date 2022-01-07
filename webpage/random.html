@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" id="favicon" href="../images/info.svg" />
+		<link href="../css/hyperlinks.css" type="text/css" rel="stylesheet">
+		<link href="../css/glass_main.css" type="text/css" rel="stylesheet">
+		<link href="../css/column.css" type="text/css" rel="stylesheet">
+		<link href="../css/stripe_background.css" type="text/css" rel="stylesheet">
+		<link href="../css/button_cyber_font.css" type="text/css" rel="stylesheet">
+		<link href="../css/button_shake_rgb.css" type="text/css" rel="stylesheet">
+		<link href="../css/scroolbar_rgb.css" type="text/css" rel="stylesheet">
+		<title>随机数 | kobe koto</title>
+		<style>
+			.intwindow {
+				border: none;
+				resize: none;
+				border-radius: 10px;
+				font-family: system-ui;
+				padding: 15px;
+				display: unset;
+			}
+			.button {
+				display: unset;
+				margin: 0;
+				height: min-content;
+				margin: 10px 20px;
+			}
+		</style>
+	</head>
+	<script>
+		function rrddnnoo() {
+			document.getElementById("loadword").innerHTML = "正在取值";
+			var intmax = document.getElementById("intwindow").value;
+			document.getElementById("loadword").innerHTML = "正在判断值类型";
+			if (intmax.match(/(114514|1919810)/i)){
+				document.getElementById("loadword").innerHTML = "Success.";
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("intword").innerHTML = "😨臭死了";
+			} else if (intmax.match(/(kobe|koto)/i)) {
+				document.getElementById("loadword").innerHTML = "Success.";
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("intword").innerHTML = "🧐不要质疑kobe koto.";
+			} else if (intmax == "") {
+				document.getElementById("loadword").innerHTML = "Error.";
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("intword").innerHTML = "🤣留空是dame的";
+			} else if (intmax == "0") {
+				document.getElementById("loadword").innerHTML = "Error.";
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("intword").innerHTML = "😅一个人都没有吗？";
+			} else if (intmax >= -1) {
+				document.getElementById("loadword").innerHTML = "正在生成random数";
+				var rdno = Math.ceil(intmax * Math.random());
+				if (rdno <= intmax) {
+					document.getElementById("loadword").innerHTML = "Success.";
+					document.getElementById("intword").innerHTML = "no. ";
+					document.getElementById("intdp").innerHTML = rdno;
+				} else if (rdno > intmax) {
+					rrddnnoo();
+				};
+			} else {
+				document.getElementById("loadword").innerHTML = "Error.";
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("intword").innerHTML = "🤔这真的是数字吗";
+			};
+		};
+
+	</script>
+	<body>
+		
+		<div class="glass_main" style="text-align: center;">
+			<span style="display: flex;margin: auto;width: max-content;">
+				<textarea id="intwindow" class="intwindow" rows="1" placeholder="人数上限-仅数字"></textarea>
+				<button onclick="rrddnnoo();" class="shakecolor_button button"><p><a>!C!A!L!C!</a></p></button>
+			</span>
+			<h3>
+				<a id="intword"></a>
+				<a id="intdp" style="font-size: larger;color: #7fffd4;"></a>
+			</h3>
+			<h4 id="loadword" style="color: #858585;"></h4>
+		</div>
+		
+
+		<div class="glass_main" style="text-align: center;">
+			<h5>对网站内容的建议，联系: <a href="mailto:kobe_koto@outlook.com">kobe_koto@outlook.com</a></h5>
+			<h5>Made with ❤️ by kobe koto in <a href="../LICENSE.html">AGPL-3.0 License</a></h5>
+			<h5>Open Source Code in <a href="https://github.com/kobe-koto/kobe-koto.github.io">GitHub</a> (<a href="../LICENSE.html">AGPL-3.0 License</a>)</h5>
+			<h4>&copy;2021 - <strong>kobe-koto</strong></h4>
+		</div>
+	</body>
+</html>
