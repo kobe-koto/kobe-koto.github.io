@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* Made with heart by kobe-koto in AGPL-3.0 License License */
+/* copyright 2021 kobe-koto */
+@font-face {
+	font-family: 'Naikai';
+	src: local("Naikai"),url("../font/naikai-r.woff2") format("opentype");
+}
