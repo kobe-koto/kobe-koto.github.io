@@ -88,30 +88,32 @@ function windowload () {
 		show("warnscreen_bg");
 	};
 
-	// 優先判斷系統/瀏覽器配色主題，設定與之相應的css和img。
-	if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+	
+	
+
+	// 判斷Cookie中displayMode為何，設定與之相應的css和img。↓
+	if (getCookie("display-mode") == "light") {
 		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
 		document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
 		// light模式。
-	} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	} else if (getCookie("display-mode") == "night") {
 		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
 		document.getElementById("centercss").attributes.href.value = "./css/full_night.css";
 		// night模式。
 	} else {
-	// 判斷Cookie中displayMode為何，設定與之相應的css和img。↓
-		if (getCookie("display-mode") == "light") {
+		// 判斷系統/瀏覽器配色主題，設定與之相應的css和img。
+		if (window.matchMedia('(prefers-color-scheme: light)').matches) {
 			document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
 			document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
 			// light模式。
-		} else if (getCookie("display-mode") == "night") {
+		} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
 			document.getElementById("centercss").attributes.href.value = "./css/full_night.css";
 			// night模式。
 		} else {
 			document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
 			document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
-			setCookie("display-mode","light");
-			// 如果沒有定義(或值異常)displayMode，則設定為默認light模式 + 重置cookie。
+			// 如果沒有定義(或值異常)displayMode，則設定為默認light模式。
 		};
 	};
 };

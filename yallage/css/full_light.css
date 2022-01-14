@@ -4,6 +4,38 @@
 * {
 	transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #606060;
+	
+	border-style: solid;
+	border-width: 2px;
+	box-sizing: border-box;
+	border-color: #ffffff;
+}
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background-color: #ffffff;
+}
+::-webkit-scrollbar-corner {
+	background-color: #ffffff;
+}
+::-webkit-scrollbar-track {
+	opacity: 0;
+	border-radius: 10px;
+}
+::-webkit-scrollbar-button{
+	width: 10px;
+	height: 10px;
+	background-color: #606060;
+	border-radius: 50%;
+	
+	border-style: solid;
+	border-width: 3px;
+	box-sizing: border-box;
+	border-color: #ffffff;
+}
 .dpmodeswich {
 	position: fixed;
 	right: 1.5%;
