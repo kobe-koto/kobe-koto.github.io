@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="icon" id="favicon" href="../images/info.svg" />
-		<link href="./css/hyperlinks.css" type="text/css" rel="stylesheet">
-		<link href="./css/glass_main.css" type="text/css" rel="stylesheet">
-		<link href="./css/column.css" type="text/css" rel="stylesheet">
-		<link href="./css/stripe_background.css" type="text/css" rel="stylesheet">
-		<link href="./css/button_cyber_font.css" type="text/css" rel="stylesheet">
-		<link href="./css/button_shake_rgb.css" type="text/css" rel="stylesheet">
-		<link href="./css/scroolbar_rgb.css" type="text/css" rel="stylesheet">
+		<link href="../css/hyperlinks.css" type="text/css" rel="stylesheet">
+		<link href="../css/glass_main.css" type="text/css" rel="stylesheet">
+		<link href="../css/column.css" type="text/css" rel="stylesheet">
+		<link href="../css/stripe_background.css" type="text/css" rel="stylesheet">
+		<link href="../css/button_cyber_font.css" type="text/css" rel="stylesheet">
+		<link href="../css/button_shake_rgb.css" type="text/css" rel="stylesheet">
+		<link href="../css/scroolbar_rgb.css" type="text/css" rel="stylesheet">
 		<title>随机数 | kobe koto</title>
 		<style>
 			.intwindow {
@@ -18,20 +18,20 @@
 				border-radius: 10px;
 				font-family: system-ui;
 				padding: 15px;
-				display: unset;
+				display: block;
+				margin: 10px 0px;
 			}
 			.button {
 				display: unset;
 				margin: 0;
 				height: min-content;
-				margin: 10px 20px;
+				margin: 45px 20px;
 			}
 		</style>
 	</head>
 	<script>
-		function rrddnnoo() {
-			document.getElementById("loadword").innerHTML = "正在取值";
-			var intmax = document.getElementById("intwindow").value;
+		function rrddnnoo(intless,intmax) {
+			// document.getElementById("intwindow").value;
 			document.getElementById("loadword").innerHTML = "正在判断值类型";
 			if (intmax.match(/(114514|1919810)/i)){
 				document.getElementById("loadword").innerHTML = "That an Easter Egg.";
@@ -51,13 +51,17 @@
 				document.getElementById("intword").innerHTML = "😅一个人都没有吗？";
 			} else if (intmax >= -1) {
 				document.getElementById("loadword").innerHTML = "正在生成random数";
-				var rdno = Math.ceil(intmax * Math.random());
-				if (rdno <= intmax) {
-					document.getElementById("loadword").innerHTML = "Success.";
-					document.getElementById("intword").innerHTML = "no. ";
-					document.getElementById("intdp").innerHTML = rdno;
+				var randomno = Math.ceil(intmax * Math.random());
+				if (randomno <= intmax) {
+					if (randomno >= intless) {
+						document.getElementById("loadword").innerHTML = "Success.";
+						document.getElementById("intword").innerHTML = "no. ";
+						document.getElementById("intdp").innerHTML = randomno;
+					} else {
+						rrddnnoo(intless,intmax);
+					};
 				} else if (rdno > intmax) {
-					rrddnnoo();
+					rrddnnoo(intless,intmax);
 				};
 			} else {
 				document.getElementById("loadword").innerHTML = "Error.";
@@ -71,8 +75,11 @@
 		
 		<div class="glass_main" style="text-align: center;">
 			<span style="display: flex;margin: auto;width: max-content;">
-				<textarea id="intwindow" class="intwindow" rows="1" placeholder="人数上限-仅数字"></textarea>
-				<button onclick="rrddnnoo();" class="shakecolor_button button"><p><a>!C!A!L!C!</a></p></button>
+				<span style="flex: 1;">
+					<textarea id="intlesswindow" class="intwindow" rows="1" placeholder="人数下限-仅数字"></textarea>
+					<textarea id="intmaxwindow" class="intwindow" rows="1" placeholder="人数上限-仅数字"></textarea>
+				</span>
+				<button onclick="var intless = document.getElementById('intlesswindow').value;var intmax = document.getElementById('intmaxwindow').value;rrddnnoo(intless,intmax);" class="shakecolor_button button"><p><a>!C!A!L!C!</a></p></button>
 			</span>
 			<h3>
 				<a id="intword"></a>
