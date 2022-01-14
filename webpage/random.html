@@ -33,25 +33,29 @@
 		function rrddnnoo(intless,intmax) {
 			// document.getElementById("intwindow").value;
 			document.getElementById("loadword").innerHTML = "正在判断值类型";
-			if (intmax.match(/(114514|1919810)/i)){
+			if (intmax.match(/(114514|1919810)/i) || intless.match(/(114514|1919810)/i)){
 				document.getElementById("loadword").innerHTML = "That an Easter Egg.";
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "😨臭死了";
-			} else if (intmax.match(/(kobe|koto)/i)) {
+				document.getElementById("intdp").innerHTML = "😨";
+				document.getElementById("intword").innerHTML = "臭死了";
+			} else if (intmax.match(/(kobe|koto)/i) || intless.match(/(kobe|koto)/i)) {
 				document.getElementById("loadword").innerHTML = "That an Easter Egg.";
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "🧐不要质疑kobe koto.";
-			} else if (intmax == "") {
+				document.getElementById("intdp").innerHTML = "🧐";
+				document.getElementById("intword").innerHTML = "不要质疑kobe koto.";
+			} else if (intmax == "" || intless == "") {
 				document.getElementById("loadword").innerHTML = "Error.";
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "🤣留空是dame的";
-			} else if (intmax == "0") {
+				document.getElementById("intdp").innerHTML = "🤣";
+				document.getElementById("intword").innerHTML = "不可留空";
+			} else if (intmax < intless) {
+				document.getElementById("loadword").innerHTML = "Error.";
+				document.getElementById("intdp").innerHTML = "(你是来找茬的是吧😒";
+				document.getElementById("intword").innerHTML = "最大数不可小于最小数";
+			} else if (intmax == "0" || intless == "0") {
 				document.getElementById("loadword").innerHTML = "Error.";
 				document.getElementById("intdp").innerHTML = "";
 				document.getElementById("intword").innerHTML = "😅一个人都没有吗？";
-			} else if (intmax >= -1) {
+			} else if (intmax >= -1 && intless >= -1) {
 				document.getElementById("loadword").innerHTML = "正在生成random数";
-				var randomno = Math.ceil(intmax * Math.random());
+				var randomno = Math.round(intmax * Math.random());
 				if (randomno <= intmax) {
 					if (randomno >= intless) {
 						document.getElementById("loadword").innerHTML = "Success.";
@@ -69,15 +73,26 @@
 				document.getElementById("intword").innerHTML = "🤔这真的是数字吗";
 			};
 		};
-
+		function noallowEnter (events) {
+			var et = events || window.event;
+			var keycode = et.charCode || et.keyCode;
+			if (keycode == 13) {
+				if (window.event) {
+					window.event.returnValue = false;
+				} else {
+					events.preventDefault();
+					// firefox
+				};
+			};
+		};
 	</script>
 	<body>
 		
 		<div class="glass_main" style="text-align: center;">
 			<span style="display: flex;margin: auto;width: max-content;">
 				<span style="flex: 1;">
-					<textarea id="intlesswindow" class="intwindow" rows="1" placeholder="人数下限-仅数字"></textarea>
-					<textarea id="intmaxwindow" class="intwindow" rows="1" placeholder="人数上限-仅数字"></textarea>
+					<textarea id="intlesswindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event)" placeholder="人数下限-仅数字"></textarea>
+					<textarea id="intmaxwindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event)" placeholder="人数上限-仅数字"></textarea>
 				</span>
 				<button onclick="var intless = document.getElementById('intlesswindow').value;var intmax = document.getElementById('intmaxwindow').value;rrddnnoo(intless,intmax);" class="shakecolor_button button"><p><a>!C!A!L!C!</a></p></button>
 			</span>
