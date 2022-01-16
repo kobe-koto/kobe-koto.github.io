@@ -31,46 +31,77 @@
 	<script>
 		function rrddnnoo(intless,intmax) {
 			// document.getElementById("intwindow").value;
-			document.getElementById("loadword").innerHTML = "正在判断值类型";
+			document.getElementById("loadword").innerHTML = "确定给定的值是否为被特别指定的字符串";
+			console.log("[step] determines if the given value is a special string.");
+			
 			if (intmax.match(/(114514|1919810)/i) || intless.match(/(114514|1919810)/i)){
 				document.getElementById("loadword").innerHTML = "That an Easter Egg.";
+				console.log("[info] An Easter egg has been found!");
 				document.getElementById("intdp").innerHTML = "😨";
 				document.getElementById("intword").innerHTML = "臭死了";
-			} else if (intmax.match(/(kobe|koto)/i) || intless.match(/(kobe|koto)/i)) {
+				return null;
+			};
+			if (intmax.match(/(kobe|koto)/i) || intless.match(/(kobe|koto)/i)) {
 				document.getElementById("loadword").innerHTML = "That an Easter Egg.";
 				document.getElementById("intdp").innerHTML = "🧐";
 				document.getElementById("intword").innerHTML = "不要质疑kobe koto.";
-			} else if (intmax == "" || intless == "") {
-				document.getElementById("loadword").innerHTML = "Error.";
-				document.getElementById("intdp").innerHTML = "🤣";
-				document.getElementById("intword").innerHTML = "不可留空";
-			} else if (intmax < intless) {
-				document.getElementById("loadword").innerHTML = "Error.";
-				document.getElementById("intdp").innerHTML = "(你是来找茬的是吧😒";
-				document.getElementById("intword").innerHTML = "最大数不可小于最小数";
-			} else if (intmax == "0" || intless == "0") {
+				return null;
+			};
+			
+			document.getElementById("loadword").innerHTML = "确定给定的值是否正确";
+			console.log("[step] determine if the given value is correct.");
+			
+			if (intless == "" || intless == "null") {
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("loadword").innerHTML = "[info] intless 未被定义 或 被定义为为\"null\"，将重置为 0";
+				console.log("[info] intless is not defined or is defined as \"null\", will reset to 0.");
+				document.getElementById('intlesswindow').value = "0";
+				var intless = "0";
+			};
+			if (intmax == "" || intmax == "null") {
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("intword").innerHTML = "[info] intmax 未被定义 或 被定义为为\"null\"，将重置为 50";
+				console.log("[info] intmax is not defined or is defined as \"null\", will reset to 50.");
+				document.getElementById('intmaxwindow').value = "50";
+				var intmax = "50";
+			};
+			if (intmax == "0") {
 				document.getElementById("loadword").innerHTML = "Error.";
 				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "😅一个人都没有吗？";
-			} else if (intmax >= -1 && intless >= -1) {
+				document.getElementById("intword").innerHTML = "intmax 不可为0，重设至50";
+				console.log("maximum value cannot be 0, reset to 50.");
+			};
+			
+			//ERROR area ↓
+			if(isNaN(intmax) || isNaN(intless)){
+				document.getElementById("loadword").innerHTML = "Error.";
+				document.getElementById("intdp").innerHTML = "";
+				document.getElementById("intword").innerHTML = "[Error] Not a number";
+				return null;
+			};
+			if (intmax < intless) {
+				document.getElementById("intdp").innerHTML = "😒";
+				document.getElementById("intword").innerHTML = "[Error] intmax 不可小于 intless。";
+				console.log("[Error] The maximum value cannot be less than the minimum value.");
+				return null;
+			};
+			//ERROR area ↑
+			
+			
+			if (intmax >= -1 && intless >= -1) {
 				document.getElementById("loadword").innerHTML = "正在生成random数";
 				var randomno = Math.round(intmax * Math.random());
-				if (randomno <= intmax) {
-					if (randomno >= intless) {
-						document.getElementById("loadword").innerHTML = "Success.";
-						document.getElementById("intword").innerHTML = "no. ";
-						document.getElementById("intdp").innerHTML = randomno;
-					} else {
-						rrddnnoo(intless,intmax);
-					};
-				} else if (rdno > intmax) {
+				if (randomno <= intmax && randomno >= intless) {
+					document.getElementById("loadword").innerHTML = "Success.";
+					document.getElementById("intword").innerHTML = "no. ";
+					document.getElementById("intdp").innerHTML = randomno;
+					return randomno;
+				} else if (rdno > intmax || rdno < intless) {
 					rrddnnoo(intless,intmax);
 				};
-			} else {
-				document.getElementById("loadword").innerHTML = "Error.";
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "🤔这真的是数字吗";
 			};
+			
+			document.getElementById("intword").innerHTML = "你好,\<br\/\>这是个未知错误，按照正确使用方式来讲，你应该不会看到这个东西。\<br\/\>请将 intless 和 intmax 的值记录下来并提交issues.";
 		};
 		function noallowEnter (events) {
 			var et = events || window.event;
