@@ -9,6 +9,7 @@
 		<link href="../css/stripe_background.css" type="text/css" rel="stylesheet">
 		<link href="../css/button_shake_rgb.css" type="text/css" rel="stylesheet">
 		<link href="../css/scrollbar_rgb.css" type="text/css" rel="stylesheet">
+		<script src="../js/random.js" language="javascript"></script>
 		<title>随机数 | kobe koto</title>
 		<style>
 			.intwindow {
@@ -26,111 +27,65 @@
 				height: min-content;
 				margin: 45px 20px;
 			}
+			#settingzone>span {
+				width: max-content;
+				display: block;
+				margin: 0 auto;
+			}
+			#settingzone>span>span {
+				width: max-content;
+				display: block;
+				margin: 0 auto;
+			}
 		</style>
 	</head>
-	<script>
-		function rrddnnoo(intless,intmax) {
-			// document.getElementById("intwindow").value;
-			document.getElementById("loadword").innerHTML = "确定给定的值是否为被特别指定的字符串";
-			console.log("[step] determines if the given value is a special string.");
-			
-			if (intmax.match(/(114514|1919810)/i) || intless.match(/(114514|1919810)/i)){
-				document.getElementById("loadword").innerHTML = "That an Easter Egg.";
-				console.log("[info] An Easter egg has been found!");
-				document.getElementById("intdp").innerHTML = "😨";
-				document.getElementById("intword").innerHTML = "臭死了";
-				return null;
-			};
-			if (intmax.match(/(kobe|koto)/i) || intless.match(/(kobe|koto)/i)) {
-				document.getElementById("loadword").innerHTML = "That an Easter Egg.";
-				document.getElementById("intdp").innerHTML = "🧐";
-				document.getElementById("intword").innerHTML = "不要质疑kobe koto.";
-				return null;
-			};
-			
-			document.getElementById("loadword").innerHTML = "确定给定的值是否正确";
-			console.log("[step] determine if the given value is correct.");
-			
-			if (intless == "" || intless == "null") {
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("loadword").innerHTML = "[info] intless 未被定义 或 被定义为为\"null\"，将重置为 0";
-				console.log("[info] intless is not defined or is defined as \"null\", will reset to 0.");
-				document.getElementById('intlesswindow').value = "0";
-				var intless = "0";
-			};
-			if (intmax == "" || intmax == "null") {
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "[info] intmax 未被定义 或 被定义为为\"null\"，将重置为 50";
-				console.log("[info] intmax is not defined or is defined as \"null\", will reset to 50.");
-				document.getElementById('intmaxwindow').value = "50";
-				var intmax = "50";
-			};
-			if (intmax == "0") {
-				document.getElementById("loadword").innerHTML = "Error.";
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "intmax 不可为0，重设至50";
-				console.log("maximum value cannot be 0, reset to 50.");
-			};
-			
-			//ERROR area ↓
-			if(isNaN(intmax) || isNaN(intless)){
-				document.getElementById("loadword").innerHTML = "Error.";
-				document.getElementById("intdp").innerHTML = "";
-				document.getElementById("intword").innerHTML = "[Error] Not a number";
-				return null;
-			};
-			if (intmax < intless) {
-				document.getElementById("intdp").innerHTML = "😒";
-				document.getElementById("intword").innerHTML = "[Error] intmax 不可小于 intless。";
-				console.log("[Error] The maximum value cannot be less than the minimum value.");
-				return null;
-			};
-			//ERROR area ↑
-			
-			
-			if (intmax >= -1 && intless >= -1) {
-				document.getElementById("loadword").innerHTML = "正在生成random数";
-				var randomno = Math.round(intmax * Math.random());
-				if (randomno <= intmax && randomno >= intless) {
-					document.getElementById("loadword").innerHTML = "Success.";
-					document.getElementById("intword").innerHTML = "no. ";
-					document.getElementById("intdp").innerHTML = randomno;
-					return randomno;
-				} else if (rdno > intmax || rdno < intless) {
-					rrddnnoo(intless,intmax);
-				};
-			};
-			
-			document.getElementById("intword").innerHTML = "你好,\<br\/\>这是个未知错误，按照正确使用方式来讲，你应该不会看到这个东西。\<br\/\>请将 intless 和 intmax 的值记录下来并提交issues.";
-		};
-		function noallowEnter (events) {
-			var et = events || window.event;
-			var keycode = et.charCode || et.keyCode;
-			if (keycode == 13) {
-				if (window.event) {
-					window.event.returnValue = false;
-				} else {
-					events.preventDefault();
-					// firefox
-				};
-			};
-		};
-	</script>
 	<body>
+		
+		<div id="settingzone" class="glass_main">
+			<span id="log">
+				<h3 align="center">↓ 需要確實輸出log嗎? ↓</h3>
+				<span>
+					<button class="shakecolor_button" onClick="document.getElementById('logzone').style.display = 'block';document.getElementById('log').style.display = 'none';"><p><a>僅顯示log</a></p></button>
+					<button class="shakecolor_button" onClick="document.getElementById('numzone').style.display = 'block';document.getElementById('log').style.display = 'none';" title="只會記錄數值和日期，按行輸出。（如果你僅在kobe-koto的網站上訪問&下載）"><p><a>僅顯示num</a></p></button>
+					<button class="shakecolor_button" onClick="document.getElementById('log').style.display = 'none';" title="log們依然會被記錄下來，存儲到id為的的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。"><p><a>不顯示</a></p></button>
+				</span>
+			</span>
+			<!--<span id="lang">
+				<h3 align="center">↓ 需要什麽語言呢?請確實選擇. ↓</h3>
+				<span>
+					<button class="shakecolor_button" onClick="document.getElementById('logzone').style.display = 'block';document.getElementById('log').style.display = 'none';"><p><a>顯示log</a></p></button>
+					<button class="shakecolor_button" onClick="document.getElementById('log').style.display = 'none';" title="log們依然會被記錄下來，存儲到id為的的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。"><p><a>不顯示log</a></p></button>
+				</span>
+			</span>-->
+			<span id="endofset">
+				<h3 align="center">↓ 最終段階!!ボタンをクリックしてください. ↓</h3>
+				<span>
+					<button class="shakecolor_button" onClick="document.getElementById('settingzone').style.display = 'none';"><p><a>√ MARK DONE √</a></p></button>
+				</span>
+			</span>
+		</div>
 		
 		<div class="glass_main" style="text-align: center;">
 			<span style="display: flex;margin: auto;width: max-content;">
 				<span style="flex: 1;">
-					<textarea id="intlesswindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event)" placeholder="人数下限-仅数字"></textarea>
-					<textarea id="intmaxwindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event)" placeholder="人数上限-仅数字"></textarea>
+					<textarea id="intminwindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数下限-仅数字"></textarea>
+					<textarea id="intmaxwindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数上限-仅数字"></textarea>
 				</span>
-				<button onclick="var intless = document.getElementById('intlesswindow').value;var intmax = document.getElementById('intmaxwindow').value;rrddnnoo(intless,intmax);" class="shakecolor_button button"><p><a>!C!A!L!C!</a></p></button>
+				<button onclick="rrddnnoo(document.getElementById('intminwindow').value,document.getElementById('intmaxwindow').value);" class="shakecolor_button button" id="btn_rrddnnoo"><p><a>!C!A!L!C!</a></p></button>
 			</span>
 			<h3>
 				<a id="intword"></a>
 				<a id="intdp" style="font-size: larger;color: #7fffd4;"></a>
 			</h3>
 			<h4 id="loadword" style="color: #858585;"></h4>
+		</div>
+		
+		<div id="logzone" class="glass_main" style="display: none;">
+			<h3 align="center">⭐LOG·ZONE!⭐</h3>
+		</div>
+		
+		<div id="numzone" class="glass_main" style="display: none;">
+			<h3 align="center">⭐NUM·ZONE!⭐</h3>
 		</div>
 		
 
