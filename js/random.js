@@ -35,7 +35,7 @@ function formattedDate() {
 function rrddnnoo (intmin,intmax) {
 	// document.getElementById("intwindow").value;
 	console.log("[START]" + formattedDate());
-	createElement("h4","[START]" + formattedDate(),"logzone"&&"numzone");
+	createElement("h4","[START]" + formattedDate(),"logzone");
 	
 	document.getElementById("loadword").innerHTML = "确定给定的值是否为被特别指定的字符串";
 	console.log("[step] determines if the given value is a special string.");
@@ -118,6 +118,7 @@ function rrddnnoo (intmin,intmax) {
 		if (randomno <= intmax && randomno >= intmin) {
 			document.getElementById("loadword").innerHTML = "Success.";
 			console.log("-------[info] Success.");
+			createElement("h4","[DONE]" + formattedDate(),"numzone");
 			createElement("p","-------[info] Success,num is " + randomno,"logzone"&&"numzone");
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno;
