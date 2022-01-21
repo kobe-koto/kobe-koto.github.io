@@ -9,46 +9,42 @@
 		<link href="../css/stripe_background.css" type="text/css" rel="stylesheet">
 		<link href="../css/button_shake_rgb.css" type="text/css" rel="stylesheet">
 		<link href="../css/scrollbar_rgb.css" type="text/css" rel="stylesheet">
-		<script src="../js/random.js" language="javascript"></script>
+		<script src="../js/random.js"></script>
 		<title>随机数 | kobe koto</title>
 		<style>
 			.intwindow {
 				border: none;
 				resize: none;
 				border-radius: 10px;
-				font-family: system-ui;
+				font-family: source-sans-pro,system-ui;
 				padding: 15px;
 				display: block;
-				margin: 10px 0px;
+				margin: 10px 0;
 			}
 			.button {
 				display: unset;
-				margin: 0;
 				height: min-content;
 				margin: 45px 20px;
 			}
-			#settingzone>span {
+			.question-zone {
 				width: max-content;
 				display: block;
 				margin: 0 auto;
-			}
-			#settingzone>span>div {
-				width: max-content;
-				margin: 0 auto;
+				text-align: center;
 			}
 		</style>
 	</head>
 	<body>
 		
 		<div id="settingzone" class="glass_main">
-			<span id="log">
-				<h3 align="center">↓ 需要確實輸出log嗎? ↓</h3>
+			<div id="log" class="question-zone">
+				<h3>↓ 需要確實輸出log嗎? ↓</h3>
 				<div>
-					<button class="shakecolor_button" onClick="document.getElementById('logzone').style.display = 'block';document.getElementById('log').style.display = 'none';"><p><a>僅顯示log</a></p></button>
-					<button class="shakecolor_button" onClick="document.getElementById('numzone').style.display = 'block';document.getElementById('log').style.display = 'none';" title="只會記錄數值和日期，按行輸出。（如果你僅在kobe-koto的網站上訪問&下載）"><p><a>僅顯示num</a></p></button>
-					<button class="shakecolor_button" onClick="document.getElementById('log').style.display = 'none';" title="log們依然會被記錄下來，存儲到id為的的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。"><p><a>不顯示</a></p></button>
+					<button class="shakecolor_button" onClick="document.getElementById('logzone').style.display = 'block';document.getElementById('log').style.display = 'none';">僅顯示log</button>
+					<button class="shakecolor_button" onClick="document.getElementById('numzone').style.display = 'block';document.getElementById('log').style.display = 'none';" title="只會記錄數值和日期，按行輸出。（如果你僅在kobe-koto的網站上訪問&下載）">僅顯示num</button>
+					<button class="shakecolor_button" onClick="document.getElementById('log').style.display = 'none';" title="log們依然會被記錄下來，存儲到id為的的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。">不顯示</button>
 				</div>
-			</span>
+			</div>
 			<!--<span id="lang">
 				<h3 align="center">↓ 需要什麽語言呢?請確實選擇. ↓</h3>
 				<span>
@@ -56,21 +52,22 @@
 					<button class="shakecolor_button" onClick="document.getElementById('log').style.display = 'none';" title="log們依然會被記錄下來，存儲到id為的的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。"><p><a>不顯示log</a></p></button>
 				</span>
 			</span>-->
-			<span id="endofset">
-				<h3 align="center">↓ 最終段階!!ボタンをクリックしてください. ↓</h3>
+			<div id="endofset" class="question-zone">
+				<h3 >↓ 最終段階!!ボタンをクリックしてください. ↓</h3>
 				<div>
-					<button class="shakecolor_button" onClick="document.getElementById('settingzone').style.display = 'none';"><p><a>√ MARK DONE √</a></p></button>
+					<button class="shakecolor_button" onClick="document.getElementById('settingzone').style.display = 'none';">√ MARK DONE √</button>
 				</div>
-			</span>
+				<h6>Tip: 如果不好好填寫數值的話，返回的大概會是「0」哦！這是對粗心大意的人的懲·罰·呢~</h6>
+			</div>
 		</div>
 		
 		<div class="glass_main" style="text-align: center;">
 			<span style="display: flex;margin: auto;width: max-content;">
 				<span style="flex: 1;">
-					<textarea id="intminwindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数下限-仅数字"></textarea>
-					<textarea id="intmaxwindow" class="intwindow" rows="1" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数上限-仅数字"></textarea>
+					<textarea id="intminwindow" class="intwindow" rows="1" cols="20" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数下限-仅数字"></textarea>
+					<textarea id="intmaxwindow" class="intwindow" rows="1" cols="20" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数上限-仅数字"></textarea>
 				</span>
-				<button onclick="rrddnnoo(document.getElementById('intminwindow').value,document.getElementById('intmaxwindow').value);" class="shakecolor_button button" id="btn_rrddnnoo"><p><a>!C!A!L!C!</a></p></button>
+				<button onclick="rrddnnoo(document.getElementById('intminwindow').value,document.getElementById('intmaxwindow').value);" class="shakecolor_button button" id="btn_rrddnnoo">!C!A!L!C!</button>
 			</span>
 			<h3>
 				<a id="intword"></a>
@@ -80,11 +77,11 @@
 		</div>
 		
 		<div id="logzone" class="glass_main" style="display: none;">
-			<h3 align="center">⭐LOG·ZONE!⭐</h3>
+			<h3 style="text-align: center;">⭐LOG·ZONE!⭐</h3>
 		</div>
 		
 		<div id="numzone" class="glass_main" style="display: none;">
-			<h3 align="center">⭐NUM·ZONE!⭐</h3>
+			<h3 style="text-align: center;">⭐NUM·ZONE!⭐</h3>
 		</div>
 		
 

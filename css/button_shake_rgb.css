@@ -13,22 +13,15 @@
 	/* for old↑ new↓ */
 	background-color: rgba(0,0,0,0);
 	width: max-content;
-	padding: 0;
+	color:#ffffff;
+	padding: 8px 15px;
 }
 .shakecolor_button:hover {
+	animation:shakecolor_button-x 0.5s linear infinite;
+}
+.shakecolor_button:active {
+	transform: translateY(1px);
 	animation:shakecolor_button-x 0.3s linear infinite;
-}
-.shakecolor_button p:hover {
-	animation:shakecolor_button-a 1s linear infinite;
-}
-.shakecolor_button p {
-	margin: 0;
-	padding: 8px 15px;
-	color:#ffffff;
-}
-.shakecolor_button p a {
-	text-decoration:none;
-	margin: unset;
 }
 @keyframes shakecolor_button-m {
 	10% {
@@ -66,73 +59,51 @@
 	 10% {
 		 transform:translate(-0.5px,1.5px) rotate(0.5deg);
 		 border-color:#ffbebe;
+		 color:#ff9292;
 	 }
 	 20% {
 		 transform:translate(-0.5px,1.5px) rotate(-0.5deg);
 		 border-color:#ffdebe;
+		 color:#f09eff;
 	 }
 	 30% {
 		 transform:translate(-2.5px,-1.5px) rotate(0.5deg);
 		 border-color:#fff3be;
+		 color:#9397ff;
 	 }
 	 40% {
 		 transform:translate(-2.5px,-2.5px) rotate(-1.5deg);
 		 border-color:#eeffbe;
+		 color:#9fb8ff;
 	 }
 	 50% {
 		 transform:translate(1.5px,1.5px) rotate(-1.5deg);
 		 border-color:#f3ffbe;
+		 color:#9fd7ff;
 	 }
 	 60% {
 		 transform:translate(-2.5px,-0.5px) rotate(-0.5deg);
 		 border-color:#e9ffbe;
+		 color:#9fffd2;
 	 }
 	 70% {
 		 transform:translate(1.5px,-2.5px) rotate(-0.5deg);
 		 border-color:#d0ffbe;
+		 color:#dfff9f;
 	 }
 	 80% {
 		 transform:translate(0.5px,1.5px) rotate(0.5deg);
 		 border-color:#beffde;
+		 color:#ffd49f;
 	 }
 	 90% {
 		 transform:translate(-2.5px,-0.5px) rotate(0.5deg);
 		 border-color:#beefff;
+		 color:#ffc29f;
 	 }
 	 100% {
 		 transform:translate(-0.5px,-0.5px) rotate(-1.5deg);
 		 border-color:#bed8ff;
+		 color:#ffa198;
 	 }
-}
-@keyframes shakecolor_button-a {
-	10% {
-		color:#ff9292;
-	}
-	20% {
-		color:#f09eff;
-	}
-	30% {
-		color:#9397ff;
-	}
-	40% {
-		color:#9fb8ff;
-	}
-	50% {
-		color:#9fd7ff;
-	}
-	60% {
-		color:#9fffd2;
-	}
-	70% {
-		color:#dfff9f;
-	}
-	80% {
-		color:#ffd49f;
-	}
-	90% {
-		color:#ffc29f;
-	}
-	100% {
-		color:#ffa198;
-	}
 }
