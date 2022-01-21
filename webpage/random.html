@@ -32,9 +32,8 @@
 				display: block;
 				margin: 0 auto;
 			}
-			#settingzone>span>span {
+			#settingzone>span>div {
 				width: max-content;
-				display: block;
 				margin: 0 auto;
 			}
 		</style>
@@ -44,11 +43,11 @@
 		<div id="settingzone" class="glass_main">
 			<span id="log">
 				<h3 align="center">↓ 需要確實輸出log嗎? ↓</h3>
-				<span>
+				<div>
 					<button class="shakecolor_button" onClick="document.getElementById('logzone').style.display = 'block';document.getElementById('log').style.display = 'none';"><p><a>僅顯示log</a></p></button>
 					<button class="shakecolor_button" onClick="document.getElementById('numzone').style.display = 'block';document.getElementById('log').style.display = 'none';" title="只會記錄數值和日期，按行輸出。（如果你僅在kobe-koto的網站上訪問&下載）"><p><a>僅顯示num</a></p></button>
 					<button class="shakecolor_button" onClick="document.getElementById('log').style.display = 'none';" title="log們依然會被記錄下來，存儲到id為的的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。"><p><a>不顯示</a></p></button>
-				</span>
+				</div>
 			</span>
 			<!--<span id="lang">
 				<h3 align="center">↓ 需要什麽語言呢?請確實選擇. ↓</h3>
@@ -59,9 +58,9 @@
 			</span>-->
 			<span id="endofset">
 				<h3 align="center">↓ 最終段階!!ボタンをクリックしてください. ↓</h3>
-				<span>
+				<div>
 					<button class="shakecolor_button" onClick="document.getElementById('settingzone').style.display = 'none';"><p><a>√ MARK DONE √</a></p></button>
-				</span>
+				</div>
 			</span>
 		</div>
 		

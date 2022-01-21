@@ -9,6 +9,8 @@
 	/* hwidth: auto; */
 	height: auto;
 	cursor: pointer;
+	background-color: #000000;
+	/* for old↑ new↓ */
 	background-color: rgba(0,0,0,0);
 	width: max-content;
 	padding: 0;

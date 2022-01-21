@@ -1,6 +1,6 @@
 // Encoding: UTF-8
 // Made with heart by kobe-koto in AGPL-3.0 License License
-// copyright 2021 kobe-koto// JavaScript Document
+// copyright 2021 kobe-koto
 
 function createElement (element,info,root) {
 	var element_root = document.createElement(element);
@@ -45,7 +45,7 @@ function rrddnnoo (intmin,intmax) {
 		document.getElementById("loadword").innerHTML = "That an Easter Egg.";
 		console.log("-------[info] An Easter egg has been found!");
 		createElement("p","-------[info] An Easter egg has been found!","logzone");
-		document.getElementById("intdp").innerHTML = "😨";
+		document.getElementById("intdp").innerHTML = "??";
 		document.getElementById("intword").innerHTML = "臭死了";
 		return null;
 	};
@@ -53,7 +53,7 @@ function rrddnnoo (intmin,intmax) {
 		document.getElementById("loadword").innerHTML = "That an Easter Egg.";
 		console.log("-------[info] An Easter egg has been found!");
 		createElement("p","-------[info] An Easter egg has been found!","logzone");
-		document.getElementById("intdp").innerHTML = "🧐";
+		document.getElementById("intdp").innerHTML = "??";
 		document.getElementById("intword").innerHTML = "不要质疑kobe koto.";
 		return null;
 	};
@@ -100,7 +100,7 @@ function rrddnnoo (intmin,intmax) {
 		return null;
 	};
 	if (intmax < intmin) {
-		document.getElementById("intdp").innerHTML = "😒";
+		document.getElementById("intdp").innerHTML = "??";
 		document.getElementById("intword").innerHTML = "[Error] intmax 不可小于 intmin。";
 		console.log("-------[Error] The maximum value cannot be less than the minimum value.");
 		createElement("p","-------[Error] The maximum value cannot be less than the minimum value.","logzone");
@@ -113,13 +113,14 @@ function rrddnnoo (intmin,intmax) {
 	console.log("-------[info] Generating random numbers.");
 	createElement("p","-------[info] Generating random numbers.","logzone");
 			
-	while (intmax >= -1 && intmin >= -1) {
+	while (!isNaN(intmax) && !isNaN(intmin)) {
 		var randomno = Math.round(intmax * Math.random());
 		if (randomno <= intmax && randomno >= intmin) {
 			document.getElementById("loadword").innerHTML = "Success.";
 			console.log("-------[info] Success.");
 			createElement("h4","[DONE]" + formattedDate(),"numzone");
-			createElement("p","-------[info] Success,num is " + randomno,"logzone"&&"numzone");
+			createElement("p","-------[info] Success,num is " + randomno,"logzone");
+			createElement("p","-------[info] Success,num is " + randomno,"numzone");
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno;
 			return randomno;
