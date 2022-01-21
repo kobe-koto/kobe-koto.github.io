@@ -140,7 +140,7 @@ function rrddnnoo (intmin,intmax) {
 
 			document.getElementById("loadword").innerHTML = "Success.";
 
-			logOutput("--INFO","Success,num is " + randomno,"numzone","h4");
+			logOutput("--INFO","Success,num is " + randomno,"numzone","h5");
 			logOutput("--INFO","Success,num is " + randomno,"logzone","h5");
 
 			return randomno;
