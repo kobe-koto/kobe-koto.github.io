@@ -10,15 +10,17 @@ a:visited , a:link {
 	margin-top: -2px;
 	background-repeat: no-repeat;
 	background-position: center bottom;
-	background-size: 0vh 3px;
+	background-size: 0 3px;
 	background-image: linear-gradient(to bottom,rgba(205,70,110,1) 100%,rgba(205,70,110,1) 100%);
+	display: inline-block;
 }
 a:link:hover , a:visited:hover {
 	background-size: 95vh 3px;
 }
 a:link:active , a:visited:active {
-	background-size: 95vh 2px;
+	background-size: 95vh 3px;
 	color: rgba(40,130,145,1.00);
+	transform: scale(0.9);
 }
 /* 
 @keyframes links-hover {
