@@ -3,5 +3,5 @@
 /* copyright 2021 kobe-koto */
 @font-face {
 	font-family: 'Naikai';
-	src: local("Naikai"),url("../font/naikai-r.woff2") format("opentype");
+	src: local("Naikai"),url("../font/naikai-r.woff2") format("woff");
 }
