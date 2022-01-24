@@ -3,19 +3,15 @@
 // copyright 2021 kobe-koto
 
 
-// cookie中存值
 function setCookie (name,value) {
-	if (value) {
-		var days = 1; //定义一天
-		var exp = new Date();
-		exp.setTime(exp.getTime() + days * 24 * 60 * 60 * 1000);
-		// 写入Cookie, toGMTString将时间转换成字符串
-		document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString;
-	}
-	// console.log ("Cookie-set " + name + " = " + value);
-};
+	var days = 1; //定义一天
+	var exp = new Date();
+	exp.setTime(exp.getTime() + days * 24 * 60 * 60 * 1000);
+	// 写入Cookie, toGMTString将时间转换成字符串
+	document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString;
+}
 
-// cookie中取值
+
 function getCookie (name) {
 	var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)"); //匹配字段
 	if (arr = document.cookie.match(reg)) {
@@ -23,39 +19,39 @@ function getCookie (name) {
 	} else {
 		return null;
 	}
-	// console.log ("Cookie-get " + name);
-};
+}
 
-function class2_get (ElementID) {
+function Get (ElementID) {
 	document.getElementById(ElementID).innerHTML;
-	console.log("use 'class2_ListID();' to see IDs.");
-};
+	console.log("use 'ListID();' to see IDs.");
+}
 
-function class2_replace (ElementID,Value) {
+function Replace (ElementID,Value) {
 	document.getElementById(ElementID).innerHTML = Value;
-	console.log("use 'class2_ListID();' to see IDs.");
-};
+	console.log("use 'ListID();' to see IDs.");
+}
 
-function class2_ListID () {
-	console.log("dude!There are some ElementIDs!");
+function ListID () {
+	console.log(UserName + "!There are ElementIDs can change with you!");
 	console.log("times\r\nexam-no\r\nexam-name\r\nexam-type\r\nquestion\r\nchoose-A\r\nchoose-B\r\nchoose-C\r\nchoose-D");
-};
+}
 
 function SetUserName (Name) {
-	var UserName_isset = "ture";
-	var UserName = Name;
-	console.log("THX," + UserName);
-	setCookie("UserName_isset","ture");
 	setCookie("UserName",Name);
-};
-
-// setCookie("UserName","dude");
-var UserName_isset = getCookie("UserName_isset");
-if (UserName_isset = "ture") {
-	var UserName = getCookie("UserName");
-} else {
-	var UserName = "dude";
-};
-console.log("Hey " + UserName + "");
-console.log("Usage: \r\nclass2_replace(id,value); \r\nclass2_get(id); \r\nclass2_ListID();");
-console.log("...can I call you else?(just do 'SetUserName(Name);')");
+	UserName = Name;
+	console.log("THX," + UserName);
+}
+window.onload=function windowLoad () {
+	if (!getCookie("UserName") == "null") {
+		UserName = getCookie("UserName");
+	} else {
+		UserName = "undefined";
+	}
+	console.log("Hey " + UserName + "");
+	console.log("Usage for 2class·SP:");
+	console.log("to list IDs, shell \"ListID();\"");
+	console.log("to read Element by IDs, shell \"Get(id);\"");
+	console.log("to change Element by IDs, shell \"Replace(id,value);\"");
+	console.log("to set UserName, shell \"SetUserName(Name);\"");
+	console.log("to see the these things again, shell \"windowLoad();\"");
+}

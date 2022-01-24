@@ -52,7 +52,7 @@ function changePageType(UA) {
 };
 
 function hwscreen() {
-	hide("warnscreen_bg");
+	hide("WarnScreen_bg");
 }; // 兼容用。
 
 function dpmodeswich(){
@@ -80,12 +80,12 @@ window.onload=function windowload (){
 
 	// 檢查Cookie，以判斷是否顯示warnscreen。
 	if (getCookie("IsReadWarn") == "ture") {
-		hide("warnscreen_bg");
+		hide("WarnScreen_bg");
 	} else if (getCookie("IsReadWarn") == "false") {
-		show("warnscreen_bg");
+		show("WarnScreen_bg");
 	} else {
 		setCookie("IsReadWarn","false");
-		show("warnscreen_bg");
+		show("WarnScreen_bg");
 	};
 
 	// 判斷Cookie中displayMode為何，設定與之相應的css和img。↓
@@ -111,17 +111,17 @@ window.onload=function windowload (){
 	};
 	document.getElementById("warnscreenimg1").fill = "rgba(0,0,0,0)";
 	document.getElementById("warnscreenimg2").fill = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_button").style.backgroundColor = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_button").style.border = "rgba(0,0,0,0)";
+	document.getElementById("WarnScreen_button").style.backgroundColor = "rgba(0,0,0,0)";
+	document.getElementById("WarnScreen_button").style.border = "rgba(0,0,0,0)";
 	document.getElementById("warnscreen_button_word").style.color = "rgba(0,0,0,0)";
-	document.getElementById("warnscreen_bg").style.color = "rgba(0,0,0,0)";
+	document.getElementById("WarnScreen_bg").style.color = "rgba(0,0,0,0)";
 	sleep(350).then(() => {
-		document.getElementById("warnscreen_bg").style.backgroundColor = "rgba(0,0,0,0)";
-		document.getElementById("warnscreen_bg").style.backdropFilter = "none";
-		document.getElementById("warnscreen_button").style.display = "none";
-		document.getElementById("warnscreen_words").style.display = "none";
+		document.getElementById("WarnScreen_bg").style.backgroundColor = "rgba(0,0,0,0)";
+		document.getElementById("WarnScreen_bg").style.backdropFilter = "none";
+		document.getElementById("WarnScreen_button").style.display = "none";
+		document.getElementById("WarnScreen_words").style.display = "none";
 		sleep(350).then(() => {
-			document.getElementById("warnscreen_bg").style.display = "none";
+			document.getElementById("WarnScreen_bg").style.display = "none";
 		});
 	});
 }; */

@@ -9,7 +9,7 @@ function createElement (element,info,root,className) {
 	element_root.className = className;
 	document.getElementById(root).appendChild(element_root);
 }
-function delateElement (elementId) {
+function deleteElement (elementId) {
 	document.getElementById(elementId).style.display = 'none';// for IE
 	document.getElementById(elementId).remove()// full del
 }
@@ -21,8 +21,7 @@ function noallowEnter (events,clickElement) {
 		if (window.event) {
 			window.event.returnValue = false;
 		} else {
-			events.preventDefault();
-			// firefox
+			events.preventDefault(); // firefox
 		}
 	}
 }
@@ -83,7 +82,6 @@ function rrddnnoo (intmin,intmax) {
 
 		document.getElementById('intminwindow').value = "0";
 		intmin = "0";
-		errorTime = "1";
 
 		logOutput("--INFO","intmin 未被定义 或 被定义为为\"null\"，将重置为 0","logzone","p");
 	}
@@ -92,7 +90,6 @@ function rrddnnoo (intmin,intmax) {
 
 		document.getElementById('intmaxwindow').value = "50";
 		intmax = "50";
-		errorTime = "1";
 
 		logOutput("--INFO","intmax 未被定义 或 被定义为为\"null\"，将重置为 50","logzone","p");
 	}
@@ -100,8 +97,7 @@ function rrddnnoo (intmin,intmax) {
 		rePutInt();
 
 		document.getElementById('intmaxwindow').value = "50";
-		intmax = "50";
-		errorTime = "1";
+		intmax = 50;
 
 		logOutput("--INFO","intmax 不可为0，將重设至50","logzone","p");
 	}
@@ -115,37 +111,29 @@ function rrddnnoo (intmin,intmax) {
 		logOutput("ERROR","Not a number","logzone","p");
 		return null;
 	}
-	if (!intmax.match(/(-)/i) && intmax < intmin) {
+	if (!intmax.match(/(-)/i) && intmax-intmin < 0) {
 		document.getElementById("loadword").innerHTML = "Error.";
 		document.getElementById("intdp").innerHTML = "";
-		document.getElementById("intword").innerHTML = "[Error] intmax 不可小于 intmin。";
+		document.getElementById("intword").innerHTML = "[Error] 當intmax為正數時，intmax 不可小于 intmin。";
 
 		logOutput("ERROR","當intmax為正數時，intmax 不可小于 intmin。","logzone","p");
 		return null;
 	}
-	if (intmax.match(/(-)/i) && intmax > intmin) {
+	if (intmax.match(/(-)/i) && intmax-intmin > 0) {
 		document.getElementById("loadword").innerHTML = "Error.";
 		document.getElementById("intdp").innerHTML = "";
-		document.getElementById("intword").innerHTML = "[Error] intmax 不可小于 intmin。";
+		document.getElementById("intword").innerHTML = "[Error] 當intmax為負數時，intmax 不可小于 intmin。";
 
 		logOutput("ERROR","當intmax為負數時，intmax 不可大於 intmin。","logzone","p");
 		return null;
 	}
 	//ERROR area ↑
 
-	if (errorTime == "1") {
-		errorTime = "";
-		// intmax = "50";
-		// intmin = "0";
-		logOutput("--INFO","檢測到遺留下的錯誤訊息。將會確實重新運行程式。","logzone","h5");
-		rrddnnoo(intmin,intmax);
-	}
-
 	logOutput("--INFO","沒有發現影響程式運作的致命問題","logzone","p");
 
 	logOutput("--INFO","正在生成random数","logzone","p");
 			
-	while (!isNaN(intmax) && !isNaN(intmin) && !errorTime == "1" && !intmax.match(/(-)/i)) {
+	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
 		if (randomno <= intmax && randomno >= intmin) {
 			document.getElementById("intword").innerHTML = "no. ";
@@ -159,7 +147,7 @@ function rrddnnoo (intmin,intmax) {
 			return randomno;
 		}
 	}
-	while (!isNaN(intmax) && !isNaN(intmin) && !errorTime == "1" && intmax.match(/(-)/i)) {
+	while (!isNaN(intmax) && !isNaN(intmin) && intmax.match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
 		if (randomno >= intmax && randomno <= intmin && intmax.match(/(-)/i)) {
 			document.getElementById("intword").innerHTML = "no. ";

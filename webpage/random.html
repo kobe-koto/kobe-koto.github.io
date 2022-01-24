@@ -40,9 +40,9 @@
 			<div id="log" class="question-zone">
 				<h3>↓ 需要確實輸出log嗎? ↓</h3>
 				<div>
-					<button class="RGBShake_button" onClick="document.getElementById('logzone').style.display = 'block';delateElement('log');"><a>僅顯示log</a></button>
-					<button class="RGBShake_button" onClick="document.getElementById('numzone').style.display = 'block';delateElement('log');" title="只會記錄數值和日期，按行輸出。（如果你僅在kobe-koto的網站上訪問&下載）"><a>僅顯示num</a></button>
-					<button class="RGBShake_button" onClick="document.getElementById('numzone').style.display = 'block';delateElement('log');" title="log們依然會被記錄下來，存儲到id為logzone的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。"><a>不顯示</a></button>
+					<button class="RGBShake_button" onClick="document.getElementById('logzone').style.display = 'block';deleteElement('log');"><a>僅顯示log</a></button>
+					<button class="RGBShake_button" onClick="document.getElementById('numzone').style.display = 'block';deleteElement('log');" title="只會記錄數值和日期，按行輸出。（如果你僅在kobe-koto的網站上訪問&下載）"><a>僅顯示num</a></button>
+					<button class="RGBShake_button" onClick="document.getElementById('numzone').style.display = 'block';deleteElement('log');" title="log們依然會被記錄下來，存儲到id為logzone的div中，不過不用擔心，這些數據不會上載到任何人的伺服器（如果你僅在kobe-koto的網站上訪問&下載）。"><a>不顯示</a></button>
 				</div>
 			</div>
 			<!--<span id="lang">
@@ -55,7 +55,7 @@
 			<div id="endofset" class="question-zone">
 				<h3 >↓ 最終段階!!ボタンをクリックしてください. ↓</h3>
 				<div>
-					<button class="RGBShake_button" onClick="delateElement('settingzone');"><a>√ MARK DONE √</a></button>
+					<button class="RGBShake_button" onClick="deleteElement('settingzone');"><a>√ MARK DONE √</a></button>
 				</div>
 			</div>
 		</div>
@@ -76,7 +76,7 @@
 			<div style="text-align: left" id="tipZone">
 				<h6>Tip: 要先填數值在點按鈕喲~⭐</h6>
 				<h6>Tip: 在intmax裏敲入負數就可以生成負數了喲~⭐</h6>
-				<h6><a href="javascript:delateElement('tipZone');">HIDE THIS</a></h6>
+				<h6><a href="javascript:deleteElement('tipZone');">HIDE THIS</a></h6>
 			</div>
 		</div>
 		

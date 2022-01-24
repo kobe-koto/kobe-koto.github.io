@@ -3,7 +3,7 @@
 // copyright 2021 kobe-koto
 
 function hwscreen() {
-	document.getElementById("warnscreen_bg").style.display = "none";
+	document.getElementById("WarnScreen_bg").style.display = "none";
 };
 
 function dpmodeswich(){
@@ -31,7 +31,7 @@ function dpmodeswich(){
 window.onload=function(){
 	var isreaded = getCookie("IsReadWarn");
 	if (isreaded == "ture") {
-		hide("warnscreen_bg");
+		hide("WarnScreen_bg");
 	} else if (isreaded == "false") {} else {
 		setCookie("IsReadWarn","false");
 	};

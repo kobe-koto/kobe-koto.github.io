@@ -1,6 +1,6 @@
 @charset "UTF-8";
 // warning
-.warnscreen_bg {
+.WarnScreen_bg {
 	position: fixed;
 	width: 100vh;
 	height: 100vh;
@@ -12,7 +12,7 @@
 	transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);
 	color: #232323;
 }
-.warnscreen_words {
+.WarnScreen_words {
 	position: absolute;
 	top: 50%;
 	left: 50%;

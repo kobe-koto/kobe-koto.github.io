@@ -9,28 +9,24 @@
 	/* hwidth: auto; */
 	height: auto;
 	cursor: pointer;
+
+	background-color: #000000;
+	/* for old↑ new↓ */
 	background-color: rgba(0,0,0,0);
+
 	width: max-content;
-	padding: 0;
+	color:#ffffff;
+	padding: 8px 15px;
 }
 .shakecolor_button:hover {
 	animation:shakecolor_button-x 0.3s linear infinite;
 }
-.shakecolor_button p:hover {
+.shakecolor_button:hover>a {
 	animation:shakecolor_button-a 1s linear infinite;
 }
-.shakecolor_button p {
-	margin: 0;
-	padding: 0px;
-	color:#ffffff;
-}
-.shakecolor_button p a {
-	color:#ffffff;
-	text-decoration:none;
-	padding: 8px 15px;
-	margin: 0;
-	display: block;
-	background: none;
+.shakecolor_button:active {
+	transform: translateY(1px);
+	animation:shakecolor_button-x 0.3s linear infinite;
 }
 @keyframes shakecolor_button-m {
 	10% {
