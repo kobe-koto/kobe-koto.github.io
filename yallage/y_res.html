@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns="">
 	<head>
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="./images/Yallage_icon.png" />
@@ -8,19 +8,24 @@
 		<link href="./css/statement.css" rel="stylesheet" type="text/css">
 		<link href="./css/warning.css" rel="stylesheet" type="text/css">
 		<link href="../css/button_shake_rgb.css" rel="stylesheet" type="text/css">
-		<script src="./js/hideandshow.js" language="javascript"></script>
-		<script src="./js/rwcookie.js" language="javascript"></script>
-		<script src="./js/jsrepo-yallage.js" language="javascript"></script>
+		<script src="./js/hideandshow.js"></script>
+		<script src="./js/rwcookie.js"></script>
+		<script src="./js/jsrepo-yallage.js"></script>
+		<style>
+			.gallery li {
+				margin: 10px auto;
+			}
+		</style>
 		<title>资源列表 | Yallage</title>
 		<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<script src="./js/for-ie9/html5shiv.min.js"></script>
+			<script src="./js/for-ie9/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body>
+	<body id="body">
 		<!-- Main Container -->
 		<div class="container">
 			<!-- Navigation -->
@@ -45,61 +50,65 @@
 			<div class="gallery">
 				<section id="luancher">
 					<h1>Yallage Minecraft 整合免配置启动器</h1>
-					<ol style="list-style-type:decimal">
-						<p>
-							<a>[推荐 Windows] Yallage 完整整合V2.3（不会自己配置，下载这个就够了）.exe </a>
+					<ol style="list-style-type:none">
+						<li>
+							<a>[Windows] Yallage 完整整合V2.3（不会自己配置，下载这个就够了）.exe </a>
 							<a href="https://drive-koto.vercel.app/about_yallage/Yallage%20完整整合V2.3（不会自己配置，下载这个就够了）.exe&raw=true" download="[推荐 Windows] Yallage 完整整合V2.3（不会自己配置，下载这个就够了）.exe">下载</a>
-						</p>
-						<p>
-							<a>犽之谷-PCL.exe </a>
+						</li>
+						<li>
+							<a>[Windows] Yallage 完整整合体验包 v2.0.exe </a>
+							<a href="https://drive-koto.vercel.app/about_yallage/Yallage 完整整合体验包 v2.0.exe&raw=true" download="[推荐 Windows] Yallage 完整整合V2.3（不会自己配置，下载这个就够了）.exe">下载</a>
+						</li>
+						<li>
+							<a>[Windows] 犽之谷-PCL.exe </a>
 							<a href="https://drive-koto.vercel.app/api?path=/about_yallage/犽之谷-PCL.exe&raw=true" download="犽之谷-PCL.exe">下载</a>
-						</p>
-						<p>
+						</li>
+						<li>
+							<a>[Android] MCinaBox.v0.1.4-p5-0119.apk </a>
+							<a href="https://drive-koto.vercel.app/api?path=/about_yallage/MCinaBox.v0.1.4-p5-0119.apk&raw=true" download="[推荐 Android] MCinaBox.v0.1.4-p5-0119.apk">下载</a>
+						</li>
+						<li>
+							<a>[Android] [不明來源，謹慎下載] 手機版游玩犽谷（不明來源，謹慎下載）.apk </a>
+							<a href="https://drive-koto.vercel.app/about_yallage/手機版游玩犽谷（不明來源，謹慎下載）.apk&raw=true" download="[推荐 Windows] Yallage 完整整合V2.3（不会自己配置，下载这个就够了）.exe">下载</a>
+						</li>
+						<li>
 							<a>犽之谷-客户端整合2.0.zip </a>
 							<a href="https://drive-koto.vercel.app/api?path=/about_yallage/犽之谷-客户端整合2.0.zip&raw=true" download="犽之谷-客户端整合2.0.zip">下载</a>
-						</p>
-						<p>
-							<a>[推荐 Android] MCinaBox.v0.1.4-p5-0119.apk </a>
-							<a href="https://drive-koto.vercel.app/api?path=/about_yallage/MCinaBox.v0.1.4-p5-0119.apk&raw=true" download="[推荐 Android] MCinaBox.v0.1.4-p5-0119.apk">下载</a>
-						</p>
+						</li>
 					</ol>
 				</section>
 				<!-- Runtime -->
 				<section id="runtime">
 					<h1>相关依赖文件(即运行时)</h1>
-					<ol style="list-style-type:decimal">
-						<h4>.Net Runtime（如果您还未安装.Net依赖库，请务必下载安装)<button class="button1" onclick="alert('按Win+R\r\n输入cmd（或者powershell）并回车\r\n键入dotnet --info并回车\r\n如果有提示\r\n\r\nHost (useful for support):\r\nVersion: 5.0.8\r\nCommit:  35964c9215\r\n\r\n...\r\n\r\nTo install additional .NET runtimes or SDKs:\r\nhttps://aka.ms/dotnet-download\r\n\r\n或类似内容，则已安装.Net依赖库！')"><font color="#FFFFFF">如何判断.Net是否存在?</font></button></h4>
-						<ol style="list-style-type:decimal">
-							<p>
+					<ol style="list-style-type:none">
+						<li style="font-size: large;font-weight: bold;">.Net Runtime（如果您还未安装.Net依赖库，请务必下载安装)<button class="button1" onclick="alert('按Win+R\r\n输入cmd（或者powershell）并回车\r\n键入dotnet --info并回车\r\n如果有提示\r\n\r\nHost (useful for support):\r\nVersion: 5.0.8\r\nCommit:  35964c9215\r\n\r\n...\r\n\r\nTo install additional .NET runtimes or SDKs:\r\nhttps://aka.ms/dotnet-download\r\n\r\n或类似内容，则已安装.Net依赖库！')">如何判断.Net是否存在?</button></li>
+							<li>
 								<a>.net-5.0.7-x64.exe </a>
 								<a href="https://drive-koto.vercel.app/api?path=/about_yallage/.Net%20Runtime/.net-5.0.7-x64.exe&raw=true" download=".net-5.0.7-x64.exe">下载</a>
-							</p>
-						</ol>
-						<h4>Java Runtime（如果您还未安装Java(JDK/JSE)依赖库，请选择其中的一个)<button class="button1" onclick="alert('按Win+R\r\n输入cmd（或者powershell）并回车\r\n键入java -version并回车\r\n如果有提示\r\n\r\njava version“16.0.1”2021-04-20\r\nJava(TM) SE Runtime Environment (build 16.0.1+9-24)\r\n\r\n或类似内容，则已安装Java依赖库')"><font color="#FFFFFF">如何判断Java是否存在?</font></button></h4>
-						<ol style="list-style-type:decimal">
-							<p>
-								<a>[Java Edition 1.17以下] Jdk-8u291-x64.exe </a>
-								<a href="https://drive-koto.vercel.app/api?path=/about_yallage/Java/jdk-8u291-x64.exe&raw=true" download="[Java Edition 1.17以下] Jdk-8u291-x64.exe">下载</a>
-							</p>
-							<p>
-								<a>[Java Edition 1.17以下] Jre-8u301-i586(x32).exe </a>
-								<a href="https://drive-koto.vercel.app/api?path=/about_yallage/Java/jre-8u301-i586(x32).exe&raw=true" download="[Java Edition 1.17以下] Jre-8u301-i586(x32).exe">下载</a>
-							</p>
-							<p>
-								<a>[Java Edition 1.17以上] Jdk-16.0.1-x64.exe </a>
-								<a href="https://drive-koto.vercel.app/api?path=/about_yallage/Java/jdk-16.0.1-x64.exe&raw=true" download="[Java Edition 1.17以上] Jdk-16.0.1-x64.exe">下载</a>
-							</p>
-						</ol>
+							</li>
+						<li style="font-size: large;font-weight: bold;">Java Runtime（如果您还未安装Java(JDK/JSE)依赖库，请选择其中的一个)<button class="button1" onclick="alert('按Win+R\r\n输入cmd（或者powershell）并回车\r\n键入java -version并回车\r\n如果有提示\r\n\r\njava version“16.0.1”2021-04-20\r\nJava(TM) SE Runtime Environment (build 16.0.1+9-24)\r\n\r\n或类似内容，则已安装Java依赖库')">如何判断Java是否存在?</button></li>
+						<li>
+							<a>[Java Edition 1.17 -] Jdk-8u291-x64.exe </a>
+							<a href="https://drive-koto.vercel.app/api?path=/about_yallage/Java/jdk-8u291-x64.exe&raw=true" download="[Java Edition 1.17以下] Jdk-8u291-x64.exe">下载</a>
+						</li>
+						<li>
+							<a>[Java Edition 1.17 -] Jre-8u301-i586(x32).exe </a>
+							<a href="https://drive-koto.vercel.app/api?path=/about_yallage/Java/jre-8u301-i586(x32).exe&raw=true" download="[Java Edition 1.17以下] Jre-8u301-i586(x32).exe">下载</a>
+						</li>
+						<li>
+							<a>[Java Edition 1.17 +] Jdk-16.0.1-x64.exe </a>
+							<a href="https://drive-koto.vercel.app/api?path=/about_yallage/Java/jdk-16.0.1-x64.exe&raw=true" download="[Java Edition 1.17以上] Jdk-16.0.1-x64.exe">下载</a>
+						</li>
 					</ol>
 				</section>
 				<!-- Full List -->
 				<section id="full">
 					<h1>完整列表</h1>
-					<ol style="list-style-type:decimal">
-						<p><a href="https://drive-koto.vercel.app/about_yallage"><strong>OneDrive</strong></a></p>
-						<p><a href="https://tempest3905-my.sharepoint.com/:f:/g/personal/files_tempest3905_onmicrosoft_com1/Ei45QZmVeWpIjZRSMjm-ZdkB2AZRbzLE-AGw2Cn1CbRvkQ?e=kxZWyr"><strong>OneDrive(原始連結)</strong></a></p>
-						<p><a href="https://share.weiyun.com/XFWYyWoK"><strong>腾讯微云<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></strong></a></p>
-						<p><a href="https://pan.baidu.com/s/1_qTRLNCpV-8LREfyO2J-lA"><strong>百度网盘 密码3905<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></strong></a></p>
+					<ol style="list-style-type:none">
+						<li><a href="https://drive-koto.vercel.app/about_yallage"><strong>OneDrive</strong></a></li>
+						<li><a href="https://tempest3905-my.sharepoint.com/:f:/g/personal/files_tempest3905_onmicrosoft_com1/Ei45QZmVeWpIjZRSMjm-ZdkB2AZRbzLE-AGw2Cn1CbRvkQ?e=kxZWyr"><strong>OneDrive(原始連結)</strong></a></li>
+						<li><a href="https://share.weiyun.com/XFWYyWoK"><strong>腾讯微云<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></strong></a></li>
+						<li><a href="https://pan.baidu.com/s/1_qTRLNCpV-8LREfyO2J-lA"><strong>百度网盘 密码3905<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></strong></a></li>
 					</ol>
 				</section>
 			</div>
@@ -121,6 +130,7 @@
 				</p>
 
 				<hr align="center" width="90%" color="#987cb9" size="1" />
+
 
 				<p>声明：本网站并非Yallage官方网站</p>
 				<p>如果对网站内容有什么建议，可以联系: <a href="mailto:kobe_koto@outlook.com">kobe_koto@outlook.com</a> 或<a href="https://github.com/kobe-koto/kobe-koto.github.io/issues"> 在GitHub提交以"&#91;Yallgae&#93;"开头的Issues.</a></p>
@@ -161,22 +171,11 @@
 				<br />
 				<h3>Yallage服务器地址为</h3>
 				<h3>(主服务器)server.vcraft.top</h3>
-				<h3 title="合作服务器">(离线&amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
-				<button class="shakecolor_button" style="margin: 50px auto;display: block;" onClick="setCookie('IsReadWarn','ture');hide('warnscreen_bg');"><p style="color: #232323;"><a>ENTER</a></p></button>
-			</div>
-		</div>
-		<!-- 用 ChooseWindow(title,word,link) 來定義 -->
-		<div class="WarnScreen_bg" id="center_bg" style="display:none;">
-			<div class="WarnScreen_words">
-				<h2 id="center_title"></h2>
-				<h4 id="center_words"></h4>
-				<span style="margin: 50px auto;">
-					<button class="shakecolor_button"><p><a id="click_button" href="">好</a></p></button>
-					<button class="shakecolor_button" onClick="hide('center_bg');"><p><a>不要</a></p></button>
-				</span>
+				<h3 title="合作服务器">(离线&amp;amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
+				<button class="shakecolor_button" style="margin: 50px auto;display: block;" onClick="setCookie('IsReadWarn','ture');hide('warnscreen_bg');"><a>ENTER</a></button>
 			</div>
 		</div>
 		<!-- Main Container End -->
-		<script language="javascript">windowload();</script>
+		<script>windowload();</script>
 	</body>
 </html>

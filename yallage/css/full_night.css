@@ -83,10 +83,7 @@ hr {
 body {
 	font-family: source-sans-pro;
 	background-color: #000000;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 	font-style: normal;
 	font-weight: 200;
 }
@@ -107,7 +104,7 @@ header {
 .logo {
 	color: #232323;
 	font-weight: bold;
-	text-align: undefined;
+	text-align: unset;
 	width: 10%;
 	float: left;
 	margin-top: 15px;
@@ -149,10 +146,7 @@ ul li:hover a {
 .hero_header {
 	color: #dedede;
 	text-align: center;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 	letter-spacing: 4px;
 	text-shadow: 2px 2px 8px #000000;
 }
@@ -193,7 +187,7 @@ ul li:hover a {
 	padding-top: 35px;
 	display: inline-block;
 	background-color: #FFFFFF;
-	margin-top: 0px;
+	margin-top: 0;
 	clear: both;
 }
 /* Stats Gallery */
@@ -205,12 +199,9 @@ ul li:hover a {
 	background-color: #232323;
 	color: #ffffff;
 	/* [disabled]min-width: 400px; */
-	padding-bottom: 35px;
-	padding-top: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-top: 0px;
-	margin-bottom: 0px;
+	padding: 15px 15px 35px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .gallery img {
     max-width: 100%;
@@ -225,17 +216,11 @@ ul li:hover a {
 	margin-top: 35px;
 }
 .gallery .thumbnail h4 {
-	margin-top: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
+	margin: 5px;
 	color: #52BAD5;
 }
 .gallery .thumbnail p {
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 	color: #A3A3A3;
 }
 /* Parallax Section */
@@ -266,10 +251,7 @@ ul li:hover a {
 	float: right;
 	font-weight: lighter;
 	line-height: 23px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 }
 /* More info */
 footer {
@@ -306,17 +288,11 @@ footer .footer_column p {
 }
 .button {
 	width: 200px;
-	margin-top: 40px;
-	margin-right: auto;
-	margin-bottom: auto;
-	margin-left: auto;
-	padding-top: 20px;
-	padding-right: 10px;
-	padding-bottom: 20px;
-	padding-left: 10px;
+	margin: 40px auto auto;
+	padding: 20px 10px;
 	text-align: center;
 	vertical-align: middle;
-	border-radius: 0px;
+	border-radius: 0;
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 2px;
@@ -331,6 +307,7 @@ footer .footer_column p {
 	cursor: pointer;
 }
 .button1{
+	color: #ffffff;
 	border: none;
 	background: #202124;
 	padding: 4px 8px;
@@ -357,7 +334,7 @@ footer .footer_column p {
 	background-color: #333333;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 footer {
 	display: inline-block;
@@ -377,25 +354,16 @@ footer {
 	.logo {
 		width: 100%;
 		text-align: center;
-		margin-top: 13px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
+		margin: 13px 0 0;
 	}
 	.container header nav {
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
+		margin: 0;
 		width: 100%;
 		float: none;
 		display: none;
 	}
 	nav ul li {
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
+		margin: 0;
 		width: 100%;
 		text-align: center;
 	}
@@ -429,41 +397,26 @@ footer {
 	.text_column {
 		width: 100%;
 		text-align: justify;
-		padding-top: 0px;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
+		padding: 0;
 	}
 	.thumbnail {
 		width: 100%;
 	}
 	.footer_column {
 		width: 100%;
-		margin-top: 0px;
+		margin-top: 0;
 	}
 	.parallax {
 		text-align: center;
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
-		padding-top: 40%;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
+		margin: 0;
+		padding: 40% 0 0;
 		width: 100%;
 		font-size: 18px;
 	}
 	.parallax_description {
-		padding-top: 0px;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
+		padding: 0;
 		width: 90%;
-		margin-top: 25px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 12px;
+		margin: 25px 0 0 12px;
 		float: none;
 		text-align: center;
 	}
@@ -494,10 +447,7 @@ footer {
 	.logo {
 		width: 100%;
 		text-align: center;
-		margin-top: 13px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
+		margin: 13px 0 0;
 	}
 	.container header nav {
 		float: none;
@@ -509,10 +459,7 @@ footer {
 		margin: auto;
 	}
 	nav ul li {
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
+		margin: 0;
 		text-align: center;
 		padding-top: 8px;
 		padding-bottom: 8px;
@@ -521,40 +468,25 @@ footer {
 	.text_column {
 		width: 100%;
 		text-align: left;
-		padding-top: 0px;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
+		padding: 0;
 	}
 	.thumbnail {
 		width: 100%;
 	}
 	.footer_column {
 		width: 100%;
-		margin-top: 0px;
+		margin-top: 0;
 	}
 	.parallax {
 		text-align: center;
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
-		padding-top: 40%;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
+		margin: 0;
+		padding: 40% 0 0;
 		width: 100%;
 		font-size: 18px;
 	}
 	.parallax_description {
-		padding-top: 0px;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
-		margin-top: 30%;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
+		padding: 0;
+		margin: 30% 0 0;
 		float: none;
 		width: 100%;
 		text-align: center;
@@ -563,20 +495,11 @@ footer {
 		width: 50%;
 	}
 	.parallax {
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
-		padding-top: 20%;
+		margin: 0;
+		padding: 20% 0 0;
 	}
 	.parallax_description {
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
+		margin: 0;
 		width: 100%;
 		padding-top: 30px;
 	}
@@ -605,17 +528,11 @@ footer {
 	}
 	.text_column {
 		width: 100%;
-		margin-top: 0px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
-		padding-top: 0px;
-		padding-right: 0px;
-		padding-bottom: 0px;
-		padding-left: 0px;
+		margin: 0;
+		padding: 0;
 	}
 	.banner {
-		margin-top: 0px;
-		padding-top: 0px;
+		margin-top: 0;
+		padding-top: 0;
 	}
 }

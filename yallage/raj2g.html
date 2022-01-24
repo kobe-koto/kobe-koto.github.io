@@ -8,19 +8,19 @@
 		<link href="./css/statement.css" rel="stylesheet" type="text/css">
 		<link href="./css/warning.css" rel="stylesheet" type="text/css">
 		<link href="../css/button_shake_rgb.css" rel="stylesheet" type="text/css">
-		<script src="./js/hideandshow.js" language="javascript"></script>
-		<script src="./js/rwcookie.js" language="javascript"></script>
-		<script src="./js/jsrepo-yallage.js" language="javascript"></script>
+		<script src="./js/hideandshow.js"></script>
+		<script src="./js/rwcookie.js"></script>
+		<script src="./js/jsrepo-yallage.js"></script>
 		<title>注册犽之谷账户 &amp; 加入游戏 | Yallage</title>
 		<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<script src="./js/for-ie9/html5shiv.min.js"></script>
+			<script src="./js/for-ie9/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body>
+	<body id="body">
 		<!-- Main Container -->
 		<div class="container">
 			<!-- Navigation -->
@@ -40,9 +40,9 @@
 			<section class="hero"
 					 id="hero">
 				<h2 class="hero_header">
-					<font color="#FFFFFF">注册犽之谷账户</font>
+					<span style="color: #FFFFFF;">注册犽之谷账户</span>
 					<span class="light"> &amp; </span>
-					<font color="#FFFFFF">加入游戏</font>
+					<span style="color: #FFFFFF;">加入游戏</span>
 				</h2>
 				<p class="tagline">本教程可帮助您快速地注册犽之谷账户以及加入游戏</p>
 			</section>
@@ -58,43 +58,40 @@
 					<hr align="center" width="95%" color="#987cb9" size="1" />
 					<!-- list -->
 					<section id="list">
-						<h3><a href="#list" name="#list">目录</a></h3>
-						<ol style="list-style-type:decimal">
-							<strong>
-								<p style="margin: 0;margin-left: -16px;"><a class="abuttonlikelink">**如果您还不知道Yallage的IP是什么，那只能说明您是个寄吧了**</a></p>
-								<li><a href="#basics">注册&amp;基本信息</a></li>
-								<li><a href="#hmcl">HMCL(Windows/Linux/Mac)</a></li>
-								<li><a href="#pcl">PCL(Windows)</a></li>
-								<li><a href="#mcinabox">MCinaBox(Android)</a></li>
-								<li><a href="#utm">UTM虚拟机(iOS)</a></li>
-								<li><a href="#pojavLauncher">PojavLauncher启动器(仅正版)(iOS)</a></li>
-							</strong>
+						<h3><a href="#list" id="#list">目录</a></h3>
+						<ol style="list-style-type:decimal;font-weight: bold;">
+							<li><a class="abuttonlikelink">**如果您还不知道Yallage的IP是什么，那只能说明您是个寄吧了**</a></li>
+							<li><a href="#basics">注册&amp;基本信息</a></li>
+							<li><a href="#hmcl">HMCL(Windows/Linux/Mac)</a></li>
+							<li><a href="#pcl">PCL(Windows)</a></li>
+							<li><a href="#mcinabox">MCinaBox(Android)</a></li>
+							<li><a href="#utm">UTM虚拟机(iOS)</a></li>
+							<li><a href="#pojavLauncher">PojavLauncher启动器(仅正版)(iOS)</a></li>
 						</ol>
 					</section>
 					<hr align="center" width="95%" color="#987cb9" size="1" />
 					<!--Reg Yallage Acc -->
 					<section id="RYA">
-						<h3><a name="basics"><strong>注册犽之谷账户中心</strong></a></h3>
+						<h3><a id="basics"><strong>注册犽之谷账户中心</strong></a></h3>
 							<ol style="list-style-type:decimal">
-								<h4><a href="https://report.yallage.com/d/32-faq"><strong>Frequently Asked Questions - FAQ常见问题集合<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></strong></a></h4>
-								<h4><strong>*正版用户可以直接进入服务器</strong></h4>
-								<li>前往 <a href="https://login.yallage.com/"><font color="#ff0000">犽之谷账户中心<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></font></a> 注册账号<strong>（Outlook 邮箱不受支持，其他邮箱可能需要等待 5 ~ 7 分钟才能收到验证邮件）</strong></li>
+								<li style="font-weight: bold;font-size: large;"><a href="https://report.yallage.com/d/32-faq"><strong>Frequently Asked Questions - FAQ常见问题集合<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></strong></a></li>
+								<li style="font-weight: bold;font-size: large;">*正版用户可以直接进入服务器</li>
+								<li>前往 <a href="https://login.yallage.com/"><span style="color: #ff0000;">犽之谷账户中心<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></span></a> 注册账号<strong>（Outlook 邮箱不受支持，其他邮箱可能需要等待 5 ~ 7 分钟才能收到验证邮件）</strong></li>
 								<li class="warning"><img class="svg" alt="" src="./images/warning.svg" />请注意：如果您此前已经在犽之谷游戏内注册了账号，并且已经游玩了一段时间，请使用此前在犽之谷服务器内使用的玩家名作为账户中心的角色名！否则您将丢失您此前的游戏进度！同时，如果您此前游玩服务器同样使用的是正版账号，我们推荐您使用正版账号直接登录游戏服务器！</li>
 								<li>在犽之谷账户中心注册后，前往注册填写的邮箱内激活账户，激活账户后即可自由设置皮肤。</li>
 								<li>完成以上步骤后，<strong>请务必牢记您的帐号密码</strong>，若丢失密码，您仍然可以前往犽之谷账户中心使用注册时填写的邮箱找回密码。此账号<strong>通用于犽之谷反馈中心、犽之谷游戏服务器内、注册账号的账户中心</strong>。从第四步开始，我们将介绍如何在启动器中<strong>添加犽之谷账户中心为认证服务器</strong>，并登录游戏，如果您熟悉如何在启动器中添加第三方认证服务器，那么只需要登录后即可畅玩犽之谷
 									<br />
-									<strong>特别说明的是：官方启动器不支持第三方认证服务器，或者说没有直接使用第三方启动器来得简单，所以推荐使用<a href="https://hmcl.huangyuhui.net/"><font color="#ff0000">HMCL(点击跳转至官网)<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></font></a>或<a href="https://afdian.net/p/0164034c016c11ebafcb52540025c377"><font color="#ff0000">PCL(点击跳转至官网)<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></font></a>
-									</strong>
+									特别说明的是：官方启动器不支持第三方认证服务器，或者说没有直接使用第三方启动器来得简单，所以推荐使用<a href="https://hmcl.huangyuhui.net/">HMCL(点击跳转至官网)<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a>或<a href="https://afdian.net/p/0164034c016c11ebafcb52540025c377">PCL(点击跳转至官网)<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a>
 								</li>
 							</ol>
 						</section>
 						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- HMCL Reg -->
-						<section id="HMCL">
-							<h3><a name="hmcl"><font color="#ff0000">HMCL</font></a>使用第三方认证服务器</h3>
+						<section>
+							<h3><a id="hmcl">HMCL</a>使用第三方认证服务器</h3>
 							<ol style="list-style-type:decimal">
-								<h4><strong>*感谢hanbings提供的教程</strong></h4>
-								<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" /><strong>对于Linux和Mac用户，您需要先下载Java，并在HMCL所在目录下执行 <font color="#FF0000">java -jar "HMCL启动器程序名.jar"</font> 才能运行HMCL</strong></h4>
+								<li style="list-style: none;font-weight: bold;font-size: large;">*感谢hanbings提供的教程</li>
+								<li style="list-style: none;font-weight: bold;font-size: large;" class="warning"><img class="svg" alt="" src="./images/warning.svg" />对于Linux和Mac用户，您需要先下载Java，并在HMCL所在目录下执行 java -jar "HMCL启动器程序名.jar" 才能运行HMCL.</li>
 								<li>打开HMCL启动器，并点击新建玩家
 									<br />
 									<img src="./images/raj2g/hmcl_01.png" alt="" />
@@ -119,16 +116,16 @@
 						</section>
 						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- PCL Reg -->
-						<section id="PCL">
-							<h3><a name="pcl"><font color="#ff0000">PCL</font></a>使用第三方认证服务器</h3>
+						<section>
+							<h3><a id="pcl">PCL</a>使用第三方认证服务器</h3>
 							<ol style="list-style-type:decimal">
-								<h4><strong>感谢Pickaxe提供的教程</strong></h4>
-								<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />*PCL仅支持Windows系统</h4>
+								<li style="list-style: none;font-weight: bold;font-size: large;"><strong>感谢Pickaxe提供的教程</strong></li>
+								<li style="list-style: none;font-weight: bold;font-size: large;" class="warning"><img class="svg" alt="" src="./images/warning.svg" />*PCL仅支持Windows系统</li>
 								<li>打开PCL启动器，并点击版本设置
 									<br />
 									<img src="./images/raj2g/pcl_01.png" alt="" />
 								</li>
-								<li>点击设置，在最下面找到登陆方式，选择<font color="#ff0000">"第三方登陆: Authlib-injector"</font>
+								<li>点击设置，在最下面找到登陆方式，选择<span style="font-size: larger;">"第三方登陆: Authlib-injector"</span>
 									<br />
 									<img src="./images/raj2g/pcl_02.png"
 										 alt="" />
@@ -149,42 +146,34 @@
 						</section>
 						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- MCinaBox Reg -->
-						<section id="MCinaBox">
-							<h3><a name="mcinabox">安卓手机<font color="#ff0000">MCinaBox</font>使用第三方认证服务器</a></h3>
+						<section>
+							<h3><a id="mcinabox">安卓手机MCinaBox使用第三方认证服务器</a></h3>
 							<ol style="list-style-type:decimal">
-								<h4>*建议采用<font color="#ff0000">MCinaBox</font>启动器替代Boat，流程<a href="#HMCL">与HMCL相同</a>
-								</h4>
-								<h4><a href="https://github.com/AOF-Dev/MCinaBox/releases">MCinaBox Github 下载<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a></h4>
-								<h4><a href="https://link.jscdn.cn/sharepoint/aHR0cHM6Ly90ZW1wZXN0MzkwNS1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9maWxlc190ZW1wZXN0MzkwNV9vbm1pY3Jvc29mdF9jb20xL0VUNWVQY3BhSUNaQWh0M0ZqZk1HZEJNQjVMYTZ5OXhLY1djeDZWTVYwZEpqNkE_ZT1ZR1VsZ1E.apk">备用下载(OneDrive)</a></h4>
-								<iframe src="https://player.bilibili.com/player.html?bvid=BV11e411s77D&page=1"
-										scrolling="no"
-										border="0"
-										frameborder="no"
-										framespacing="0"
-										allowfullscreen="true"
-										style="min-width: 75%;min-height: 550px;max-width: 95%;max-height: 100%;">
-								</iframe>
+								<li style="list-style: none;font-weight: bold;font-size: large;">*建议采用MCinaBox启动器替代Boat，流程<a href="#hmcl">与HMCL相同</a></li>
+								<li style="list-style: none;font-weight: bold;font-size: large;"><a href="https://github.com/AOF-Dev/MCinaBox/releases">MCinaBox Github 下载<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a></li>
+								<li style="list-style: none;font-weight: bold;font-size: large;"><a href="https://link.jscdn.cn/sharepoint/aHR0cHM6Ly90ZW1wZXN0MzkwNS1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9maWxlc190ZW1wZXN0MzkwNV9vbm1pY3Jvc29mdF9jb20xL0VUNWVQY3BhSUNaQWh0M0ZqZk1HZEJNQjVMYTZ5OXhLY1djeDZWTVYwZEpqNkE_ZT1ZR1VsZ1E.apk">备用下载(OneDrive)</a></li>
 							</ol>
+							<iframe src="https://player.bilibili.com/player.html?bvid=BV11e411s77D&page=1" allowfullscreen="true" style="min-width: 75%;min-height: 550px;max-width: 95%;max-height: 100%;"></iframe>
 						</section>
 						<hr align="center" width="95%" color="#987cb9" size="1" />
 						<!-- I(PAD) OS Reg -->
 						<section id="I(PAD) OS">
 							<h3>iPheone 和 iPad 使用第三方认证服务器</h3>
-							<section id="UTM">
-								<h4><a name="utm">UTM安装简述</a></h4>
+							<section>
+								<li style="list-style: none;font-weight: bold;font-size: large;"><a id="utm">UTM安装简述</a></li>
 								<ol style="list-style-type:decimal">
-									<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />必须注意，由于一个 iOS 的系统漏洞，在退出 UTM 时必须使用主界面左上角的叉按钮或者虚拟机运行时工具栏上的关闭按钮，不可在 App 切换器里上滑 UTM 卡片来强制关闭。否则，UTM 可能无法启动或者导致死机，需要重启设备才能恢复正常</h4>
+									<li style="list-style: none;font-weight: bold;font-size: large;" class="warning"><img class="svg" alt="" src="./images/warning.svg" />必须注意，由于一个 iOS 的系统漏洞，在退出 UTM 时必须使用主界面左上角的叉按钮或者虚拟机运行时工具栏上的关闭按钮，不可在 App 切换器里上滑 UTM 卡片来强制关闭。否则，UTM 可能无法启动或者导致死机，需要重启设备才能恢复正常</li>
 									<li>在创建虚拟机前，您需要先下载好欲安装的系统镜像，并导入到您的设备上。点击UTM SE主界面右上角的加号按钮，可呼出创建虚拟机界面</li>
-									<img src="./images/raj2g/ios_01.png" alt="" />
+									<li><img src="./images/raj2g/ios_01.png" alt="" /></li>
 									<li>新建好虚拟机之后请按物理机器的方法安装系统</li>
 									<li>安装完成之后视虚拟系统和个人喜好选择Minecraft启动器即可</li>
 								</ol>
 							</section>
 							<hr align="center" width="95%" color="#987cb9" size="1" />
-							<section id="pojavLauncher">
-								<h3><a name="pojavLauncher">ios/ipad os使用PojavLauncher登录正版账号</a></h3>
+							<section>
+								<h3><a id="pojavLauncher">ios/ipad os使用PojavLauncher登录正版账号</a></h3>
 								<ol style="list-style-type:decimal">
-									<h4 class="warning"><img class="svg" alt="" src="./images/warning.svg" />您只能越狱后使用 PojavLauncher</h4>
+									<li style="list-style: none;font-weight: bold;font-size: large;" class="warning"><img class="svg" alt="" src="./images/warning.svg" />您只能越狱后使用 PojavLauncher</li>
 									<li>下载 PojavLauncher(需要openJDK支持
 										<a href="https://apt.procurs.us/pool/main/iphoneos-arm64/1700/openjdk-16-jre_16.0.0+git20201217.8383f41-2_iphoneos-arm.deb">下载openJDK<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a> 
 										<a href="https://www.ios-repo-updates.com/repository/procursus/package/openjdk-16-jre/">源页面<img style="margin-bottom: -2px;" src="./images/link.svg" alt="" title="此图示代表您即将访问的链接不受我们控制。因此请确认您知晓继续访问的风险。并请记住阅读该网站的隐私政策。"></a>
@@ -258,22 +247,11 @@
 				<br />
 				<h3>Yallage服务器地址为</h3>
 				<h3>(主服务器)server.vcraft.top</h3>
-				<h3 title="合作服务器">(离线&amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
-				<button class="shakecolor_button" style="margin: 50px auto;display: block;" onClick="setCookie('IsReadWarn','ture');hide('warnscreen_bg');"><p style="color: #232323;"><a>ENTER</a></p></button>
-			</div>
-		</div>
-		<!-- 用 ChooseWindow(title,word,link) 來定義 -->
-		<div class="WarnScreen_bg" id="center_bg" style="display:none;">
-			<div class="WarnScreen_words">
-				<h2 id="center_title"></h2>
-				<h4 id="center_words"></h4>
-				<span style="margin: 50px auto;">
-					<button class="shakecolor_button"><p><a id="click_button" href="">好</a></p></button>
-					<button class="shakecolor_button" onClick="hide('center_bg');"><p><a>不要</a></p></button>
-				</span>
+				<h3 title="合作服务器">(离线&amp;amp;正版 都市模拟生存服)d6.akkocloud.com:10346</h3>
+				<button class="shakecolor_button" style="margin: 50px auto;display: block;" onClick="setCookie('IsReadWarn','ture');hide('warnscreen_bg');"><a>ENTER</a></button>
 			</div>
 		</div>
 		<!-- Main Container End -->
-		<script language="javascript">windowload();</script>
+		<script>windowload();</script>
 	</body>
 </html>

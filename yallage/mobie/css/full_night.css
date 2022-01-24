@@ -52,10 +52,7 @@ hr {
 body {
 	font-family: source-sans-pro;
 	background-color: #000000;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 	font-style: normal;
 	font-weight: 200;
 }
@@ -81,10 +78,7 @@ header {
 	transition: all 0.2s cubic-bezier(0.74, 0.51, 1, 1.24);
 	width: 100%;
 	text-align: center;
-	margin-top: 13px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 13px 0 0;
 }
 .logo:hover {
 	color: #2C9AB7;
@@ -96,10 +90,7 @@ nav {
 	margin-right: 25px;
 }
 .container header nav {
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 	width: 100%;
 	float: none;
 }
@@ -119,7 +110,7 @@ nav ul li {
 	color: #FFFFFF;
 	font-size: 14px;
 	text-align: center;
-	margin: 0px;
+	margin: 0;
 	letter-spacing: 2px;
 	font-weight: bold;
 	transition: all 0.3s linear;
@@ -136,16 +127,12 @@ ul li:hover a {
 .hero_header {
 	color: #FFFFFF;
 	text-align: center;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 	letter-spacing: 4px;
 	text-shadow: 2px 2px 8px #000000;
 	padding-left: 10px;
 	padding-right: 10px;
 	line-height: 22px;
-	text-align: center;
 }
 /* Hero Section */
 .hero {
@@ -176,8 +163,7 @@ ul li:hover a {
 	float: left;
 	color: #A3A3A3;
 	width: 100%;
-	text-align: justify;
-	padding: 0px;
+	padding: 0;
 }
 .about {
 	padding-left: 25px;
@@ -185,7 +171,7 @@ ul li:hover a {
 	padding-top: 35px;
 	display: inline-block;
 	background-color: #FFFFFF;
-	margin-top: 0px;
+	margin-top: 0;
 	clear: both;
 }
 /* Stats Gallery */
@@ -197,12 +183,9 @@ ul li:hover a {
 	background-color: #232323;
 	color: #ffffff;
 	/* [disabled]min-width: 400px; */
-	padding-bottom: 35px;
-	padding-top: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-top: 0px;
-	margin-bottom: 0px;
+	padding: 15px 15px 35px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .gallery img {
     max-width: 100%;
@@ -217,17 +200,11 @@ ul li:hover a {
 	margin-top: 35px;
 }
 .gallery .thumbnail h4 {
-	margin-top: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
+	margin: 5px;
 	color: #52BAD5;
 }
 .gallery .thumbnail p {
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin: 0;
 	color: #A3A3A3;
 }
 /* Parallax Section */
@@ -244,17 +221,13 @@ ul li:hover a {
 }
 .parallax {
 	color: #FFFFFF;
-	text-align: right;
 	letter-spacing: 2px;
 	text-align: center;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 25px;
-	margin-left: 0px;
+	margin: 0 0 25px;
 	/* padding-top: 20px; */
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
 	width: 100%;
 	font-size: 18px;
 }
@@ -281,7 +254,7 @@ footer {
 	padding-top: 30px;
 	/* float: left; */
 	width: 100%;
-	margin-top: 0px;
+	margin-top: 0;
 }
 footer .footer_column h3 {
 	color: #f9f9f9;
@@ -307,17 +280,11 @@ footer .footer_column p {
 }
 .button {
 	width: 200px;
-	margin-top: 40px;
-	margin-right: auto;
-	margin-bottom: auto;
-	margin-left: auto;
-	padding-top: 20px;
-	padding-right: 10px;
-	padding-bottom: 20px;
-	padding-left: 10px;
+	margin: 40px auto auto;
+	padding: 20px 10px;
 	text-align: center;
 	vertical-align: middle;
-	border-radius: 0px;
+	border-radius: 0;
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 2px;
@@ -358,7 +325,7 @@ footer .footer_column p {
 	background-color: #333333;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 /* footer {
 	display: inline-block;

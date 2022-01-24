@@ -78,11 +78,13 @@ function dpmodeswich(){
 
 function windowload () {
 
-	// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
-	if (window.outerHeight > window.outerWidth) {
-		ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
-	} else {
-		changePageType("auto");
+	if (!window.location.href.match(mobie)) {
+		// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
+		if (window.outerHeight > window.outerWidth) {
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
+		} else {
+			changePageType("auto");
+		}
 	}
 
 	// 檢查Cookie，以判斷是否顯示warnscreen。
