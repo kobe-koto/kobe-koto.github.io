@@ -253,6 +253,10 @@ ul li:hover a {
 	line-height: 23px;
 	margin: 0;
 }
+table,tr,td {
+	width: max-content;
+	width: -moz-max-content;
+}
 /* More info */
 footer {
 	background-color: #232323;

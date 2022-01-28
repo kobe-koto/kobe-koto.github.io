@@ -254,6 +254,10 @@ ul li:hover a {
 	line-height: 23px;
 	margin: 0;
 }
+.parallax_description table,.parallax_description table tr,.parallax_description table tr td {
+	width: max-content;
+	width: -moz-max-content;
+}
 /* More info */
 footer {
 	background-color: #FFFFFF;

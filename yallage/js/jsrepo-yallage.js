@@ -2,6 +2,33 @@
 // Made with heart by kobe-koto in AGPL-3.0 License License
 // copyright 2021 kobe-koto
 
+function checkIP (host,callId) {
+	document.getElementById(callId).innerHTML = " Checking";
+	var img = new Image();
+	var flag = false;
+	var isCloseWifi = true;
+	var hasFinish = false;
+	setTimeout(function(){
+		isCloseWifi = false;
+	},2);
+	img.src = 'http://' + host + '/' + new Date().getTime();
+	img.onload = img.onerror = function() {
+		if ( !hasFinish ) {
+			flag = true;
+			hasFinish = true;
+			console.log('Ping ' + host + ' success. ');
+			document.getElementById(callId).innerHTML = " 連結成功";
+		}
+	};
+	var timer = setTimeout(function() {
+		if ( !flag ) {
+			hasFinish = true;
+			flag = false ;
+			console.log('Ping ' + host + ' fail. ');
+			document.getElementById(callId).innerHTML = " 連結失敗";
+		}
+	}, 5000);
+}
 function ChooseWindow (title, word, link) {
 	createElement("div","<div class=\"WarnScreen_words\"><h2>"+title+"</h2><h4>"+word+"</h4><div class=\"WarnScreen_button\"><button class=\"shakecolor_button\" onclick=\""+link+"\">好</button><button class=\"shakecolor_button\" onClick=\"deleteElement('WarnScreen_bg');\"><a>不要</a></button></div></div>","body","WarnScreen_bg","WarnScreen_bg");
 	// 如函數所示。。()
@@ -78,7 +105,7 @@ function dpmodeswich(){
 
 function windowload () {
 
-	if (!window.location.href.match(mobie)) {
+	if (!window.location.href.match(/(mobie)/i)) {
 		// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
 		if (window.outerHeight > window.outerWidth) {
 			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
@@ -89,12 +116,12 @@ function windowload () {
 
 	// 檢查Cookie，以判斷是否顯示warnscreen。
 	if (getCookie("IsReadWarn") == "ture") {
-		hide("WarnScreen_bg");
+		hide("warnscreen_bg");
 	} else if (getCookie("IsReadWarn") == "false") {
-		show("WarnScreen_bg");
+		show("warnscreen_bg");
 	} else {
 		setCookie("IsReadWarn","false");
-		show("WarnScreen_bg");
+		show("warnscreen_bg");
 	}
 
 	// 判斷Cookie中displayMode為何，設定與之相應的css和img。↓

@@ -1,0 +1,39 @@
+<doctype html>
+<html>
+    <head>
+        <meta charset="gb2312">
+        <title>ji</title>
+        <script>
+            function check (host) {
+                var img = new Image();
+                var flag = false;
+                var isCloseWifi = true;
+                var hasFinish = false;
+                setTimeout(function(){
+                    isCloseWifi = false;
+                },2);
+                img.src = 'http://' + host + '/' + new Date().getTime();
+                img.onload = img.onerror = function() {
+                    if ( !hasFinish ) {
+                        flag = true;
+                        hasFinish = true;
+                        console.log('Ping ' + host + ' success. ');
+                        return "true";
+                    }
+                };
+                var timer = setTimeout(function() {
+                    if ( !flag ) {
+                        hasFinish = true;
+                        flag = false ;
+                        console.log('Ping ' + host + ' fail. ');
+                        return "false";
+                    }
+                }, 1500);
+            }
+        </script>
+    </head>
+    <body>
+    <button onclick="check('www.google.com:80');">google-80</button>
+    <button onclick="check('www.bing.com');">bing</button>
+    </body>
+</html>
