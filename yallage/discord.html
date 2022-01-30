@@ -4,13 +4,14 @@
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="./images/Yallage_icon.png" />
 		<link id="centercss" href="./css/full_light.css" rel="stylesheet" type="text/css">
+		<link href="./css/main.css" rel="stylesheet" type="text/css">
 		<link href="./css/hyperlinks.css" rel="stylesheet" type="text/css">
 		<link href="./css/statement.css" rel="stylesheet" type="text/css">
 		<link href="./css/warning.css" rel="stylesheet" type="text/css">
-		<link href="../css/button_shake_rgb.css" rel="stylesheet" type="text/css">
+		<link href="./css/button_shake_rgb.css" rel="stylesheet" type="text/css">
 		<script src="./js/hideandshow.js"></script>
 		<script src="./js/rwcookie.js"></script>
-		<script src="./js/jsrepo-yallage.js"></script>
+		<script id="jsrepo" src="./js/jsrepo-yallage.js"></script>
 		<title>discord FAQ | Yallage</title>
 		<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -26,7 +27,10 @@
 			<!-- Navigation -->
 			<header style="top: 0;">
 				<h4>
-					<button class="logo" onClick="window.open('./index.html')" style="background: none;border: none;font-size: large;">Yallage</button>
+					<button class="logo" onClick="window.open('./index.html')">
+						<video src="./media/YallageIco.mp4" id="yallageIco" loop autoplay></video>
+						| Yallage
+					</button>
 				</h4>
 				<nav>
 					<ul>

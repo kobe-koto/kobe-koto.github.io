@@ -105,6 +105,15 @@ function dpmodeswich(){
 
 function windowload () {
 
+	document.getElementById("yallageIco").volume = 0;
+	var YallageIcoVideoNotPlayFixer = ((function () {
+		if (!document.getElementById("yallageIco").paused) {
+			clearInterval(YallageIcoVideoNotPlayFixer);
+		} else if (document.getElementById("yallageIco").paused) {
+			document.getElementById("yallageIco").play();
+		}
+	}),100)
+
 	if (!window.location.href.match(/(mobie)/i)) {
 		// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
 		if (window.outerHeight > window.outerWidth) {

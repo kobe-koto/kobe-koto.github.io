@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //ended()
+        window.onload=window.onerror=function () {
+            document.getElementById("yallageIco").volume = 0;
+            if (document.getElementById("yallageIco").paused) {
+                document.getElementById("yallageIco").play();
+            }
+        }
+    </script>
+</head>
+<body>
+<video src="./YV.mp4" id="yallageVideo" loop autoplay></video>
+</body>
+</html>

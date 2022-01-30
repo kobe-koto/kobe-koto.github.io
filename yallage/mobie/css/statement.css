@@ -32,6 +32,12 @@
 	background-color: rgba(0, 50, 50, 0.75);
 	backdrop-filter: blur(25px);
 }
+.WarnScreen_button {
+	margin: 50px auto;
+}
+.WarnScreen_button button {
+	margin: auto 25px;
+}
 .WarnScreen_words {
 	transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);
 	position: absolute;

@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="./images/Yallage_icon.png" />
 		<link id="centercss" href="./css/full_light.css" rel="stylesheet" type="text/css">
+		<link href="./css/main.css" rel="stylesheet" type="text/css">
 		<link href="./css/hyperlinks.css" rel="stylesheet" type="text/css">
 		<link href="./css/statement.css" rel="stylesheet" type="text/css">
 		<link href="./css/warning.css" rel="stylesheet" type="text/css">
@@ -26,7 +27,10 @@
 			<!-- Navigation -->
 			<header style="top: 0;">
 				<h4>
-					<button class="logo" onClick="window.open('./index.html')" style="background: none;border: none;font-size: large;">Yallage</button>
+					<button class="logo" onClick="window.open('./index.html')">
+						<video src="./media/YallageIco.mp4" id="yallageIco" loop autoplay></video>
+						| Yallage
+					</button>
 				</h4>
 				<nav>
 					<ul>
@@ -52,11 +56,12 @@
 						<tr><td>请自行检测可用性.</td></tr>
 					</table>
 					<table style="text-align: right;float: right;">
-						<tr><td>(推荐)server.vcraft.top</td></tr>
-						<tr><td title="合作服务器">(或许支持离线&amp;正版 都市模拟生存服)d6.akkocloud.com:10346<!-- sq.sever.sdsju.com:12324 --></td></tr>
-						<tr><td>follback.vcraft.top</td></tr>
-						<tr><td>yallage.vcraft.top</td></tr>
-						<tr><td>play.yallage.com</td></tr>
+						<tr><td>(推介)</td><td onclick="checkIP(this.innerHTML,'svt')">server.vcraft.top</td><td id="svt"></td></tr>
+						<tr><td>(推介)</td><td onclick="checkIP(this.innerHTML,'yvt')">yallage.vcraft.top</td><td id="yvt"></td></tr>
+						<tr><td>(推介)</td><td onclick="checkIP(this.innerHTML,'pyco')">play.yallage.co</td><td id="pyco"></td></tr>
+						<tr><td>(合作 都市模拟生存)</td><td onclick="checkIP(this.innerHTML,'d6akk')">d6.akkocloud.com:10346</td><td id="d6akk"></td></tr>
+						<tr><td>(不確定-狀態碼500)</td><td onclick="checkIP(this.innerHTML,'fvt')">follback.vcraft.top</td><td id="fvt"></td></tr>
+						<tr><td>(基本棄用)</td><td onclick="checkIP(this.innerHTML,'pycom')">play.yallage.com</td><td id="pycom"></td></tr>
 					</table>
 
 				</div>
