@@ -37,7 +37,7 @@ function formattedDate() {
 	return formattedDate;
 }
 function logOutput(type,info,putTo,element) {
-	createElement(element,"[" + type + " | " + formattedDate() + "] " + info,putTo,"");
+	createElement(element,"[" + type + "] [" + formattedDate() + "] " + info,putTo,"");
 	console.log("[" + type + " | " + formattedDate() + "]" + info);
 }
 function rePutInt() {
@@ -46,93 +46,71 @@ function rePutInt() {
 }
 function rrddnnoo (intmin,intmax) {
 	// document.getElementById("intwindow").value;
-	logOutput("INFO","ProgramStart","logzone","h4");
-	errorTime = "";
 	rePutInt();
 
-	logOutput("STEP","确定给定的值是否为被特别指定的字符串","logzone","p");
-
-	// console.log("[step] determines if the given value is a special string.");
-	
 	if (intmax.match(/(114514|1919810)/i) || intmin.match(/(114514|1919810)/i)){
 		document.getElementById("intdp").innerHTML = "😱";
 		document.getElementById("intword").innerHTML = "臭死了";
-
 		document.getElementById("loadword").innerHTML = "That an Easter Egg.";
 
-		logOutput("--INFO","An Easter egg has been found!","logzone","p");
+		logOutput("INFO","An Easter egg has been found!","logzone","p");
 		return null;
 	}
 	if (intmax.match(/(kobe|koto)/i) || intmin.match(/(kobe|koto)/i)) {
 		document.getElementById("intdp").innerHTML = "🧐";
 		document.getElementById("intword").innerHTML = "不要质疑kobe koto.";
-
 		document.getElementById("loadword").innerHTML = "That an Easter Egg.";
 
-		logOutput("--INFO","An Easter egg has been found!","logzone","p");
+		logOutput("INFO","An Easter egg has been found!","logzone","p");
 		return null;
 	}
 
-	logOutput("--INFO","沒有找到特别指定的字符串","logzone","p");
-
-	logOutput("STEP","确定给定的值是否正确","logzone","p");
-
 	if (intmin === "" || intmin === "null") {
 		rePutInt();
-
-		document.getElementById('intminwindow').value = "0";
-		intmin = "0";
-
-		logOutput("--INFO","intmin 未被定义 或 被定义为为\"null\"，将重置为 0","logzone","p");
+		logOutput("ERROR","intmin 未被定义 或 被定义为为\"null\"","logzone","p");
+		document.getElementById("loadword").innerHTML = "[ERROR] intmin 未被定义 或 被定义为为\"null\"";
+		return null;
 	}
 	if (intmax === "" || intmax === "null") {
 		rePutInt();
-
-		document.getElementById('intmaxwindow').value = "50";
-		intmax = "50";
-
-		logOutput("--INFO","intmax 未被定义 或 被定义为为\"null\"，将重置为 50","logzone","p");
+		logOutput("ERROR","intmax 未被定义 或 被定义为为\"null\"","logzone","p");
+		document.getElementById("loadword").innerHTML = "[ERROR] intmax 未被定义 或 被定义为为\"null\"";
+		return null;
 	}
 	if (intmax == "0") {
 		rePutInt();
-
-		document.getElementById('intmaxwindow').value = "50";
-		intmax = 50;
-
-		logOutput("--INFO","intmax 不可为0，將重设至50","logzone","p");
+		logOutput("ERROR","intmax 不可为0","logzone","p");
+		document.getElementById("loadword").innerHTML = "[ERROR] intmax 不可为0";
+		return null;
 	}
-			
-	//ERROR area ↓
+	if (intmax == "0" && intmin == "0") {
+		rePutInt();
+		logOutput("ERROR","请确实输入正确的数字!","logzone","p");
+		document.getElementById("loadword").innerHTML = "[ERROR] 请确实输入正确的数字!";
+		return null;
+	}
 	if(isNaN(intmax) || isNaN(intmin)){
-		document.getElementById("loadword").innerHTML = "Error.";
-		document.getElementById("intdp").innerHTML = "";
+		rePutInt();
 		document.getElementById("intword").innerHTML = "[Error] Not a number";
 
 		logOutput("ERROR","Not a number","logzone","p");
 		return null;
 	}
 	if (!intmax.match(/(-)/i) && intmax-intmin < 0) {
-		document.getElementById("loadword").innerHTML = "Error.";
-		document.getElementById("intdp").innerHTML = "";
+		rePutInt();
 		document.getElementById("intword").innerHTML = "[Error] 當intmax為正數時，intmax 不可小于 intmin。";
 
 		logOutput("ERROR","當intmax為正數時，intmax 不可小于 intmin。","logzone","p");
 		return null;
 	}
 	if (intmax.match(/(-)/i) && intmax-intmin > 0) {
-		document.getElementById("loadword").innerHTML = "Error.";
-		document.getElementById("intdp").innerHTML = "";
+		rePutInt();
 		document.getElementById("intword").innerHTML = "[Error] 當intmax為負數時，intmax 不可小于 intmin。";
 
 		logOutput("ERROR","當intmax為負數時，intmax 不可大於 intmin。","logzone","p");
 		return null;
 	}
 	//ERROR area ↑
-
-	logOutput("--INFO","沒有發現影響程式運作的致命問題","logzone","p");
-
-	logOutput("--INFO","正在生成random数","logzone","p");
-			
 	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
 		if (randomno <= intmax && randomno >= intmin) {
@@ -141,8 +119,8 @@ function rrddnnoo (intmin,intmax) {
 
 			document.getElementById("loadword").innerHTML = "Success.";
 
-			logOutput("--INFO", "Success,num is " + randomno, "numzone", "h5");
-			logOutput("--INFO", "Success,num is " + randomno, "logzone", "h5");
+			logOutput("INFO", "Success,num: " + randomno, "numzone", "h5");
+			logOutput("INFO", "Success,num: " + randomno, "logzone", "h5");
 
 			return randomno;
 		}
@@ -155,8 +133,8 @@ function rrddnnoo (intmin,intmax) {
 
 			document.getElementById("loadword").innerHTML = "Success.";
 
-			logOutput("--INFO","Success,num is " + randomno,"numzone","h5");
-			logOutput("--INFO","Success,num is " + randomno,"logzone","h5");
+			logOutput("INFO","Success,num: " + randomno,"numzone","h5");
+			logOutput("INFO","Success,num: " + randomno,"logzone","h5");
 
 			return randomno;
 		}
