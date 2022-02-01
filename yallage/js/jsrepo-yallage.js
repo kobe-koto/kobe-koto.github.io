@@ -90,13 +90,11 @@ function dpmodeswich(){
 		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
 		document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
 		setCookie("display-mode","light");
-		console.log ("sun: to light");
 	} else if (document.getElementById("centercss").attributes.href.value == "./css/full_light.css") {
 		// night模式。
 		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/moon.svg";
 		document.getElementById("centercss").attributes.href.value = "./css/full_night.css";
 		setCookie("display-mode","night");
-		console.log ("moon: to night");
 	} else {
 		console.log ("what?");
 		// 爲什麽會這樣呢?（）
