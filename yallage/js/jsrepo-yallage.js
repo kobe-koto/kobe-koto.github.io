@@ -51,10 +51,10 @@ function changePageType(UA) {
 			// 我感jio這個是IE。。。
 			return "IE";
 		} else if (navigator.userAgent.match(/(iPhone|Android)/i)) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById(\"typecss\").href = \"./css/mobie_main.css\";");
 			return "Mobie";
 		} else if (navigator.userAgent.match(/(iPad|Pad|HD)/i)) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById(\"typecss\").href = \"./css/mobie_main.css\";");
 			return "Pad";
 		} else if (navigator.userAgent.match(/(Mac|Windows)/i)) {
 			return "Desktop";
@@ -117,7 +117,7 @@ function windowload () {
 	if (!window.location.href.match(/(mobie)/i)) {
 		// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
 		if (window.outerHeight > window.outerWidth) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","./mobie/index.html");
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById(\"typecss\").href = \"./css/mobie_main.css\";");
 		} else {
 			changePageType("auto");
 		}
