@@ -30,7 +30,7 @@ function checkIP (host,callId) {
 	}, 5000);
 }
 function ChooseWindow (title, word, link) {
-	createElement("div","<div class=\"WarnScreen_words\"><h2>"+title+"</h2><h4>"+word+"</h4><div class=\"WarnScreen_button\"><button class=\"shakecolor_button\" onclick=\""+link+"\">好</button><button class=\"shakecolor_button\" onClick=\"deleteElement('WarnScreen_bg');\"><a>不要</a></button></div></div>","body","WarnScreen_bg","WarnScreen_bg");
+	createElement("div","<div class=\"WarnScreen_words\"><h2>"+title+"</h2><h4>"+word+"</h4><div class=\"WarnScreen_button\"><button class=\"shakecolor_button\" onclick=\""+link+"\">好</button><button class=\"shakecolor_button\" onClick=\"deleteElement('WarnScreen_tmpMsg');\"><a>不要</a></button></div></div>","body","WarnScreen_bg","WarnScreen_tmpMsg");
 	// 如函數所示。。()
 }
 function createElement (element,info,root,className,id) {
@@ -41,8 +41,12 @@ function createElement (element,info,root,className,id) {
 	document.getElementById(root).appendChild(element_root);
 }
 function deleteElement (elementId) {
-	document.getElementById(elementId).style.display = 'none';// for IE
-	document.getElementById(elementId).remove();// full del
+	setTimeout(function () {
+		document.getElementById(elementId).style.display = 'none';// for IE
+	},1)
+	setTimeout(function () {
+		document.getElementById(elementId).remove();// full del
+	},1)
 }
 function changePageType(UA) {
 	// 用"navigator.userAgent"來獲得瀏覽器UA & 使用正則表達式查找匹配字段。
@@ -51,10 +55,10 @@ function changePageType(UA) {
 			// 我感jio這個是IE。。。
 			return "IE";
 		} else if (navigator.userAgent.match(/(iPhone|Android)/i)) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById(\"typecss\").href = \"./css/mobie_main.css\";");
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById('typecss').href = './css/mobie_main.css';deleteElement('WarnScreen_tmpMsg');");
 			return "Mobie";
 		} else if (navigator.userAgent.match(/(iPad|Pad|HD)/i)) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById(\"typecss\").href = \"./css/mobie_main.css\";");
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById('typecss').href = './css/mobie_main.css';deleteElement('WarnScreen_tmpMsg');");
 			return "Pad";
 		} else if (navigator.userAgent.match(/(Mac|Windows)/i)) {
 			return "Desktop";
@@ -115,7 +119,7 @@ function windowload () {
 	if (!window.location.href.match(/(mobie)/i)) {
 		// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
 		if (window.outerHeight > window.outerWidth) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById(\"typecss\").href = \"./css/mobie_main.css\";");
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById('typecss').href = './css/mobie_main.css';deleteElement('WarnScreen_tmpMsg');");
 		} else {
 			changePageType("auto");
 		}
