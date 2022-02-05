@@ -55,10 +55,8 @@ function changePageType(UA) {
 			// 我感jio這個是IE。。。
 			return "IE";
 		} else if (navigator.userAgent.match(/(iPhone|Android)/i)) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById('typecss').href = './css/mobie_main.css';deleteElement('WarnScreen_tmpMsg');");
 			return "Mobie";
 		} else if (navigator.userAgent.match(/(iPad|Pad|HD)/i)) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById('typecss').href = './css/mobie_main.css';deleteElement('WarnScreen_tmpMsg');");
 			return "Pad";
 		} else if (navigator.userAgent.match(/(Mac|Windows)/i)) {
 			return "Desktop";
@@ -101,7 +99,10 @@ function dpmodeswich(){
 		setCookie("display-mode","night");
 	} else {
 		console.log ("what?");
-		// 爲什麽會這樣呢?（）
+		console.error("Element #dpmodeswichimg attributes[3].value is worng.reset to light mode.");
+		document.getElementById("dpmodeswichimg").attributes[3].value = "./images/sun.svg";
+		document.getElementById("centercss").attributes.href.value = "./css/full_light.css";
+		setCookie("display-mode","light");
 	}
 }
 
@@ -116,13 +117,19 @@ function windowload () {
 		}
 	}),100)
 
-	if (!window.location.href.match(/(mobie)/i)) {
-		// 檢查窗口大小，而後檢查UA（不知道要不要檢查ua。。。）。
-		if (window.outerHeight > window.outerWidth) {
-			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById('typecss').href = './css/mobie_main.css';deleteElement('WarnScreen_tmpMsg');");
-		} else {
-			changePageType("auto");
+	if (!window.location.href.match(/(mobie)/i) && !getCookie("SwitchCSSAllow") == "true") {
+		// 檢查窗口大小 && UA（不知道要不要檢查ua。。。）。
+		if (window.outerHeight > window.outerWidth || changePageType("auto") == "Mobie" || changePageType("auto") == "Pad") {
+			ChooseWindow ("檢查到的UA/窗口大小有特別適配，想看看嗎？"," ","document.getElementById('typecss').href = './css/mobie_main.css';setCookie('SwitchCSSAllow','true');deleteElement('WarnScreen_tmpMsg');");
 		}
+	} else if (getCookie("SwitchCSSAllow") == "true") {
+		if (window.outerHeight > window.outerWidth || changePageType("auto") == "Mobie" || changePageType("auto") == "Pad") {
+			document.getElementById("typecss").href = "./css/mobie_main.css"
+			// deleteElement("WarnScreen_tmpMsg");
+			// setCookie('SwitchCSSAllow','true');
+		}
+	} else {
+		console.error("Cookie 'SwitchCSSAllow' value is worng.")
 	}
 
 	// 檢查Cookie，以判斷是否顯示warnscreen。
