@@ -9,17 +9,19 @@ function random (intmin,intmax) {
 
 
 function windowload() {
-    // del o-img
+
+    // hide o-img
     document.getElementById("downloadColorPic").style.display = "none";
-    document.getElementById("picNum").innerHTML = "Pic is loading,wait for you network!XD";
-    console.log("Pic is loading,pls wait for you network!XD");
+    document.getElementById("loader").style.display = "unset";
+    document.getElementById("picNum").innerHTML = "loading";
+    console.log("loading");
 
     // loading
     var picNum = random("1","220");
     var picLink = "https://drive-koto.vercel.app/api?path=/Image/colorImg/" + picNum + ".png&raw=true";
 
     document.getElementById("downloadColorPic").href = picLink;
-    document.getElementById("downloadColorPic").download = picLink;
+    document.getElementById("downloadColorPic").download = picNum + ".png";
     document.getElementById("colorPic").src = picLink;
 
     // load done
@@ -27,12 +29,16 @@ function windowload() {
         function () {
             document.getElementById("picNum").innerHTML = "PicNum = " + picNum;
             document.getElementById("downloadColorPic").style.display = "unset";
+            document.getElementById("loader").style.display = "none";
         }
     )
     // load error
     document.getElementById("colorPic").onerror = (
         function () {
-            document.getElementById("picNum").innerHTML = "An error has occurred here, please try again.Or check if you can connect to the network correctly and \"drive-koto.vercel.app\"" + "<br>" + "這裏發生了一個錯誤，請再試一遍。或者檢查您是否能正確連結網絡和\"drive-koto.vercel.app\"";
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
+            console.error("Pic cannot load.Check you network connect.")
         }
     )
+
 }
