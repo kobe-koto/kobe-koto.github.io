@@ -15,7 +15,7 @@ function windowload() {
     console.log("Pic is loading,pls wait for you network!XD");
 
     // loading
-    var picNum = random("1","76");
+    var picNum = random("1","220");
     var picLink = "https://drive-koto.vercel.app/api?path=/Image/colorImg/" + picNum + ".png&raw=true";
 
     document.getElementById("downloadColorPic").href = picLink;
