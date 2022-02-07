@@ -18,8 +18,46 @@ function windowload() {
 		console.log("loadListDone!")
 		document.getElementById("NextBtn").style.display = "unset";
 
-		loadNextPic();
+		if (!GetQueryString("img") == "") {
+			var img = GetQueryString("img");
+			loadPic(img);
+		} else {
+			loadNextPic();
+		}
 	}
+
+}
+function loadPic(img) {
+	// hide o-img
+	document.getElementById("downloadColorPic").style.display = "none";
+	document.getElementById("loader").style.display = "unset";
+
+	document.getElementById("picNum").innerHTML = "loading";
+	console.log("loading");
+
+	// loading
+	var picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + img + "&raw=true";
+
+
+	document.getElementById("downloadColorPic").href = picLink;
+	document.getElementById("downloadColorPic").download = img;
+	document.getElementById("colorPic").src = picLink;
+
+	// load done
+	document.getElementById("colorPic").onload = function () {
+		document.getElementById("loader").style.display = "none";
+		document.getElementById("picNum").innerHTML = "Pic = " + img + "(specify)";
+		document.getElementById("downloadColorPic").style.display = "unset";
+		console.log("Image load successfully.")
+	}
+
+	// load error
+	document.getElementById("colorPic").onerror = function () {
+		document.getElementById("loader").style.display = "none";
+		document.getElementById("picNum").innerHTML = "Pic cannot load.Or you specified img is not exist.";
+		console.error("Pic cannot load.Or you specified img is not exist.")
+	}
+
 }
 function loadNextPic() {
 
@@ -56,8 +94,20 @@ function loadNextPic() {
 		console.error("Pic cannot load.Check you network connect.")
 	}
 
-}
+}]
 
+function GetQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+	var context = "";
+
+	if (r != null)
+		context = r[2];
+	reg = null;
+	r = null;
+	return context == null || context == "" || context == "undefined" ? "" : context;
+}
+// GetQueryString("img")
 
 
 
