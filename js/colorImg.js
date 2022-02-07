@@ -94,7 +94,7 @@ function loadNextPic() {
 		console.error("Pic cannot load.Check you network connect.")
 	}
 
-}]
+}
 
 function GetQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
