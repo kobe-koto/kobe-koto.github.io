@@ -27,7 +27,8 @@ function windowload() {
 
 }
 function loadPic(img) {
-	// hide o-img
+	// hide o-data
+	document.getElementById("PicShareLink").innerHTML = "";
 	document.getElementById("downloadColorPic").style.display = "none";
 	document.getElementById("loader").style.display = "unset";
 
@@ -60,7 +61,8 @@ function loadPic(img) {
 }
 function loadNextPic() {
 
-	// hide o-img
+	// hide o-data
+	document.getElementById("PicShareLink").innerHTML = "";
 	document.getElementById("downloadColorPic").style.display = "none";
 	document.getElementById("loader").style.display = "unset";
 
