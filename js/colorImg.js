@@ -70,8 +70,8 @@ function loadNextPic() {
 	console.log("loading");
 
 	// loading
-	var picMax = "866";
-	var picNum = random("0",picMax-1);
+	var picMax = 866 - 1;
+	var picNum = random("0",picMax);
 	var picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + ColorImgJson.pics[picNum].name + "&raw=true";
 
 
