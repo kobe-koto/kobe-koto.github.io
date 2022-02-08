@@ -1,5 +1,5 @@
 function random (intmin,intmax) {
-	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.match(/(-)/i)) {
+	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.toString().match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
 		if (randomno <= intmax && randomno >= intmin) {
 			return randomno;
@@ -83,7 +83,7 @@ function loadNextPic() {
 	document.getElementById("colorPic").onload = function () {
 		document.getElementById("loader").style.display = "none";
 		document.getElementById("picNum").innerHTML = "Pic = " + ColorImgJson.pics[picNum].name;
-		document.getElementById("PicShareLink").innerHTML = window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + ColorImgJson.pics[picNum].name;
+		document.getElementById("PicShareLink").innerHTML = "Share the image with this link!<br>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + ColorImgJson.pics[picNum].name;
 		document.getElementById("downloadColorPic").style.display = "unset";
 		console.log("Image load successfully.")
 	}
