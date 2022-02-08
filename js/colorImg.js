@@ -8,15 +8,14 @@ function random (intmin,intmax) {
 }
 
 function windowload() {
-	document.getElementById("NextBtn").style.display = "none";
+	document.getElementById("picNum").innerHTML = "loading files list data";
 	var requestURL = "../assets/ColorImg.txt";
 	var request = new XMLHttpRequest();
 	request.open("GET", requestURL,true);
 	request.send(null);
 	request.onload = function () {
 		ColorImgJson = JSON.parse(request.response);
-		console.log("loadListDone!")
-		document.getElementById("NextBtn").style.display = "unset";
+		console.log("load List Done!")
 
 		if (!GetQueryString("img") == "") {
 			var img = GetQueryString("img");
@@ -69,9 +68,8 @@ function loadNextPic() {
 	console.log("loading");
 
 	// loading
-	var picNum = random("1","866");
-	// var picLink = "https://drive-koto.vercel.app/api?path=/Image/colorImg/" + picNum + ".png&raw=true";
-	// var picLink = ColorImgJson.folder.value[picNum]["@microsoft.graph.downloadUrl"];
+	var picMax = "866";
+	var picNum = random("0",picMax-1);
 	var picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + ColorImgJson.pics[picNum].name + "&raw=true";
 
 
@@ -83,6 +81,7 @@ function loadNextPic() {
 	document.getElementById("colorPic").onload = function () {
 		document.getElementById("loader").style.display = "none";
 		document.getElementById("picNum").innerHTML = "Pic = " + ColorImgJson.pics[picNum].name;
+		document.getElementById("PicShareLink").innerHTML = window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + ColorImgJson.pics[picNum].name;
 		document.getElementById("downloadColorPic").style.display = "unset";
 		console.log("Image load successfully.")
 	}

@@ -22,7 +22,8 @@
 		}
 		img {
 			border-radius: 25px;
-			max-width: 100%;
+			width: 100%;
+			min-height: 50px;
 			transition: all 150ms cubic-bezier(0.5,0,0.65,1);
 		}
 		img:hover {
@@ -31,6 +32,7 @@
 	</style>
 </head>
 <body>
+
 	<!-- pre Loader -->
 	<div class="glass_main" style="text-align: center;">
 		<h3>koto醬的銫圖~!</h3>
@@ -40,6 +42,7 @@
 		<br />
 
 		<h6 id="picNum"></h6>
+		<h6 id="PicShareLink" style="font-size: smaller;"></h6>
 		<a href="" id="downloadColorPic" download=""><img src="" alt="" id="colorPic" title="點按即可下載" /></a>
 
 		<div class="loader" id="loader">
