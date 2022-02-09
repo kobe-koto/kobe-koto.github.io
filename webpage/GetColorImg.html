@@ -17,7 +17,8 @@
 			background-image: none;
 		}
 		.glass_main {
-			background-color: #424242;
+			/* background-color: #424242; */
+			background-color: #9e727c;
 			box-shadow: none;
 		}
 		img {
@@ -41,9 +42,9 @@
 		<button class="RGBShake_button" onclick="loadNextPic()" id="NextBtn"><a>NEXT!</a></button>
 		<br />
 
-		<h6 id="picNum"></h6>
+		<h5 id="picNum"></h5>
+		<h6><a href="" id="download" download=""></a>&nbsp;&nbsp;<a href="" id="raw" download=""></a></h6>
 		<h6 id="PicShareLink" style="font-size: smaller;"></h6>
-		<a href="" id="downloadColorPic" download=""><img src="" alt="" id="colorPic" title="點按即可下載" /></a>
 
 		<div class="loader" id="loader">
 			<div class="dot"></div>
@@ -52,6 +53,9 @@
 			<div class="dot"></div>
 			<div class="dot"></div>
 		</div>
+
+		<img src="" alt="" id="colorPic" title="點按即可下載" />
+
 	</div>
 
 	<div class="glass_main" style="text-align: center;">

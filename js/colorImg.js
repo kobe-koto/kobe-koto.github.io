@@ -20,13 +20,73 @@ function windowload() {
 
 		if (!GetQueryString("img").toString() == "") {
 			var img = GetQueryString("img");
-			loadPic(img);
+			Load(img);
 		} else {
-			loadNextPic();
+			Load("")
 		}
 	}
 
 }
+function GetQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+	var context = "";
+
+	if (r != null)
+		context = r[2];
+	reg = null;
+	r = null;
+	return context == null || context == "" || context == "undefined" ? "" : context;
+}
+function Load(img) {
+	if (img == "") {
+		console.log("Random mode.");
+		// Random img load
+		picNum = random("0",FileMax);
+		picName = ColorImgJson.pics[picNum].name;
+		picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + picName + "&raw=true";
+	} else if (!img == "") {
+		console.log("Specify mode.");
+		// Specify img load
+		picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + img + "&raw=true";
+		picName = img
+	} else {
+		console.log("寄吧的，寄（。");
+	}
+
+	// hide o-data
+	document.getElementById("PicShareLink").innerHTML = "";
+	document.getElementById("raw").href = "";
+	document.getElementById("picNum").innerHTML = "loading";
+	document.getElementById("loader").style.display = "unset"
+	console.log("loading");
+
+	document.getElementById("colorPic").src = picLink;
+
+	// load done
+	document.getElementById("colorPic").onload = function () {
+		document.getElementById("picNum").innerHTML = "Pic = " + picName + "<a href='" + picLink + "'>  VIEW RAW DATA</a>";
+
+		document.getElementById("download").href = picLink;
+		document.getElementById("raw").href = picLink;
+		document.getElementById("download").download = picName;
+
+		document.getElementById("PicShareLink").innerHTML = "Share the image with this link!<br>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + picName;
+		console.log("Image load successfully.")
+		document.getElementById("loader").style.display = "none";
+	}
+
+	// load error
+	document.getElementById("colorPic").onerror = function () {
+		document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
+		console.error("Pic cannot load.Check you network connect.")
+		document.getElementById("loader").style.display = "none";
+	}
+}
+
+
+
+/*
 function loadPic(img) {
 	// hide o-data
 	document.getElementById("PicShareLink").innerHTML = "";
@@ -38,8 +98,8 @@ function loadPic(img) {
 	var picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + img + "&raw=true";
 
 
-	document.getElementById("downloadColorPic").href = picLink;
-	document.getElementById("downloadColorPic").download = img;
+	document.getElementById("download").href = picLink;
+	document.getElementById("download").download = img;
 	document.getElementById("colorPic").src = picLink;
 
 	// load done
@@ -71,8 +131,8 @@ function loadNextPic() {
 	var picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + ColorImgJson.pics[picNum].name + "&raw=true";
 
 
-	document.getElementById("downloadColorPic").href = picLink;
-	document.getElementById("downloadColorPic").download = ColorImgJson.pics[picNum].name;
+	document.getElementById("download").href = picLink;
+	document.getElementById("download").download = ColorImgJson.pics[picNum].name;
 	document.getElementById("colorPic").src = picLink;
 
 	// load done
@@ -90,24 +150,5 @@ function loadNextPic() {
 		document.getElementById("loader").style.display = "none";
 	}
 
-}
-
-function GetQueryString(name) {
-	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-	var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
-	var context = "";
-
-	if (r != null)
-		context = r[2];
-	reg = null;
-	r = null;
-	return context == null || context == "" || context == "undefined" ? "" : context;
-}
-// GetQueryString("img")
-
-
-
-
-
-
+}*/
 
