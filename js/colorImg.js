@@ -22,7 +22,7 @@ function windowload() {
 			var img = GetQueryString("img");
 			Load(img);
 		} else {
-			Load("")
+			Load("");
 		}
 	}
 
@@ -52,11 +52,17 @@ function Load(img) {
 		picName = img
 	} else {
 		console.log("寄吧的，寄（。");
+		return null;
 	}
 
 	// hide o-data
-	document.getElementById("PicShareLink").innerHTML = "";
 	document.getElementById("raw").href = "";
+	document.getElementById("raw").innerHTML = "";
+	document.getElementById("download").href = "";
+	document.getElementById("download").download = "";
+	document.getElementById("download").innerHTML = "";
+
+	document.getElementById("PicShareLink").innerHTML = "";
 	document.getElementById("picNum").innerHTML = "loading";
 	document.getElementById("loader").style.display = "unset"
 	console.log("loading");
@@ -65,22 +71,32 @@ function Load(img) {
 
 	// load done
 	document.getElementById("colorPic").onload = function () {
-		document.getElementById("picNum").innerHTML = "Pic = " + picName + "<a href='" + picLink + "'>  VIEW RAW DATA</a>";
 
-		document.getElementById("download").href = picLink;
 		document.getElementById("raw").href = picLink;
+		document.getElementById("raw").innerHTML = "VIEW RAW";
+		document.getElementById("download").href = picLink;
 		document.getElementById("download").download = picName;
+		document.getElementById("download").innerHTML = "DOWNLOAD";
+
+		document.getElementById("loader").style.display = "none";
+		document.getElementById("picNum").innerHTML = "Pic = " + picName;
 
 		document.getElementById("PicShareLink").innerHTML = "Share the image with this link!<br>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + picName;
 		console.log("Image load successfully.")
-		document.getElementById("loader").style.display = "none";
 	}
 
 	// load error
 	document.getElementById("colorPic").onerror = function () {
+		document.getElementById("loader").style.display = "none";
+
+		document.getElementById("raw").href = "";
+		document.getElementById("raw").innerHTML = "";
+		document.getElementById("download").href = "";
+		document.getElementById("download").download = "";
+		document.getElementById("download").innerHTML = "";
+
 		document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
 		console.error("Pic cannot load.Check you network connect.")
-		document.getElementById("loader").style.display = "none";
 	}
 }
 
