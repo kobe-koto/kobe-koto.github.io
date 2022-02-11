@@ -14,7 +14,17 @@ function windowload() {
 	request.open("GET", requestURL,true);
 	request.send(null);
 	request.onload = function () {
-		ColorImgJson = JSON.parse(request.response.slice(0,-5) + "]}");
+		if (request.response.slice(-4).toString().match(/(},)/i)) {
+			console.log("data is clean");
+			ColorImgJson = JSON.parse(request.response.slice(0,-3) + "]}");
+		} else if (request.response.slice(-5).toString().match(/(},)/i)) {
+			console.log("data has n/r");
+			ColorImgJson = JSON.parse(request.response.slice(0,-4) + "]}");
+		} else if (request.response.slice(-6).toString().match(/(},)/i)) {
+			console.log("data has r,n");
+			ColorImgJson = JSON.parse(request.response.slice(0,-5) + "]}");
+		}
+
 		FileMax = ColorImgJson.fileNum -1;
 		console.log("load List Done!")
 
