@@ -14,7 +14,7 @@ function windowload() {
 	request.open("GET", requestURL,true);
 	request.send(null);
 	request.onload = function () {
-		ColorImgJson = JSON.parse(request.response);
+		ColorImgJson = JSON.parse(request.response.slice(0,-5) + "]}");
 		FileMax = ColorImgJson.fileNum -1;
 		console.log("load List Done!")
 
