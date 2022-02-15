@@ -29,8 +29,8 @@ function windowload() {
 		}
 
 		API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
-		API2 = "http://image-koto.000webhostapp.com/?/Image/GetColorImg/";
-		GetImgAPI =API1;
+		API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
+		GetImgAPI = API1;
 
 
 		FileMax = ColorImgJson.fileNum -1;
@@ -63,12 +63,12 @@ function Load(img) {
 		// Random img load
 		picNum = random("0",FileMax);
 		picName = ColorImgJson.pics[picNum].name;
-		picLink = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/" + picName;
+		picLink = GetImgAPI + picName;
 	} else if (!img == "") {
 		console.log("Specify mode.");
 		// Specify img load
-		picLink = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/" + img;
-		picName = img.
+		picLink = GetImgAPI + img;
+		picName = img;
 	} else {
 		console.error("value error.");
 		return null;
@@ -112,15 +112,19 @@ function Load(img) {
 		document.getElementById("download").href = "";
 		document.getElementById("download").download = "";
 		document.getElementById("download").innerHTML = "";
-
-		if (GetImgAPI == API1) { 
-			document.getElementById("picNum").innerHTML = "API1 may has error.try API2";
-			console.error("API1 may has error,try API2");
-			GetImgAPI = API2;
-			Load(img);
-		} else {
-			document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
-			console.error("Pic cannot load.Check you network connect.");
+		try {
+			if (GetImgAPI == API1) { 
+				document.getElementById("picNum").innerHTML = "API1 may has error.try API2";
+				console.error("API1 may has error,try API2");
+				GetImgAPI = API2;
+				Load(img);
+			} else {
+				document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
+				console.error("Pic cannot load.Check you network connect.");
+			}
+		} catch {
+			document.getElementById("picNum").innerHTML = "switch APIs may has error,we will try fix the issue.";
+			console.error("switch APIs may has error,we will try fix the issue.");
 		}
 	}
 }
