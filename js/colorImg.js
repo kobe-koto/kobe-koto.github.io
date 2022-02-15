@@ -28,8 +28,9 @@ function windowload() {
 			ColorImgJson = JSON.parse(request.response);
 		}
 
-		API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
-		API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
+		API1 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
+		API2 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
+
 		GetImgAPI = API1;
 
 
