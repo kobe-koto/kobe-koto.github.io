@@ -33,7 +33,7 @@ function windowload() {
 		GetImgAPI = API1;
 
 
-		FileMax = ColorImgJson.fileNum -1;
+		FileMax = ColorImgJson.fileNum - 1;
 		console.log("load List Done!");
 
 		if (!GetQueryString("img").toString() == "") {
