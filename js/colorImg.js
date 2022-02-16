@@ -15,18 +15,27 @@ function windowload() {
 	request.send(null);
 	request.onload = function () {
 		if (request.response.slice(-4).toString().match(/(},)/i)) {
-			console.log("data is clean");
+			console.log("data is clean.");
 			ColorImgJson = JSON.parse(request.response.slice(0,-3) + "]}");
 		} else if (request.response.slice(-5).toString().match(/(},)/i)) {
-			console.log("data has n/r");
+			console.log("data has n/r.");
 			ColorImgJson = JSON.parse(request.response.slice(0,-4) + "]}");
 		} else if (request.response.slice(-6).toString().match(/(},)/i)) {
-			console.log("data has r,n");
+			console.log("data has r,n.");
 			ColorImgJson = JSON.parse(request.response.slice(0,-5) + "]}");
+		} else {
+			console.log("try parse list data.");
+			ColorImgJson = JSON.parse(request.response);
 		}
 
-		FileMax = ColorImgJson.fileNum -1;
-		console.log("load List Done!")
+		API1 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
+		API2 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
+
+		GetImgAPI = API1;
+
+
+		FileMax = ColorImgJson.fileNum - 1;
+		console.log("load List Done!");
 
 		if (!GetQueryString("img").toString() == "") {
 			var img = GetQueryString("img");
@@ -49,19 +58,20 @@ function GetQueryString(name) {
 	return context == null || context == "" || context == "undefined" ? "" : context;
 }
 function Load(img) {
+
 	if (img == "") {
 		console.log("Random mode.");
 		// Random img load
 		picNum = random("0",FileMax);
 		picName = ColorImgJson.pics[picNum].name;
-		picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + picName + "&raw=true";
+		picLink = GetImgAPI + picName;
 	} else if (!img == "") {
 		console.log("Specify mode.");
 		// Specify img load
-		picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + img + "&raw=true";
-		picName = img
+		picLink = GetImgAPI + img;
+		picName = img;
 	} else {
-		console.log("寄吧的，寄（。");
+		console.error("value error.");
 		return null;
 	}
 
@@ -98,83 +108,26 @@ function Load(img) {
 	// load error
 	document.getElementById("colorPic").onerror = function () {
 		document.getElementById("loader").style.display = "none";
-
 		document.getElementById("raw").href = "";
 		document.getElementById("raw").innerHTML = "";
 		document.getElementById("download").href = "";
 		document.getElementById("download").download = "";
 		document.getElementById("download").innerHTML = "";
-
-		document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
-		console.error("Pic cannot load.Check you network connect.")
+		try {
+			if (GetImgAPI == API1) { 
+				document.getElementById("picNum").innerHTML = "API1 may has error.try API2";
+				console.error("API1 may has error,try API2");
+				GetImgAPI = API2;
+				Load(img);
+			} else {
+				document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
+				console.error("Pic cannot load.Check you network connect.");
+			}
+		} catch {
+			document.getElementById("picNum").innerHTML = "switch APIs may has error,we will try fix the issue.";
+			console.error("switch APIs may has error,we will try fix the issue.");
+		}
 	}
 }
 
-
-
-/*
-function loadPic(img) {
-	// hide o-data
-	document.getElementById("PicShareLink").innerHTML = "";
-	document.getElementById("picNum").innerHTML = "loading";
-	console.log("loading");
-	document.getElementById("loader").style.display = "unset";
-
-	// loading
-	var picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + img + "&raw=true";
-
-
-	document.getElementById("download").href = picLink;
-	document.getElementById("download").download = img;
-	document.getElementById("colorPic").src = picLink;
-
-	// load done
-	document.getElementById("colorPic").onload = function () {
-		document.getElementById("picNum").innerHTML = "Pic = " + ColorImgJson.pics[picNum].name + "<a href='" + picLink + "'>  VIEW RAW DATA</a>";
-		document.getElementById("PicShareLink").innerHTML = "Share the image with this link!<br>" + window.location.href;
-		console.log("Image load successfully.")
-		document.getElementById("loader").style.display = "none";
-	}
-
-	// load error
-	document.getElementById("colorPic").onerror = function () {
-		document.getElementById("picNum").innerHTML = "Pic cannot load.Or you specified img is not exist.";
-		console.error("Pic cannot load.Or you specified img is not exist.")
-		document.getElementById("loader").style.display = "none";
-	}
-
-}
-function loadNextPic() {
-
-	// hide o-data
-	document.getElementById("PicShareLink").innerHTML = "";
-	document.getElementById("loader").style.display = "unset"
-	document.getElementById("picNum").innerHTML = "loading";
-	console.log("loading");
-
-	// loading
-	var picNum = random("0",FileMax);
-	var picLink = "https://drive-koto.vercel.app/api?path=/Image/GetColorImg/" + ColorImgJson.pics[picNum].name + "&raw=true";
-
-
-	document.getElementById("download").href = picLink;
-	document.getElementById("download").download = ColorImgJson.pics[picNum].name;
-	document.getElementById("colorPic").src = picLink;
-
-	// load done
-	document.getElementById("colorPic").onload = function () {
-		document.getElementById("picNum").innerHTML = "Pic = " + ColorImgJson.pics[picNum].name + "<a href='" + picLink + "'>  VIEW RAW DATA</a>";
-		document.getElementById("PicShareLink").innerHTML = "Share the image with this link!<br>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + ColorImgJson.pics[picNum].name;
-		console.log("Image load successfully.")
-		document.getElementById("loader").style.display = "none";
-	}
-
-	// load error
-	document.getElementById("colorPic").onerror = function () {
-		document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
-		console.error("Pic cannot load.Check you network connect.")
-		document.getElementById("loader").style.display = "none";
-	}
-
-}*/
 
