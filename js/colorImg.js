@@ -1,3 +1,21 @@
+function FullScreen() {
+	document.getElementById("colorPic").style.position = "fixed";
+	document.getElementById("colorPic").style.width = "100%";
+	document.getElementById("colorPic").style.top = "0";
+	document.getElementById("colorPic").style.left = "0";
+	document.getElementById("colorPic").style.zIndex = "999999";
+	document.getElementById("colorPic").style.padding = "0";
+	document.getElementById("colorPic").style.margin = "0";
+	document.getElementById("colorPic").style.borderRadius = "0";
+
+	document.getElementById("glass_main").style.display = "contents";
+
+	document.body.style.padding = "0";
+	document.body.style.margin = "0";
+}
+
+
+
 function random (intmin,intmax) {
 	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.toString().match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
@@ -54,8 +72,8 @@ function windowload() {
 			ColorImgJson = JSON.parse(request.response);
 		}
 
-		API1 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
-		API2 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
+		API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
+		API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
 
 		GetImgAPI = API1;
 
