@@ -6,6 +6,32 @@ function random (intmin,intmax) {
 		}
 	}
 }
+function clearData(Value) {
+	switch (Value) {
+		case "load":
+			document.getElementById("raw").href = "";
+			document.getElementById("raw").innerHTML = "";
+			document.getElementById("download").href = "";
+			document.getElementById("download").download = "";
+			document.getElementById("download").innerHTML = "";
+
+			document.getElementById("PicShareLink").innerHTML = "";
+			document.getElementById("picNum").innerHTML = "loading";
+			document.getElementById("loader").style.display = "unset";
+			console.log("loading");
+		break;
+
+		case "":
+		default:
+			document.getElementById("loader").style.display = "none";
+			document.getElementById("raw").href = "";
+			document.getElementById("raw").innerHTML = "";
+			document.getElementById("download").href = "";
+			document.getElementById("download").download = "";
+			document.getElementById("download").innerHTML = "";
+		break;
+	}
+}
 
 function windowload() {
 	document.getElementById("picNum").innerHTML = "loading files list data";
@@ -60,14 +86,14 @@ function GetQueryString(name) {
 function Load(img) {
 
 	if (img == "") {
-		console.log("Random mode.");
 		// Random img load
+		console.log("Random mode.");
 		picNum = random("0",FileMax);
 		picName = ColorImgJson.pics[picNum].name;
 		picLink = GetImgAPI + picName;
 	} else if (!img == "") {
-		console.log("Specify mode.");
 		// Specify img load
+		console.log("Specify mode.");
 		picLink = GetImgAPI + img;
 		picName = img;
 	} else {
@@ -75,17 +101,7 @@ function Load(img) {
 		return null;
 	}
 
-	// hide o-data
-	document.getElementById("raw").href = "";
-	document.getElementById("raw").innerHTML = "";
-	document.getElementById("download").href = "";
-	document.getElementById("download").download = "";
-	document.getElementById("download").innerHTML = "";
-
-	document.getElementById("PicShareLink").innerHTML = "";
-	document.getElementById("picNum").innerHTML = "loading";
-	document.getElementById("loader").style.display = "unset"
-	console.log("loading");
+	clearData("load");
 
 	document.getElementById("colorPic").src = picLink;
 
@@ -107,25 +123,25 @@ function Load(img) {
 
 	// load error
 	document.getElementById("colorPic").onerror = function () {
-		document.getElementById("loader").style.display = "none";
-		document.getElementById("raw").href = "";
-		document.getElementById("raw").innerHTML = "";
-		document.getElementById("download").href = "";
-		document.getElementById("download").download = "";
-		document.getElementById("download").innerHTML = "";
+
+		clearData("");
+
 		try {
 			if (GetImgAPI == API1) { 
 				document.getElementById("picNum").innerHTML = "API1 may has error.try API2";
 				console.error("API1 may has error,try API2");
 				GetImgAPI = API2;
 				Load(img);
+			} else if (GetImgAPI == API2) {
+				document.getElementById("picNum").innerHTML = "API2 may has error.";
+				console.error("API2 may has error.");
 			} else {
 				document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
 				console.error("Pic cannot load.Check you network connect.");
 			}
-		} catch {
-			document.getElementById("picNum").innerHTML = "switch APIs may has error,we will try fix the issue.";
-			console.error("switch APIs may has error,we will try fix the issue.");
+		} catch (err) {
+			document.getElementById("picNum").innerHTML = "switch API error,we will try fix the issue.";
+			console.error("switch API error,we will try fix the issue.");
 		}
 	}
 }
