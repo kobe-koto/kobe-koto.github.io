@@ -1,6 +1,10 @@
 // Encoding: UTF-8
 // Made with heart by kobe-koto in AGPL-3.0 License License
 // copyright 2021 kobe-koto
+window.onload = function () {
+	document.getElementById("intminwindow").value = "0";
+	document.getElementById("intmaxwindow").value = "50";
+}
 
 function createElement (element,info,root,className) {
 	var element_root = document.createElement(element);
@@ -11,7 +15,7 @@ function createElement (element,info,root,className) {
 }
 function deleteElement (elementId) {
 	document.getElementById(elementId).style.display = 'none';// for IE
-	document.getElementById(elementId).remove()// full del
+	document.getElementById(elementId).remove();// full del
 }
 function noallowEnter (events,clickElement) {
 	var et = events || window.event;
@@ -37,7 +41,12 @@ function formattedDate() {
 	return formattedDate;
 }
 function logOutput(type,info,putTo,element) {
-	createElement(element,"[" + type + "] [" + formattedDate() + "] " + info,putTo,"");
+	if (putTo === "numzone") {
+		createElement(element,"[" + formattedDate() + "] " + info,putTo,"");
+	} else {
+		createElement(element,"[" + type + "] [" + formattedDate() + "] " + info,putTo,"");
+	}
+	
 	console.log("[" + type + " | " + formattedDate() + "]" + info);
 }
 function rePutInt() {
@@ -119,7 +128,7 @@ function rrddnnoo (intmin,intmax) {
 
 			document.getElementById("loadword").innerHTML = "Success.";
 
-			logOutput("INFO", "Success,num: " + randomno, "numzone", "h5");
+			logOutput("INFO", randomno, "numzone", "h5");
 			logOutput("INFO", "Success,num: " + randomno, "logzone", "h5");
 
 			return randomno;
@@ -133,7 +142,7 @@ function rrddnnoo (intmin,intmax) {
 
 			document.getElementById("loadword").innerHTML = "Success.";
 
-			logOutput("INFO","Success,num: " + randomno,"numzone","h5");
+			logOutput("INFO",randomno,"numzone","h5");
 			logOutput("INFO","Success,num: " + randomno,"logzone","h5");
 
 			return randomno;

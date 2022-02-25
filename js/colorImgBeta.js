@@ -1,6 +1,6 @@
-// Encoding: UTF-8
-// Made with heart by kobe-koto in AGPL-3.0 License License
-// copyright 2021 kobe-koto
+/* Encoding: UTF-8
+* Made with heart by kobe-koto in AGPL-3.0 License License
+* copyright 2021 kobe-koto */
 
 function random (intmin,intmax) {
 	//get a random num
@@ -11,53 +11,41 @@ function random (intmin,intmax) {
 		}
 	}
 }
-function FullScreen() {
-	//let img fullscreen
-	document.getElementById("colorPic").style.position = "fixed";
-	document.getElementById("colorPic").style.width = "100%";
-	document.getElementById("colorPic").style.top = "0";
-	document.getElementById("colorPic").style.left = "0";
-	document.getElementById("colorPic").style.zIndex = "999999";
-	document.getElementById("colorPic").style.padding = "0";
-	document.getElementById("colorPic").style.margin = "0";
-	document.getElementById("colorPic").style.borderRadius = "0";
-
-	document.getElementById("glass_main").style.display = "contents";
-
-	document.body.style.padding = "0";
-	document.body.style.margin = "0";
+function copyPicShareLink() {
+	try {
+		navigator.clipboard.writeText(ShareLink);
+		console.log("successful.");
+		alert("successful.");
+	} catch (err) {
+		console.error("cannot copy link.")
+	}
 }
-
 function clearData(Value) {
 	//clear old data,use for reload a new img
 	switch (Value) {
 		case "load":
 			document.getElementById("raw").href = "";
-			document.getElementById("raw").innerHTML = "";
+			document.getElementById("lock").href = "";
 			document.getElementById("download").href = "";
 			document.getElementById("download").download = "";
-			document.getElementById("download").innerHTML = "";
 
 			document.getElementById("PicShareLink").innerHTML = "";
 			document.getElementById("picNum").innerHTML = "loading";
-			document.getElementById("loader").style.display = "unset";
 			console.log("loading");
 		break;
 
 		case "":
 		default:
-			document.getElementById("loader").style.display = "none";
 			document.getElementById("raw").href = "";
-			document.getElementById("raw").innerHTML = "";
+			document.getElementById("lock").href = "";
 			document.getElementById("download").href = "";
 			document.getElementById("download").download = "";
-			document.getElementById("download").innerHTML = "";
 		break;
 	}
 }
 
 function windowload() {
-	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean.
+	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean|lowSuccessRateRaw.
 	document.getElementById("picNum").innerHTML = "loading files list data";
 	
 	var requestURL = "../assets/ColorImg.txt";
@@ -137,21 +125,19 @@ function Load(img) {
 		console.error("value error.");
 		return null;
 	}
-
 	clearData("load");
 
+	ShareLink = window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + picName;
 	document.getElementById("colorPic").src = picLink;
 
 	// load done
 	document.getElementById("colorPic").onload = function () {
 
 		document.getElementById("raw").href = picLink;
-		document.getElementById("raw").innerHTML = "VIEW RAW";
+		document.getElementById("lock").href = ShareLink;
 		document.getElementById("download").href = picLink;
 		document.getElementById("download").download = picName;
-		document.getElementById("download").innerHTML = "DOWNLOAD";
 
-		document.getElementById("loader").style.display = "none";
 		document.getElementById("picNum").innerHTML = "Pic = " + picName;
 
 		document.getElementById("PicShareLink").innerHTML = "Share the image with this link!<br>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + picName;
