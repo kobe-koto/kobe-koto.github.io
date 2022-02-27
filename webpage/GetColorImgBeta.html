@@ -27,6 +27,7 @@
 		.imgButton {
 			padding: 10px;
 			margin: 0 0 0 20px;
+			display: inline-block;
 
 			background-position: center;
 			background-size: 50px 50px;
@@ -123,20 +124,20 @@
 <body>
 	<div class="InfoZone">
 
-		<div class="imgButton" id="imgInfo">
+		<span class="imgButton" id="imgInfo">
 			<p id="picNum"></p>
-		</div>
+		</span>
 
-		<a href="" id="download" download="" title="下載原始圖像"><div class="imgButton" style="background-image:url(../images/download.svg)"></div></a>
-		<a href="" id="raw" title="查看原始圖像"><div class="imgButton" style="background-image:url(../images/eye.svg)"></div></a>
-		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結"><div class="imgButton" style="background-image:url(../images/link.svg)"></div></a>
-		<a href="" id="lock" title="鎖定當前圖像"><div class="imgButton" style="background-image:url(../images/lock.svg)"></div></a>
-		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code"><div class="imgButton" style="background-image:url(../images/GitHubMarkLight.png)"></div></a>
-		<a href="/" id="Copy" title="Copyright kobe-koto"><div class="imgButton" style="background-image:url(../images/icon-r.png)"></div></a>
+		<a href="" id="download" download="" title="下載原始圖像"><span class="imgButton" style="background-image:url(../images/download.svg)"></span></a>
+		<a href="" id="raw" title="查看原始圖像"><span class="imgButton" style="background-image:url(../images/eye.svg)"></span></a>
+		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結"><span class="imgButton" style="background-image:url(../images/link.svg)"></span></a>
+		<a href="" id="lock" title="鎖定當前圖像"><span class="imgButton" style="background-image:url(../images/lock.svg)"></span></a>
+		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code"><span class="imgButton" style="background-image:url(../images/GitHubMarkLight.png)"></span></a>
+		<a href="/" id="Copy" title="Copyright kobe-koto"><span class="imgButton" style="background-image:url(../images/icon-r.png)"></span></a>
 
 	</div>
 
-	<img src="../images/load.svg" alt="" id="colorPic" onclick="Load('');" />
+	<img src="../images/load.svg" alt="" id="colorPic" onclick="Load('');" style="display: none;" />
 	<!--<div class="demo"></div>--> 
 
 

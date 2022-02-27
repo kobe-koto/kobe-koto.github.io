@@ -50,8 +50,9 @@ function windowload() {
 	
 	var requestURL = "../assets/ColorImg.txt";
 	var request = new XMLHttpRequest();
+	request.responseType = 'json';
 	request.open("GET", requestURL,true);
-	request.send(null);
+	request.send();
 	request.onerror = function () {
 		document.getElementById("picNum").innerHTML = "ERROR! cannot loading files list data.";
 		console.error("ERROR! cannot loading files list data.");
