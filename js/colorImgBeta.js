@@ -18,6 +18,7 @@ function copyPicShareLink() {
 		alert("successful.");
 	} catch (err) {
 		console.error("cannot copy link.")
+		alert("cannot copy link.");
 	}
 }
 function clearData(Value) {
@@ -29,7 +30,6 @@ function clearData(Value) {
 			document.getElementById("download").href = "";
 			document.getElementById("download").download = "";
 
-			document.getElementById("PicShareLink").innerHTML = "";
 			document.getElementById("picNum").innerHTML = "loading";
 			console.log("loading");
 		break;
@@ -140,7 +140,6 @@ function Load(img) {
 
 		document.getElementById("picNum").innerHTML = "Pic = " + picName;
 
-		document.getElementById("PicShareLink").innerHTML = "Share the image with this link!<br>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + picName;
 		console.log("Image load successfully.")
 	}
 

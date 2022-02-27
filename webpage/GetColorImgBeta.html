@@ -5,78 +5,16 @@
 	<link rel="icon" id="favicon" href="../images/info.svg" />
 	<title>koto醬的11~! | kobe koto</title>
 	<script src="../js/colorImgBeta.js"></script>
+	<link rel="stylesheet" href="../css/scrollbar_rgb.css" />
 	<style>
 		body {
 			background-color: #303030;
 			background-image: none;
 			overflow-y: scroll;
+			padding: 0;
+			margin: 0;
 		}
-		.link_n {
-			color: rgb(0,190,255);
-			text-decoration: none;
-			cursor: pointer;
-			transition: all 0.3s cubic-bezier(0.5,0,0.65,1);
-			padding-bottom: 2px;
-			margin-top: -2px;
-			background-repeat: no-repeat;
-			background-position: center bottom;
-			background-size: 0 3px;
-			background-image: linear-gradient(to bottom,rgba(205,70,110,1) 100%,rgba(205,70,110,1) 100%);
-			display: inline-block;
-		}
-		.link_n:hover {
-			background-size: 95vh 3px;
-		}
-		.link_n:active {
-			background-size: 95vh 3px;
-			color: rgba(40,130,145,1.00);
-			transform: scale(0.9);
-		}
-		.imgInfo {
-			color: #ffffff;
-			padding: 10px;
 
-			border-radius: 10px;
-			background-color: rgba(35, 35, 35, 0.55);
-			backdrop-filter: blur(3px);
-			user-select: none;
-			overflow: hidden;
-
-			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
-		}
-		.imgInfo:hover {
-			height: auto;
-			width: auto;
-			border-radius: 3px;
-			backdrop-filter: blur(10px);
-		}
-		.imgInfo * {
-			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
-		}
-		.imgInfo:hover #imgInfo {
-			height: 0;
-			width: 0;
-		}
-		.imgInfo #imgIco {
-			height: 50px;
-			width: 50px;
-		}
-		.imgButton {
-			padding: 10px;
-			margin: 0 0 0 20px;
-
-			border-radius: 10px;
-			background-color: rgba(35, 35, 35, 0.55);
-			backdrop-filter: blur(3px);
-			user-select: none;
-			overflow: hidden;
-
-			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
-		}
-		.imgIco {
-			height: 50px;
-			width: 50px;
-		}
 		.InfoZone {
 			display:flex;
 			position: fixed;
@@ -86,30 +24,90 @@
 			margin: 15px;
 			padding: 10px;
 		}
-		.imgInfo p,hr,span,a,strong,#text,.link_n:hover {
+		.imgButton {
+			padding: 10px;
+			margin: 0 0 0 20px;
+
+			background-position: center;
+			background-size: 50px 50px;
+			background-repeat: no-repeat;
+			width: 50px;
+			height: 50px;
+
+			border-radius: 100em;
+			background-color: rgba(35, 35, 35, 0.55);
+			backdrop-filter: blur(3px);
+			user-select: none;
+			overflow: hidden;
+			color: #ffffff;
+
+			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
+		}
+		/* dont touch it 👆 */
+
+		/*.imgInfo {
+			color: #ffffff;
+			padding: 10px;
+
+			min-width: 50px;
+			min-height: 50px;
+
+			background-position: center;
+			background-size: 50px 50px;
+			background-repeat: no-repeat;
+
+			border-radius: 100em;
+
+			background-color: rgba(35, 35, 35, 0.55);
+			backdrop-filter: blur(3px);
+			overflow: hidden;
+
+			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
+		}
+		.imgInfo:hover {
+			height: auto;
+			width: auto;
+			border-radius: 3px;
+			backdrop-filter: blur(10px);
+
+			background-size: 0 0;
+		}
+		.imgInfo img {
+			height: 50px;
+			width: 50px;
+		}
+		.imgInfo:hover img {
+			display: none;
+		} */
+
+		#imgInfo * {
+			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
+		}
+		#imgInfo {
+			margin: 0;
+			background-image:url(../images/info_w.svg);
+			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
+		}
+		#imgInfo:hover {
+			background-image: none;
+			background-size: 0 0;
+			border-radius: 5px;
+		}
+		#imgInfo:hover p {
+			height: unset;
+			width: unset;
+			padding: unset;
+			margin: unset;
+			overflow: unset;
+			color: #ffffffff;
+		}
+		#imgInfo p {
 			height: 0;
 			width: 0;
 			padding: 0;
 			margin: 0;
 			overflow: hidden;
-			color: rgba(0,0,0,0);
-			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
-		}
-		.imgInfo:hover p,hr,span,a,strong,#text {
-			height: unset;
-			width: unset;
-			padding: unset;
-			margin: unset;
-			overflow: unset;
-			color: unset;
-		}
-		.imgInfo:hover .link_n:visited {
-			height: unset;
-			width: unset;
-			padding: unset;
-			margin: unset;
-			overflow: unset;
-			color: rgb(0,190,255);
+			color: #00000000;
 		}
 
 		#colorPic,#demo {
@@ -124,23 +122,17 @@
 </head>
 <body>
 	<div class="InfoZone">
-		<div class="imgInfo">
-			<img src="../images/info_w.svg" id="imgIco" />
+
+		<div class="imgButton" id="imgInfo">
 			<p id="picNum"></p>
-			<p id="PicShareLink" style="font-size: smaller;"></p>
-			<p>-----</p>
-			<span style="font-size: smaller;">
-				<p>Made with ❤️ by kobe koto in <a class="link_n" href="/LICENSE.html">AGPL-3.0 License</a></p>
-				<p>Open Source Code in <a class="link_n" href="https://github.com/kobe-koto/kobe-koto.github.io">GitHub</a> (<a class="link_n" href="/LICENSE.html">AGPL-3.0 License</a>)</p>
-				<p style="font-weight: bold;">&copy;2020~NOW - kobe-koto</p>
-			</span>
-			<span id="loader" style="margin: 0;padding: 0;width: 0;height: 0;"></span>
 		</div>
 
-		<a href="" id="download" download=""><div class="imgButton"><img src="../images/download.svg" alt="" class="imgIco"></div></a>
-		<a href="" id="raw"><div class="imgButton"><img src="../images/eye.svg" alt="" class="imgIco"></div></a>
-		<a href="javascript:copyPicShareLink()" id="share"><div class="imgButton"><img src="../images/link.svg" alt="" class="imgIco"></div></a>
-		<a href="" id="lock"><div class="imgButton"><img style="transform: rotate(180deg);" src="../images/lock.svg" alt="" class="imgIco"></div></a>
+		<a href="" id="download" download="" title="下載原始圖像"><div class="imgButton" style="background-image:url(../images/download.svg)"></div></a>
+		<a href="" id="raw" title="查看原始圖像"><div class="imgButton" style="background-image:url(../images/eye.svg)"></div></a>
+		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結"><div class="imgButton" style="background-image:url(../images/link.svg)"></div></a>
+		<a href="" id="lock" title="鎖定當前圖像"><div class="imgButton" style="background-image:url(../images/lock.svg)"></div></a>
+		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code"><div class="imgButton" style="background-image:url(../images/GitHubMarkLight.png)"></div></a>
+		<a href="/" id="Copy" title="Copyright kobe-koto"><div class="imgButton" style="background-image:url(../images/icon-r.png)"></div></a>
 
 	</div>
 
