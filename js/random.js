@@ -3,7 +3,7 @@
 // copyright 2021 kobe-koto
 window.onload = function () {
 	document.getElementById("intminwindow").value = "0";
-	document.getElementById("intmaxwindow").value = "50";
+	document.getElementById("intmaxwindow").value = "46";
 }
 
 function createElement (element,info,root,className) {
@@ -53,9 +53,15 @@ function rePutInt() {
 	document.getElementById("loadword").innerHTML = "";
 	document.getElementById("intdp").innerHTML = "";
 }
+function TIMESPP () {
+	var Times = document.getElementById("calcTime").innerHTML;
+	Times++;
+	document.getElementById("calcTime").innerHTML = Times;
+}
 function rrddnnoo (intmin,intmax) {
 	// document.getElementById("intwindow").value;
 	rePutInt();
+	TIMESPP();
 
 	if (intmax.match(/(114514|1919810)/i) || intmin.match(/(114514|1919810)/i)){
 		document.getElementById("intdp").innerHTML = "😱";
