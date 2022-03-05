@@ -52,28 +52,32 @@ function clearData(Value) {
 }
 
 function windowload() {
-
-	document.getElementById("InfoZone").onmousedown = (e) => {
-		//on mouse press on the element, calc the element XY.
-		var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
-		var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
-		document.onmousemove = function (e) {
-			//calc the element XY will move by user.
-			var tX = e.clientX - disX;
-			var tY = e.clientY - disY;
-			//move the element.
-			if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
-				document.getElementById("InfoZone").style.left = tX + 'px';
-			}
-			if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
-				document.getElementById("InfoZone").style.top = tY + 'px';
-			}
-		};
-		//cancel event when mouse up.
-		document.onmouseup = function (e) {
-			document.onmousemove = null;
-			document.onmouseup = null;
-		};
+	try {
+		document.getElementById("InfoZone").onmousedown = (e) => {
+			//on mouse press on the element, calc the element XY.
+			var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
+			var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
+			document.onmousemove = function (e) {
+				//calc the element XY will move by user.
+				var tX = e.clientX - disX;
+				var tY = e.clientY - disY;
+				//move the element.
+				if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
+					document.getElementById("InfoZone").style.left = tX + 'px';
+				}
+				if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
+					document.getElementById("InfoZone").style.top = tY + 'px';
+				}
+			};
+			//cancel event when mouse up.
+			document.onmouseup = function (e) {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			};
+		}
+	} catch (err) {
+		alert("Your browser does not support move element.");
+		console.error("Your browser does not support move element.");
 	}
 
 	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean|lowSuccessRateRaw.
