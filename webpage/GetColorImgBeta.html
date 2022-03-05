@@ -20,13 +20,24 @@
 
 		.InfoZone {
 			width: 100%;
+			/* new ↓ | old ↑ */
+			width: fit-content;
+
 			position: fixed;
 			top: 0;
 			left: 0;
 			z-index: 114514;
 			margin: 15px;
-			padding: 10px;
 			height: auto;
+			cursor: move;
+
+			padding: 10px 10px 10px 20px;
+			
+			background-color: rgba(0,0,0,0.3);
+			border-radius: 5px;
+			border-left: rgba(255,255,255,0.6);
+			border-left-style: solid;
+			border-left-width: 6px;
 		}
 		.imgButton {
 			float: left;
@@ -112,7 +123,7 @@
 		</div>
 	</noscript>
 
-	<ul class="InfoZone">
+	<ul class="InfoZone" id="InfoZone">
 
 		<a><li class="imgButton" id="imgInfo">
 			<p id="picNum"></p>
