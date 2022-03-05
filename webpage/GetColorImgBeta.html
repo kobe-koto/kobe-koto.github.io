@@ -85,17 +85,33 @@
 			color: #00000000;
 		}
 
-		#colorPic,#demo {
+		#colorPic {
 			width: 100%;
 			height: auto;
 			user-select: none;
 		}
-		#demo {
-			padding: 50px;
+		#non-js {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 1145141919810;
+			width: 100%;
+			height: auto;
+			user-select: none;
+			background: #ff0000;
+			color: #ffffff;
+			font-size: 50px;
 		}
 	</style>
 </head>
 <body>
+
+	<noscript>
+		<div id="non-js">
+			PlEASE ENABLE JAVASCRIPT TO VISIT OR USE THIS PAGE ON KOTO.EU.ORG.
+		</div>
+	</noscript>
+
 	<ul class="InfoZone">
 
 		<a><li class="imgButton" id="imgInfo">
@@ -113,8 +129,9 @@
 
 	</ul>
 
+
 	<img src="../images/load.svg" alt="" id="colorPic" onclick="Load('');" />
-	<!--<div class="demo"></div>--> 
+	<!--<div class="demo"></div>-->
 
 
 	<script>
