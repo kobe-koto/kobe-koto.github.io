@@ -3,66 +3,6 @@
 * copyright 2021 kobe-koto */
 
 
-
-
-
-
-
-function readInputFile(event) {
-	file = event.target.files[0];
-	if (!file) {
-		return;
-	}
-	let reader = new FileReader();
-	reader.addEventListener('load', event => {
-		content = event.target.result;
-	});
-	reader.readAsText(file);
-
-	setTimeout(function () {
-		try {
-			if (content.slice(-4).toString().match(/(},)/i)) {
-				console.log("data is clean.");
-				ColorImgJson = JSON.parse(content.slice(0,-3) + "]}");
-			} else if (content.slice(-5).toString().match(/(},)/i)) {
-				console.log("data has n/r.");
-				ColorImgJson = JSON.parse(content.slice(0,-4) + "]}");
-			} else if (content.slice(-6).toString().match(/(},)/i)) {
-				console.log("data has r,n.");
-				ColorImgJson = JSON.parse(content.slice(0,-5) + "]}");
-			} else {
-				console.log("try parse list data.");
-				ColorImgJson = JSON.parse(content);
-			}
-		} catch (err) {
-			console.error("ERROR! cannot parse file list data");
-			document.getElementById("picNum").innerHTML = "ERROR! cannot parse file list data";
-			document.getElementById("colorPic").src = "../images/error.svg";
-			document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
-			alert("无法解析DataBase.");
-			console.error("无法解析DataBase.");
-			document.getElementById("readDataBaseFile").style.display = "none";
-			return null;
-		}
-		document.getElementById("readDataBaseFile").style.display = "none";
-		FileMax = ColorImgJson.fileNum - 1;
-		//var PicNumMax
-		API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
-		API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
-		GetImgAPI = API1;
-		//var APIs
-		console.log("load List Done!");
-		if (!GetQueryString("img").toString() == "") {
-			var img = GetQueryString("img");
-			Load(img);
-		} else {
-			Load("");
-		}
-		//mode auto,support Specify & Random.
-	},233)
-}
-
-
 function random (intmin,intmax) {
 	//get a random num
 	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.toString().match(/(-)/i)) {
@@ -116,9 +56,8 @@ function windowload() {
 	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean|lowSuccessRateRaw.
 	document.getElementById("picNum").innerHTML = "loading files list data";
 	if (window.location.protocol.match(/(file|data)/i)) {
-		alert(window.location.protocol + "下无法加载DataBase,请选择本地DataBaseFile.");
-		console.log(window.location.protocol + "下无法加载DataBase,选择本地DataBaseFile.");
-		document.getElementById("readDataBaseFile").style.display = "block";
+		alert(window.location.protocol + "下无法加载DataBase");
+		console.log(window.location.protocol + "下无法加载DataBase");
 	} else {
 		var requestURL = "../assets/ColorImg.txt";
 		var request = new XMLHttpRequest();
@@ -151,30 +90,29 @@ function windowload() {
 				document.getElementById("picNum").innerHTML = "ERROR! cannot parse file list data";
 				document.getElementById("colorPic").src = "../images/error.svg";
 				document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
-				alert("无法解析DataBase,请选择本地DataBaseFile.");
-				console.log("无法解析DataBase,请选择本地DataBaseFile.");
-				document.getElementById("readDataBaseFile").style.display = "block";
+				alert("无法解析DataBase");
+				console.log("无法解析DataBase");
 				return null;
 			}
+
+			FileMax = ColorImgJson.fileNum - 1;
+			//var PicNumMax
+
+			API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
+			API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
+			GetImgAPI = API1;
+			//var APIs
+
+			console.log("load List Done!");
+
+			if (!GetQueryString("img").toString() == "") {
+				var img = GetQueryString("img");
+				Load(img);
+			} else {
+				Load("");
+			}
+			//mode auto,support Specify & Random.
 		}
-
-		FileMax = ColorImgJson.fileNum - 1;
-		//var PicNumMax
-
-		API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
-		API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
-		GetImgAPI = API1;
-		//var APIs
-
-		console.log("load List Done!");
-
-		if (!GetQueryString("img").toString() == "") {
-			var img = GetQueryString("img");
-			Load(img);
-		} else {
-			Load("");
-		}
-		//mode auto,support Specify & Random.
 	}
 
 }

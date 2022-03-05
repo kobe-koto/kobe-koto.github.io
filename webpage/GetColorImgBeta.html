@@ -19,18 +19,20 @@
 		}
 
 		.InfoZone {
-			display:flex;
+			width: 100%;
 			position: fixed;
 			top: 0;
 			left: 0;
 			z-index: 114514;
 			margin: 15px;
 			padding: 10px;
+			height: auto;
 		}
 		.imgButton {
+			float: left;
+
 			padding: 10px;
 			margin: 0 0 0 20px;
-			display: inline-block;
 
 			background-position: center;
 			background-size: 50px 50px;
@@ -58,9 +60,13 @@
 			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
 		}
 		#imgInfo:hover {
+			display: block;
 			background-image: none;
 			background-size: 0 0;
 			border-radius: 5px;
+		}
+		#imgInfo:hover + .InfoZone {
+			display: block;
 		}
 		#imgInfo:hover p {
 			height: unset;
@@ -90,30 +96,29 @@
 	</style>
 </head>
 <body>
-	<div class="InfoZone">
-		<input type="file" id="readDataBaseFile" style=display:none;">
+	<ul class="InfoZone">
 
-		<span class="imgButton" id="imgInfo">
+		<a><li class="imgButton" id="imgInfo">
 			<p id="picNum"></p>
-		</span>
+		</li></a>
 
-		<span class="imgButton" id="CheckImg" style="background-image:url(../images/load.svg);cursor: not-allowed;"></span>
+		<a><li class="imgButton" id="CheckImg" style="background-image:url(../images/load.svg);cursor: not-allowed;"></li></a>
 
-		<a href="javascript:alert('image is not load done.')" id="download" download="" title="下載原始圖像"><span class="imgButton" style="background-image:url(../images/download.svg)"></span></a>
-		<a href="javascript:alert('image is not load done.')" id="raw" title="查看原始圖像"><span class="imgButton" style="background-image:url(../images/eye.svg)"></span></a>
-		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結"><span class="imgButton" style="background-image:url(../images/link.svg)"></span></a>
-		<a href="javascript:alert('image is not load done.')" id="lock" title="鎖定當前圖像"><span class="imgButton" style="background-image:url(../images/lock.svg)"></span></a>
-		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code"><span class="imgButton" style="background-image:url(../images/GitHubMarkLight.png)"></span></a>
-		<a href="/" id="Copy" title="Copyright kobe-koto"><span class="imgButton" style="background-image:url(../images/icon-r.png)"></span></a>
+		<a href="javascript:alert('image is not load done.')" id="download" download="" title="下載原始圖像"><li class="imgButton" style="background-image:url(../images/download.svg)"></li></a>
+		<a href="javascript:alert('image is not load done.')" id="raw" title="查看原始圖像"><li class="imgButton" style="background-image:url(../images/eye.svg)"></li></a>
+		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結"><li class="imgButton" style="background-image:url(../images/link.svg)"></li></a>
+		<a href="javascript:alert('image is not load done.')" id="lock" title="鎖定當前圖像"><li class="imgButton" style="background-image:url(../images/lock.svg)"></li></a>
+		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code"><li class="imgButton" style="background-image:url(../images/GitHubMarkLight.png)"></li></a>
+		<a href="/" id="Copy" title="Copyright kobe-koto"><li class="imgButton" style="background-image:url(../images/icon-r.png)"></li></a>
 
-	</div>
+	</ul>
 
 	<img src="../images/load.svg" alt="" id="colorPic" onclick="Load('');" />
 	<!--<div class="demo"></div>--> 
 
 
 	<script>
-		windowload();document.getElementById('readDataBaseFile').addEventListener('change', readInputFile, false);
+		windowload();
 	</script>
 </body>
 </html>
