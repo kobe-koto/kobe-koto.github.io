@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
 	<meta charset="utf-8">
-	<link rel="icon" id="favicon" href="../images/info.svg" />
-	<script src="../js/colorImgBeta.js"></script>
-	<link rel="stylesheet" href="../css/scrollbar_rgb.css" />
+	<link href="../assets/images/info.svg" rel="icon" id="favicon">
+	<script src="../assets/js/colorImgBeta.js"></script>
 	<title>koto醬的11~! | kobe koto</title>
 	<style>
 		body {
@@ -17,27 +16,56 @@
 		* {
 			font-family: 'Segoe UI', 'Segoe WP', Arial, Sans-Serif, system-ui;
 		}
+		::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background: linear-gradient(45deg,#f284ff 16%,#31cae6 57%,#20a53a 150%);
+
+			border-style: solid;
+			border-width: 2px;
+			box-sizing: border-box;
+			border-color: #232323;
+		}
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+			background-color: #232323;
+		}
+		::-webkit-scrollbar-corner {
+			background: #000;
+		}
+		::-webkit-scrollbar-track {
+			opacity: 0;
+			border-radius: 10px;
+		}
+		::-webkit-scrollbar-button{
+			width: 10px;
+			height: 10px;
+			background-color: #606060;
+			border-radius: 50%;
+
+			border-style: solid;
+			border-width: 3px;
+			box-sizing: border-box;
+			border-color: #232323;
+		}
 
 		.InfoZone {
-			width: 100%;
-			/* new ↓ | old ↑ */
-			width: fit-content;
-
 			position: fixed;
 			top: 0;
 			left: 0;
 			z-index: 114514;
 			margin: 15px;
 			height: auto;
-			cursor: move;
 
 			padding: 10px 10px 10px 20px;
+			color: #ffffff;
 
 			background-color: rgba(0,0,0,0.3);
 			border-radius: 5px;
 			border-left: rgba(255,255,255,0.6);
 			border-left-style: solid;
 			border-left-width: 6px;
+			box-sizing: border-box;
 		}
 		.imgButton {
 			float: left;
@@ -61,40 +89,6 @@
 			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
 		}
 		/* dont touch it 👆 */
-
-		#imgInfo * {
-			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
-		}
-		#imgInfo {
-			margin: 0;
-			background-image:url(../images/info_w.svg);
-			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
-		}
-		#imgInfo:hover {
-			display: block;
-			background-image: none;
-			background-size: 0 0;
-			border-radius: 5px;
-		}
-		#imgInfo:hover + .InfoZone {
-			display: block;
-		}
-		#imgInfo:hover p {
-			height: unset;
-			width: unset;
-			padding: unset;
-			margin: unset;
-			overflow: unset;
-			color: #ffffffff;
-		}
-		#imgInfo p {
-			height: 0;
-			width: 0;
-			padding: 0;
-			margin: 0;
-			overflow: hidden;
-			color: #00000000;
-		}
 
 		#colorPic {
 			width: 100%;
@@ -123,59 +117,42 @@
 		</div>
 	</noscript>
 
-	<ul class="InfoZone" id="InfoZone">
+	<span class="InfoZone" id="InfoZone" title="按住 Shift 與鼠標以移動。">
 
-		<a><li class="imgButton" id="imgInfo">
-			<p id="picNum"></p>
-		</li></a>
+		<p id="picNum"></p>
 
-		<a><li class="imgButton" id="CheckImg" style="background-image:url(../images/load.svg);cursor: not-allowed;"></li></a>
+		<a>
+			<span class="imgButton" id="CheckImg" style="margin: 0 0 0 0;background-image:url(../assets/images/load.svg);cursor: not-allowed;"></span>
+		</a>
 
-		<a href="javascript:alert('image is not load done.')" id="download" download="" title="下載原始圖像"><li class="imgButton" style="background-image:url(../images/download.svg)"></li></a>
-		<a href="javascript:alert('image is not load done.')" id="raw" title="查看原始圖像"><li class="imgButton" style="background-image:url(../images/eye.svg)"></li></a>
-		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結"><li class="imgButton" style="background-image:url(../images/link.svg)"></li></a>
-		<a href="javascript:alert('image is not load done.')" id="lock" title="鎖定當前圖像"><li class="imgButton" style="background-image:url(../images/lock.svg)"></li></a>
-		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code"><li class="imgButton" style="background-image:url(../images/GitHubMarkLight.png)"></li></a>
-		<a href="/" id="Copy" title="Copyright kobe-koto"><li class="imgButton" style="background-image:url(../images/icon-r.png)"></li></a>
+		<a href="javascript:alert('image is not load done.')" id="download" download="" title="下載原始圖像">
+			<span class="imgButton" style="background-image:url(../assets/images/download.svg)"></span>
+		</a>
+		<a href="javascript:alert('image is not load done.')" id="raw" title="查看原始圖像">
+			<span class="imgButton" style="background-image:url(../assets/images/eye.svg)"></span>
+		</a>
+		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結">
+			<span class="imgButton" style="background-image:url(../assets/images/link.svg)"></span>
+		</a>
+		<a href="javascript:alert('image is not load done.')" id="lock" title="鎖定當前圖像">
+			<spsn class="imgButton" style="background-image:url(../assets/images/lock.svg)"></spsn>
+		</a>
+		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code">
+			<span class="imgButton" style="background-image:url(../assets/images/GitHubMarkLight.png)"></span>
+		</a>
+		<a href="/" id="Copy" title="Copyright kobe-koto">
+			<span class="imgButton" style="background-image:url(../assets/images/icon-r.png)"></span>
+		</a>
 
-	</ul>
+	</span>
 
 
-	<img src="../images/load.svg" alt="" id="colorPic" onclick="Load('');" />
+	<img src="../assets/images/load.svg" alt="" id="colorPic" onclick="Load('');" />
 	<!--<div class="demo"></div>-->
 
 
 	<script>
 		windowload();
-	</script>
-	<script>
-		setTimeout(
-			function () {
-				document.getElementById("InfoZone").onmousedown = (e) => {
-					//on mouse press on the element, calc the element XY.
-					var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
-					var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
-					document.onmousemove = function (e) {
-						//calc the element XY will move by user.
-						var tX = e.clientX - disX;
-						var tY = e.clientY - disY;
-						//move the element.
-						if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
-							document.getElementById("InfoZone").style.left = tX + 'px';
-						}
-						if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
-							document.getElementById("InfoZone").style.top = tY + 'px';
-						}
-					};
-					//cancel event when mouse up.
-					document.onmouseup = function (e) {
-						document.onmousemove = null;
-						document.onmouseup = null;
-					};
-				}
-
-			},1
-		)
 	</script>
 </body>
 </html>

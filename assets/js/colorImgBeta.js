@@ -35,7 +35,7 @@ function clearData(Value) {
 
 			document.getElementById("picNum").innerHTML = "loading";
 
-			document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
+			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/load.svg)";
 
 			console.log("loading");
 		break;
@@ -46,12 +46,36 @@ function clearData(Value) {
 			document.getElementById("lock").href = "";
 			document.getElementById("download").href = "";
 			document.getElementById("download").download = "";
-			document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
+			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/load.svg)";
 		break;
 	}
 }
 
 function windowload() {
+
+	document.getElementById("InfoZone").onmousedown = function (e) {
+		//on mouse press on the element, calc the element XY.
+		var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
+		var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
+		document.onmousemove = function (e) {
+			//move the element.
+			if (e.shiftKey === true) {
+				var tX = (e.clientX * 0.83) - disX;
+				var tY = (e.clientY * 0.86) - disY;
+				if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
+					document.getElementById("InfoZone").style.left = tX + 'px';
+				}
+				if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
+					document.getElementById("InfoZone").style.top = tY + 'px';
+				}
+			}
+		};
+		//cancel event when mouse up.
+		document.onmouseup = document.body.onmouseup = function () {
+			document.onmousemove = null;
+			document.onmouseup = null;
+		};
+	}
 
 	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean|lowSuccessRateRaw.
 	document.getElementById("picNum").innerHTML = "loading files list data";
@@ -59,15 +83,15 @@ function windowload() {
 		alert(window.location.protocol + "下无法加载DataBase");
 		console.log(window.location.protocol + "下无法加载DataBase");
 	} else {
-		var requestURL = "../assets/ColorImg.txt";
+		var requestURL = "../assets/other/ColorImg.txt";
 		var request = new XMLHttpRequest();
 		request.open("GET", requestURL,true);
 		request.send();
 		request.onerror = function () {
 			document.getElementById("picNum").innerHTML = "ERROR! cannot loading files list data.";
 			console.error("ERROR! cannot loading files list data.");
-			document.getElementById("colorPic").src = "../images/error.svg";
-			document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+			document.getElementById("colorPic").src = "../assets/images/error.svg";
+			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 			return null;
 		}
 		request.onload = function () {
@@ -88,8 +112,8 @@ function windowload() {
 			} catch (err) {
 				console.error("ERROR! cannot parse file list data");
 				document.getElementById("picNum").innerHTML = "ERROR! cannot parse file list data";
-				document.getElementById("colorPic").src = "../images/error.svg";
-				document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+				document.getElementById("colorPic").src = "../assets/images/error.svg";
+				document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 				alert("无法解析DataBase");
 				console.log("无法解析DataBase");
 				return null;
@@ -98,7 +122,7 @@ function windowload() {
 			FileMax = ColorImgJson.fileNum - 1;
 			//var PicNumMax
 
-			API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
+			API1 = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/";
 			API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
 			GetImgAPI = API1;
 			//var APIs
@@ -143,8 +167,8 @@ function Load(img) {
 		picName = img;
 	} else {
 		console.error("value error.");
-		document.getElementById("colorPic").src = "../images/error.svg";
-		document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+		document.getElementById("colorPic").src = "../assets/images/error.svg";
+		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 		return null;
 	}
 	clearData("load");
@@ -161,7 +185,7 @@ function Load(img) {
 		document.getElementById("download").download = picName;
 
 		document.getElementById("picNum").innerHTML = "Pic = " + picName;
-		document.getElementById("CheckImg").style.backgroundImage = "url(../images/check.svg)";
+		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/check.svg)";
 
 		console.log("Image load successfully.")
 	}
@@ -170,26 +194,30 @@ function Load(img) {
 	document.getElementById("colorPic").onerror = function () {
 
 		clearData("");
-		document.getElementById("colorPic").src = "../images/error.svg";
-		document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+		document.getElementById("colorPic").src = "../assets/images/error.svg";
+		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 
 		try {
-			if (GetImgAPI == API1) { 
+			if (GetImgAPI == API1) {
+				document.getElementById("colorPic").onload = null;
 				document.getElementById("picNum").innerHTML = "API1 may has error.try API2";
 				console.error("API1 may has error,try API2");
 				GetImgAPI = API2;
 				Load(img);
 			} else if (GetImgAPI == API2) {
-				document.getElementById("picNum").innerHTML = "API2 may has error.";
-				console.error("API2 may has error.");
+				document.getElementById("colorPic").onload = null;
+				document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
+				console.error("Pic cannot load.Check you network connect.");
+				return null;
 			} else {
 				document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
 				console.error("Pic cannot load.Check you network connect.");
+				return null;
 			}
 		} catch (err) {
 			document.getElementById("picNum").innerHTML = "switch API error,we will try fix the issue.";
 			console.error("switch API error,we will try fix the issue.");
-			document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 		}
 	}
 }

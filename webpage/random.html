@@ -2,14 +2,14 @@
 <html lang="zh-CN">
 	<head>
 		<meta charset="utf-8">
-		<link rel="icon" id="favicon" href="../images/info.svg" />
-		<link href="../css/hyperlinks.css" type="text/css" rel="stylesheet">
-		<link href="../css/glass_main.css" type="text/css" rel="stylesheet">
-		<link href="../css/column.css" type="text/css" rel="stylesheet">
-		<link href="../css/stripe_background.css" type="text/css" rel="stylesheet">
-		<link href="../css/button_shake_rgb.css" type="text/css" rel="stylesheet">
-		<link href="../css/scrollbar_rgb.css" type="text/css" rel="stylesheet">
-		<script src="../js/random.js"></script>
+		<link rel="icon" id="favicon" href="../assets/images/info.svg" />
+		<link href="../assets/css/hyperlinks.css" type="text/css" rel="stylesheet">
+		<link href="../assets/css/glass_main.css" type="text/css" rel="stylesheet">
+		<link href="../assets/css/column.css" type="text/css" rel="stylesheet">
+		<link href="../assets/css/stripe_background.css" type="text/css" rel="stylesheet">
+		<link href="../assets/css/button_shake_rgb.css" type="text/css" rel="stylesheet">
+		<link href="../assets/css/scrollbar_rgb.css" type="text/css" rel="stylesheet">
+		<script src="../assets/js/random.js"></script>
 		<title>随机数 | kobe koto</title>
 		<style>
 			.intwindow {
@@ -61,10 +61,10 @@
 		</div>
 		
 		<div class="glass_main" style="text-align: center;">
-			<span style="display: flex;margin: auto;width: max-content;">
-				<span style="flex: 1;">
-					<textarea id="intminwindow" class="intwindow" rows="1" cols="20" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数下限-仅数字"></textarea>
-					<textarea id="intmaxwindow" class="intwindow" rows="1" cols="20" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数上限-仅数字"></textarea>
+			<span style="display: inline-flex;margin: auto;width: max-content;">
+				<span>
+					<input id="intminwindow" class="intwindow" rows="1" cols="20" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数下限-仅数字" />
+					<input id="intmaxwindow" class="intwindow" rows="1" cols="20" wrap="hard" onkeydown="noallowEnter(event,'btn_rrddnnoo')" placeholder="人数上限-仅数字" />
 				</span>
 				<button onclick="rrddnnoo(document.getElementById('intminwindow').value,document.getElementById('intmaxwindow').value);" class="RGBShake_button button" id="btn_rrddnnoo"><a>!C!A!L!C!</a></button>
 			</span>
@@ -73,7 +73,7 @@
 				<a id="intdp" style="font-size: larger;color: #7fffd4;"></a>
 			</h3>
 			<h4 id="loadword" style="color: #858585;"></h4>
-			<h5 style="text-align: center;">一共计算了 <a id="calcTime">0</a> 次</h3>
+			<h5 style="text-align: center;">一共计算了 <a id="calcTime">0</a> 次</h5>
 			<div style="text-align: left" id="tipZone">
 				<h6>Tip: 在intmax裏敲入負數可生成負數</h6>
 				<h6><a href="javascript:deleteElement('tipZone');">HIDE THIS</a></h6>

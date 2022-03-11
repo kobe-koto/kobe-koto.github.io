@@ -60,7 +60,7 @@ function windowload() {
 	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean.
 	document.getElementById("picNum").innerHTML = "loading files list data";
 	
-	var requestURL = "../assets/ColorImg.txt";
+	var requestURL = "../assets/other/ColorImg.txt";
 	var request = new XMLHttpRequest();
 	request.open("GET", requestURL,true);
 	request.send(null);
@@ -92,7 +92,7 @@ function windowload() {
 		FileMax = ColorImgJson.fileNum - 1;
 		//var PicNumMax
 
-		API1 = "https://drive-koto.vercel.app/api?raw=true&path=/Image/GetColorImg/";
+		API1 = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/";
 		API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
 		GetImgAPI = API1;
 		//var APIs
