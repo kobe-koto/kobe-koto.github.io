@@ -2,8 +2,8 @@
 <html lang="zh">
 <head>
 	<meta charset="utf-8">
-	<link href="../assets/images/info.svg" rel="icon" id="favicon">
-	<script src="../assets/js/colorImgBeta.js"></script>
+	<link href="../../assets/images/info.svg" rel="icon" id="favicon">
+	<script src="js/colorImgBeta.js"></script>
 	<title>koto醬的11~! | kobe koto</title>
 	<style>
 		body {
@@ -74,6 +74,11 @@
 			border-left-style: solid;
 			border-left-width: 6px;
 			box-sizing: border-box;
+
+			user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
 		}
 		.imgButton {
 			float: left;
@@ -113,7 +118,7 @@
 			user-select: none;
 			background: #ff0000;
 			color: #ffffff;
-			font-size: 50px;
+			font-size: 30px;
 		}
 	</style>
 </head>
@@ -122,42 +127,51 @@
 	<noscript>
 		<div id="non-js">
 			<p>PlEASE ENABLE JAVASCRIPT TO VISIT OR USE THIS PAGE ON KOTO.EU.ORG.</p>
-			<p>請打開JavaScript以繼續使用此頁面。</p>
+			<p>請打開 JavaScript 以繼續使用此頁面.</p>
+			<p>或使用 功能極其受限的 <a href="./nonJavaScript.html">non-js頁面</a> .</p>
 		</div>
 	</noscript>
 
 	<span class="InfoZone" id="InfoZone" title="按住 Shift 與鼠標以移動。">
 
 		<p id="picNum"></p>
+		<span style="width: 95%;height: 3px;background: rgba(0,0,0,0.6);display: block;border-radius: 25px;"></span>
+		<h6>
+			使用
+			&nbsp;
+			<a href="./old.html">以前的頁面</a>
+			&nbsp;&nbsp;
+			<a href="nonJavaScript.html">non-js頁面</a>
+		</h6>
 		<h5>Copyright kobe-koto | <a href="https://github.com/kobe-koto/kobe-koto.github.io/">Open Source Code</a> Under <a href="/LICENSE.html">AGPL-3.0</a></h5>
 		<!-- <h6>Good News! 該網頁不支持IE9及以下</h6> -->
 		<a>
-			<span class="imgButton" id="CheckImg" style="background-image:url(../assets/images/load.svg);cursor: not-allowed;"></span>
+			<span class="imgButton" id="CheckImg" style="background-image:url(../../assets/images/load.svg);cursor: not-allowed;"></span>
 		</a>
 
 		<a href="javascript:alert('image is not load done.')" id="download" download="" title="下載原始圖像">
-			<span class="imgButton" style="background-image:url(../assets/images/download.svg)"></span>
+			<span class="imgButton" style="background-image:url(../../assets/images/download.svg)"></span>
 		</a>
 		<a href="javascript:alert('image is not load done.')" id="raw" title="查看原始圖像">
-			<span class="imgButton" style="background-image:url(../assets/images/eye.svg)"></span>
+			<span class="imgButton" style="background-image:url(../../assets/images/eye.svg)"></span>
 		</a>
 		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結">
-			<span class="imgButton" style="background-image:url(../assets/images/link.svg)"></span>
+			<span class="imgButton" style="background-image:url(../../assets/images/link.svg)"></span>
 		</a>
 		<a href="javascript:alert('image is not load done.')" id="lock" title="鎖定當前圖像">
-			<span class="imgButton" style="background-image:url(../assets/images/lock.svg)"></span>
+			<span class="imgButton" style="background-image:url(../../assets/images/lock.svg)"></span>
 		</a>
 		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code">
-			<span class="imgButton" style="background-image:url(../assets/images/GitHubMarkLight.png)"></span>
+			<span class="imgButton" style="background-image:url(../../assets/images/GitHubMarkLight.png)"></span>
 		</a>
 		<a href="/" id="Copy" title="Copyright kobe-koto">
-			<span class="imgButton" style="background-image:url(../assets/images/icon-r.png)"></span>
+			<span class="imgButton" style="background-image:url(../../assets/images/icon-r.png)"></span>
 		</a>
 
 	</span>
 
 
-	<img src="../assets/images/load.svg" alt="" id="colorPic" onclick="Load('');" />
+	<img src="../../assets/images/load.svg" alt="" id="colorPic" onclick="Load('');" />
 	<!--<div class="demo"></div>-->
 
 

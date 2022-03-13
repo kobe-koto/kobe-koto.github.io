@@ -35,7 +35,7 @@ function clearData(Value) {
 
 			document.getElementById("picNum").innerHTML = "INFO: 載入中";
 
-			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/load.svg)";
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
 
 		break;
 
@@ -45,7 +45,7 @@ function clearData(Value) {
 			document.getElementById("lock").href = "";
 			document.getElementById("download").href = "";
 			document.getElementById("download").download = "";
-			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/load.svg)";
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
 		break;
 	}
 }
@@ -81,15 +81,15 @@ function windowload() {
 		alert(window.location.protocol + "下无法加载DataBase");
 		console.log(window.location.protocol + "下无法加载DataBase");
 	} else {
-		var requestURL = "../assets/other/ColorImg.txt";
+		var requestURL = "./database/ColorImg.txt";
 		var request = new XMLHttpRequest();
 		request.open("GET", requestURL, true);
 		request.send();
 		request.onerror = function () {
 			document.getElementById("picNum").innerHTML = "ERROR: 列表無法載入";
 			console.error("ERROR! cannot loading files list data.");
-			document.getElementById("colorPic").src = "../assets/images/error.svg";
-			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
+			document.getElementById("colorPic").src = "./images/error.svg";
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
 			return null;
 		}
 		request.onload = function () {
@@ -140,8 +140,8 @@ function Load(img) {
 		picName = img;
 	} else {
 		console.error("數·值·錯·誤·!");
-		document.getElementById("colorPic").src = "../assets/images/error.svg";
-		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
+		document.getElementById("colorPic").src = "./images/error.svg";
+		document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
 		return null;
 	}
 	clearData("load");
@@ -154,8 +154,8 @@ function Load(img) {
 		document.getElementById("colorPic").onload = null;
 
 		clearData("");
-		document.getElementById("colorPic").src = "../assets/images/error.svg";
-		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
+		document.getElementById("colorPic").src = "./images/error.svg";
+		document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
 
 		try {
 			if (GetImgAPI == API1) {
@@ -177,7 +177,7 @@ function Load(img) {
 		} catch (err) {
 			document.getElementById("picNum").innerHTML = "ERROR: 無法切換API.";
 			console.error("無法切換API.");
-			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
 		}
 	}
 
@@ -190,7 +190,7 @@ function Load(img) {
 		document.getElementById("download").download = picName;
 
 		document.getElementById("picNum").innerHTML = "圖像成功載入...您要的銫圖 [ " + picName + " ]";
-		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/check.svg)";
+		document.getElementById("CheckImg").style.backgroundImage = "url(./images/check.svg)";
 
 		console.log("INFO: 圖像成功載入...您要的銫圖!")
 	}
