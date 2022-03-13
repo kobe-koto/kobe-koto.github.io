@@ -69,26 +69,7 @@ function windowload() {
 		console.error("ERROR! cannot loading files list data.");
 	}
 	request.onload = function () {
-		try {
-			if (request.response.slice(-4).toString().match(/(},)/i)) {
-				console.log("data is clean.");
-				tryColorImgJson = JSON.parse(request.response.slice(0,-3) + "]}");
-			} else if (request.response.slice(-5).toString().match(/(},)/i)) {
-				console.log("data has n/r.");
-				ColorImgJson = JSON.parse(request.response.slice(0,-4) + "]}");
-			} else if (request.response.slice(-6).toString().match(/(},)/i)) {
-				console.log("data has r,n.");
-				ColorImgJson = JSON.parse(request.response.slice(0,-5) + "]}");
-			} else {
-				console.log("try parse list data.");
-				ColorImgJson = JSON.parse(request.response);
-			}
-		} catch (err) {
-			console.error("ERROR! cannot parse file list data");
-			document.getElementById("picNum").innerHTML = "ERROR! cannot parse file list data";
-		}
-
-
+		ColorImgJson = JSON.parse(request.response);
 		FileMax = ColorImgJson.fileNum - 1;
 		//var PicNumMax
 

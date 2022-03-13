@@ -16,6 +16,16 @@
 		* {
 			font-family: 'Segoe UI', 'Segoe WP', Arial, Sans-Serif, system-ui;
 		}
+		a:link,a:visited {
+			text-decoration: none;
+			border: #000000;
+			border-bottom-style: dotted;
+			border-width: 2px;
+			color: #000;
+		}
+		a:link:hover,a:visited:hover {
+			border-bottom-style: solid;
+		}
 		::-webkit-scrollbar-thumb {
 			border-radius: 10px;
 			background: linear-gradient(45deg,#f284ff 16%,#31cae6 57%,#20a53a 150%);
@@ -51,16 +61,14 @@
 
 		.InfoZone {
 			position: fixed;
-			top: 0;
-			left: 0;
+			top: 15px;
+			left: 15px;
 			z-index: 114514;
-			margin: 15px;
 			height: auto;
-
 			padding: 10px 10px 10px 20px;
-			color: #ffffff;
-
-			background-color: rgba(0,0,0,0.3);
+			color: #000000;
+			background-color: rgba(255,255,255,0.5);
+			backdrop-filter: blur(7px);
 			border-radius: 5px;
 			border-left: rgba(255,255,255,0.6);
 			border-left-style: solid;
@@ -71,7 +79,7 @@
 			float: left;
 
 			padding: 10px;
-			margin: 0 0 0 20px;
+			margin: 10px 10px 0 0;
 
 			background-position: center;
 			background-size: 50px 50px;
@@ -113,16 +121,18 @@
 
 	<noscript>
 		<div id="non-js">
-			PlEASE ENABLE JAVASCRIPT TO VISIT OR USE THIS PAGE ON KOTO.EU.ORG.
+			<p>PlEASE ENABLE JAVASCRIPT TO VISIT OR USE THIS PAGE ON KOTO.EU.ORG.</p>
+			<p>請打開JavaScript以繼續使用此頁面。</p>
 		</div>
 	</noscript>
 
 	<span class="InfoZone" id="InfoZone" title="按住 Shift 與鼠標以移動。">
 
 		<p id="picNum"></p>
-
+		<h5>Copyright kobe-koto | <a href="https://github.com/kobe-koto/kobe-koto.github.io/">Open Source Code</a> Under <a href="/LICENSE.html">AGPL-3.0</a></h5>
+		<!-- <h6>Good News! 該網頁不支持IE9及以下</h6> -->
 		<a>
-			<span class="imgButton" id="CheckImg" style="margin: 0 0 0 0;background-image:url(../assets/images/load.svg);cursor: not-allowed;"></span>
+			<span class="imgButton" id="CheckImg" style="background-image:url(../assets/images/load.svg);cursor: not-allowed;"></span>
 		</a>
 
 		<a href="javascript:alert('image is not load done.')" id="download" download="" title="下載原始圖像">

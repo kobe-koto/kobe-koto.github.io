@@ -1,8 +1,9 @@
 // Encoding: UTF-8
 // Made with heart by kobe-koto in AGPL-3.0 License License
 // copyright 2021 kobe-koto
+
 window.onload = function () {
-	document.getElementById("intminwindow").value = "0";
+	document.getElementById("intminwindow").value = "1";
 	document.getElementById("intmaxwindow").value = "46";
 }
 
@@ -13,10 +14,12 @@ function createElement (element,info,root,className) {
 	element_root.className = className;
 	document.getElementById(root).appendChild(element_root);
 }
+
 function deleteElement (elementId) {
 	document.getElementById(elementId).style.display = 'none';// for IE
 	document.getElementById(elementId).remove();// full del
 }
+
 function noallowEnter (events,clickElement) {
 	var et = events || window.event;
 	var keycode = et.charCode || et.keyCode;
@@ -29,6 +32,7 @@ function noallowEnter (events,clickElement) {
 		}
 	}
 }
+
 function formattedDate() {
 	var originalDate = new Date();
 	var formattedDate = '';
@@ -40,6 +44,7 @@ function formattedDate() {
 	formattedDate += originalDate.getSeconds() + '秒';
 	return formattedDate;
 }
+
 function logOutput(type,info,putTo,element) {
 	if (putTo === "numzone") {
 		createElement(element,"[" + formattedDate() + "] " + info,putTo,"");
@@ -49,20 +54,36 @@ function logOutput(type,info,putTo,element) {
 	
 	console.log("[" + type + " | " + formattedDate() + "]" + info);
 }
+
 function rePutInt() {
 	document.getElementById("loadword").innerHTML = "";
 	document.getElementById("intdp").innerHTML = "";
+	document.getElementById("intword").innerHTML = "";
 }
+
 function TIMESPP () {
 	var Times = document.getElementById("calcTime").innerHTML;
 	Times++;
 	document.getElementById("calcTime").innerHTML = Times;
 }
+
 function rrddnnoo (intmin,intmax) {
 	// document.getElementById("intwindow").value;
 	rePutInt();
-	TIMESPP();
 
+	if (intmax.match(/(114514|1919810)/i) || intmin.match(/(114514|1919810)/i)){
+		if (intmax.match(/(kobe|koto)/i) || intmin.match(/(kobe|koto)/i)) {
+			document.getElementById("intdp").innerHTML = "😒";
+			document.getElementById("intword").innerHTML = "kobe koto不會變臭！";
+			document.getElementById("loadword").innerHTML = "That an Easter Egg.";
+
+			document.getElementById("intminwindow").value = "";
+			document.getElementById("intmaxwindow").value = "";
+
+			logOutput("INFO","An Easter egg has been found!","logzone","p");
+			return null;
+		}
+	}
 	if (intmax.match(/(114514|1919810)/i) || intmin.match(/(114514|1919810)/i)){
 		document.getElementById("intdp").innerHTML = "😱";
 		document.getElementById("intword").innerHTML = "臭死了";
@@ -95,7 +116,7 @@ function rrddnnoo (intmin,intmax) {
 	if (intmax == "0") {
 		rePutInt();
 		logOutput("ERROR","intmax 不可为0","logzone","p");
-		document.getElementById("loadword").innerHTML = "[ERROR] intmax 不可为0";
+		document.getElementById("loadword").innerHTML = "[ERROR] intmax 不可为 0";
 		return null;
 	}
 	if (intmax == "0" && intmin == "0") {
@@ -113,22 +134,23 @@ function rrddnnoo (intmin,intmax) {
 	}
 	if (!intmax.match(/(-)/i) && intmax-intmin < 0) {
 		rePutInt();
-		document.getElementById("intword").innerHTML = "[Error] 當intmax為正數時，intmax 不可小于 intmin。";
+		document.getElementById("intword").innerHTML = "[Error] 當 intmax 為正數時， intmax 不可小于 intmin 。";
 
-		logOutput("ERROR","當intmax為正數時，intmax 不可小于 intmin。","logzone","p");
+		logOutput("ERROR","當 intmax 為正數時， intmax 不可小于 intmin 。","logzone","p");
 		return null;
 	}
 	if (intmax.match(/(-)/i) && intmax-intmin > 0) {
 		rePutInt();
-		document.getElementById("intword").innerHTML = "[Error] 當intmax為負數時，intmax 不可小于 intmin。";
+		document.getElementById("intword").innerHTML = "[Error] 當 intmax 為負數時， intmax 不可小于 intmin 。";
 
-		logOutput("ERROR","當intmax為負數時，intmax 不可大於 intmin。","logzone","p");
+		logOutput("ERROR","當 intmax 為負數時， intmax 不可大於 intmin 。","logzone","p");
 		return null;
 	}
 	//ERROR area ↑
 	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
 		if (randomno <= intmax && randomno >= intmin) {
+			TIMESPP();
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno.toString();
 
@@ -143,6 +165,7 @@ function rrddnnoo (intmin,intmax) {
 	while (!isNaN(intmax) && !isNaN(intmin) && intmax.match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
 		if (randomno >= intmax && randomno <= intmin && intmax.match(/(-)/i)) {
+			TIMESPP();
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno.toString();
 

@@ -33,11 +33,10 @@ function clearData(Value) {
 			document.getElementById("download").href = "";
 			document.getElementById("download").download = "";
 
-			document.getElementById("picNum").innerHTML = "loading";
+			document.getElementById("picNum").innerHTML = "INFO: 載入中";
 
 			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/load.svg)";
 
-			console.log("loading");
 		break;
 
 		case "":
@@ -59,15 +58,13 @@ function windowload() {
 		var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
 		document.onmousemove = function (e) {
 			//move the element.
-			if (e.shiftKey === true) {
-				var tX = (e.clientX * 0.83) - disX;
-				var tY = (e.clientY * 0.86) - disY;
-				if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
-					document.getElementById("InfoZone").style.left = tX + 'px';
-				}
-				if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
-					document.getElementById("InfoZone").style.top = tY + 'px';
-				}
+			var tX = e.clientX - disX;
+			var tY = e.clientY - disY;
+			if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
+				document.getElementById("InfoZone").style.left = tX + 'px';
+			}
+			if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
+				document.getElementById("InfoZone").style.top = tY + 'px';
 			}
 		};
 		//cancel event when mouse up.
@@ -78,47 +75,25 @@ function windowload() {
 	}
 
 	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean|lowSuccessRateRaw.
-	document.getElementById("picNum").innerHTML = "loading files list data";
+	document.getElementById("picNum").innerHTML = "INFO: 正在載入銫圖列表";
+
 	if (window.location.protocol.match(/(file|data)/i)) {
 		alert(window.location.protocol + "下无法加载DataBase");
 		console.log(window.location.protocol + "下无法加载DataBase");
 	} else {
 		var requestURL = "../assets/other/ColorImg.txt";
 		var request = new XMLHttpRequest();
-		request.open("GET", requestURL,true);
+		request.open("GET", requestURL, true);
 		request.send();
 		request.onerror = function () {
-			document.getElementById("picNum").innerHTML = "ERROR! cannot loading files list data.";
+			document.getElementById("picNum").innerHTML = "ERROR: 列表無法載入";
 			console.error("ERROR! cannot loading files list data.");
 			document.getElementById("colorPic").src = "../assets/images/error.svg";
 			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 			return null;
 		}
 		request.onload = function () {
-			try {
-				if (request.response.slice(-4).toString().match(/(},)/i)) {
-					console.log("data is clean.");
-					ColorImgJson = JSON.parse(request.response.slice(0,-3) + "]}");
-				} else if (request.response.slice(-5).toString().match(/(},)/i)) {
-					console.log("data has n/r.");
-					ColorImgJson = JSON.parse(request.response.slice(0,-4) + "]}");
-				} else if (request.response.slice(-6).toString().match(/(},)/i)) {
-					console.log("data has r,n.");
-					ColorImgJson = JSON.parse(request.response.slice(0,-5) + "]}");
-				} else {
-					console.log("try parse list data.");
-					ColorImgJson = JSON.parse(request.response);
-				}
-			} catch (err) {
-				console.error("ERROR! cannot parse file list data");
-				document.getElementById("picNum").innerHTML = "ERROR! cannot parse file list data";
-				document.getElementById("colorPic").src = "../assets/images/error.svg";
-				document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
-				alert("无法解析DataBase");
-				console.log("无法解析DataBase");
-				return null;
-			}
-
+			ColorImgJson = JSON.parse(request.response);
 			FileMax = ColorImgJson.fileNum - 1;
 			//var PicNumMax
 
@@ -127,8 +102,7 @@ function windowload() {
 			GetImgAPI = API1;
 			//var APIs
 
-			console.log("load List Done!");
-
+			console.log("INFO: 成功載入了列表!");
 			if (!GetQueryString("img").toString() == "") {
 				var img = GetQueryString("img");
 				Load(img);
@@ -138,7 +112,6 @@ function windowload() {
 			//mode auto,support Specify & Random.
 		}
 	}
-
 
 }
 function GetQueryString(name) {
@@ -156,17 +129,17 @@ function Load(img) {
 	//load a new Img from varied API.
 	if (img == "") {
 		// Random img load
-		console.log("Random mode.");
+		console.log("隨機圖像模式");
 		picNum = random("0",FileMax);
 		picName = ColorImgJson.pics[picNum].name;
 		picLink = GetImgAPI + picName;
 	} else if (!img == "") {
 		// Specify img load
-		console.log("Specify mode.");
+		console.log("指定圖像Name模式.");
 		picLink = GetImgAPI + img;
 		picName = img;
 	} else {
-		console.error("value error.");
+		console.error("數·值·錯·誤·!");
 		document.getElementById("colorPic").src = "../assets/images/error.svg";
 		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 		return null;
@@ -176,22 +149,9 @@ function Load(img) {
 	ShareLink = window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + picName;
 	document.getElementById("colorPic").src = picLink;
 
-	// load done
-	document.getElementById("colorPic").onload = function () {
-
-		document.getElementById("raw").href = picLink;
-		document.getElementById("lock").href = ShareLink;
-		document.getElementById("download").href = picLink;
-		document.getElementById("download").download = picName;
-
-		document.getElementById("picNum").innerHTML = "Pic = " + picName;
-		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/check.svg)";
-
-		console.log("Image load successfully.")
-	}
-
 	// load error
 	document.getElementById("colorPic").onerror = function () {
+		document.getElementById("colorPic").onload = null;
 
 		clearData("");
 		document.getElementById("colorPic").src = "../assets/images/error.svg";
@@ -200,25 +160,39 @@ function Load(img) {
 		try {
 			if (GetImgAPI == API1) {
 				document.getElementById("colorPic").onload = null;
-				document.getElementById("picNum").innerHTML = "API1 may has error.try API2";
-				console.error("API1 may has error,try API2");
+				document.getElementById("picNum").innerHTML = "ERROR: API1 或許不可用, 將嘗試 API2.";
+				console.error("API1 或許不可用, 將嘗試 API2.");
 				GetImgAPI = API2;
 				Load(img);
 			} else if (GetImgAPI == API2) {
 				document.getElementById("colorPic").onload = null;
-				document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
-				console.error("Pic cannot load.Check you network connect.");
+				document.getElementById("picNum").innerHTML = "ERROR: API1 && API2 均不可用, 或是您的網路配置有問題, 亦可能是您無法鏈接至 API1 && API2.";
+				console.error("API1 && API2 均不可用, 或是您的網路配置有問題, 亦可能是您無法連綫至 API1 && API2.");
 				return null;
 			} else {
-				document.getElementById("picNum").innerHTML = "Pic cannot load.Check you network connect.";
-				console.error("Pic cannot load.Check you network connect.");
+				document.getElementById("picNum").innerHTML = "ERROR: 圖像無法載入, 所設置的 API 與 API1["+API1+"] 和API2 ["+API2+"] 均不匹配, 或是遇到未知錯誤, 這通常是kobekoto以外的人未經同意修改了程式碼.";
+				console.error("圖像無法載入, 所設置的 API 與 API1["+API1+"] 和API2 ["+API2+"] 均不匹配, 或是遇到未知錯誤, 這通常是kobekoto以外的人未經同意修改了程式碼.");
 				return null;
 			}
 		} catch (err) {
-			document.getElementById("picNum").innerHTML = "switch API error,we will try fix the issue.";
-			console.error("switch API error,we will try fix the issue.");
+			document.getElementById("picNum").innerHTML = "ERROR: 無法切換API.";
+			console.error("無法切換API.");
 			document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/error.svg)";
 		}
+	}
+
+	// load done
+	document.getElementById("colorPic").onload = function () {
+
+		document.getElementById("raw").href = picLink;
+		document.getElementById("lock").href = ShareLink;
+		document.getElementById("download").href = picLink;
+		document.getElementById("download").download = picName;
+
+		document.getElementById("picNum").innerHTML = "圖像成功載入...您要的銫圖 [ " + picName + " ]";
+		document.getElementById("CheckImg").style.backgroundImage = "url(../assets/images/check.svg)";
+
+		console.log("INFO: 圖像成功載入...您要的銫圖!")
 	}
 }
 
