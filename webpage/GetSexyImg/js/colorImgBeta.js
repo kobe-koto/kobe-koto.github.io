@@ -27,20 +27,8 @@ function copyPicShareLink() {
 function clearData(Value) {
 	//clear old data,use for reload a new img
 	switch (Value) {
-		case "load":
-			document.getElementById("raw").href = "";
-			document.getElementById("lock").href = "";
-			document.getElementById("download").href = "";
-			document.getElementById("download").download = "";
 
-			document.getElementById("picNum").innerHTML = "INFO: 載入中";
-			if (window.location.toString().match(/(gay|fur)/i)) {
-				document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
-			} else {
-				document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
-			}
 
-		break;
 
 		case "":
 		default:
@@ -53,85 +41,10 @@ function clearData(Value) {
 			} else {
 				document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
 			}
-		break;
+		case "load":
+			document.getElementById("picNum").innerHTML = "INFO: 載入中";
+			break;
 	}
-}
-
-function windowload (isMoveInfoZone,databaseType) {
-
-	if (isMoveInfoZone === "false") {
-		console.log("將不會讓InfoZone可拖動。");
-	} else if (isMoveInfoZone == "true") {
-		console.log("將會讓InfoZone可拖動。");
-		document.getElementById("InfoZone").onmousedown = function (e) {
-			//on mouse press on the element, calc the element XY.
-			var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
-			var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
-			document.onmousemove = function (e) {
-				//move the element.
-				var tX = e.clientX - disX;
-				var tY = e.clientY - disY;
-				if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
-					document.getElementById("InfoZone").style.left = tX + 'px';
-				}
-				if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
-					document.getElementById("InfoZone").style.top = tY + 'px';
-				}
-			}
-			//cancel event when mouse up.
-			document.onmouseup = document.body.onmouseup = function () {
-				document.onmousemove = null;
-				document.onmouseup = null;
-			}
-		}
-	}
-
-
-
-	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean|lowSuccessRateRaw.
-	document.getElementById("picNum").innerHTML = "INFO: 正在載入銫圖列表";
-
-	if (window.location.protocol.match(/(file|data)/i)) {
-		alert(window.location.protocol + "下无法加载DataBase");
-		console.log(window.location.protocol + "下无法加载DataBase");
-	} else {
-
-		if (window.location.toString().match(/(gay|fur)/i)) {
-			requestURL = "../database/"+databaseType+".txt";
-		} else {
-			requestURL = "./database/"+databaseType+".txt";
-		}
-
-		request = new XMLHttpRequest();
-		request.open("GET", requestURL, true);
-		request.send();
-		request.onerror = function () {
-			document.getElementById("picNum").innerHTML = "ERROR: 列表無法載入";
-			console.error("ERROR! cannot loading files list data.");
-			document.getElementById("colorPic").src = "./images/error.svg";
-			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
-			return null;
-		}
-		request.onload = function () {
-			ColorImgJson = JSON.parse(request.response);
-			//var PicNumMax
-
-			API1 = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
-			API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/"+databaseType+"/";
-			GetImgAPI = API1;
-			//var APIs
-
-			console.log("INFO: 成功載入了列表!");
-			if (!GetQueryString("img").toString() == "") {
-				var img = GetQueryString("img");
-				Load(img);
-			} else {
-				Load("");
-			}
-			//mode auto,support Specify & Random.
-		}
-	}
-
 }
 function GetQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -237,6 +150,85 @@ function Load(img) {
 
 		console.log("INFO: 圖像成功載入...您要的銫圖!")
 	}
+}
+
+function windowload (isMoveInfoZone,databaseType) {
+
+	if (isMoveInfoZone === "false") {
+		console.log("將不會讓InfoZone可拖動。");
+	} else if (isMoveInfoZone == "true") {
+		console.log("將會讓InfoZone可拖動。");
+		document.getElementById("InfoZone").onmousedown = function (e) {
+			//on mouse press on the element, record the element XY as disX & disY.
+			var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
+			var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
+			document.onmousemove = function (e) {
+				//cale coordinate to move.
+				var tX = e.clientX - disX;
+				var tY = e.clientY - disY;
+				//move the element.
+				if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
+					document.getElementById("InfoZone").style.left = tX + 'px';
+				}
+				if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
+					document.getElementById("InfoZone").style.top = tY + 'px';
+				}
+			}
+			//delete event when mouse up.
+			document.onmouseup = document.body.onmouseup = function () {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}
+	}
+
+	document.getElementById("picNum").innerHTML = "INFO: 正在載入銫圖列表";
+
+	if (window.location.protocol.match(/(file|data)/i)) {
+		alert(window.location.protocol + "下无法加载DataBase");
+		console.log(window.location.protocol + "下无法加载DataBase");
+	} else {
+		//config ColorImg database loc.
+		if (window.location.toString().match(/(gay|fur)/i)) {
+			requestURL = "../database/"+databaseType+".txt";
+		} else {
+			requestURL = "./database/"+databaseType+".txt";
+		}
+
+		//request ColorImg database.
+		request = new XMLHttpRequest();
+		request.open("GET", requestURL, true);
+		request.send();
+		request.onerror = function () {
+			document.getElementById("picNum").innerHTML = "ERROR: 列表無法載入";
+			console.error("ERROR! cannot loading files list data.");
+			document.getElementById("colorPic").src = "./images/error.svg";
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
+			return null;
+		}
+		request.onload = function () {
+			//parse data as JSON.
+			ColorImgJson = JSON.parse(request.response);
+
+			//var APIs.
+			API1 = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
+			API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/"+databaseType+"/";
+			GetImgAPI = API1;
+
+
+			console.log("INFO: 成功載入了列表!");
+
+			//mode auto,support Specify & Random.
+			if (!GetQueryString("img").toString() == "") {
+				var img = GetQueryString("img");
+				Load(img);
+			} else {
+				Load("");
+			}
+
+		}
+	}
+
 }
 
 
