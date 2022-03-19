@@ -34,8 +34,11 @@ function clearData(Value) {
 			document.getElementById("download").download = "";
 
 			document.getElementById("picNum").innerHTML = "INFO: 載入中";
-
-			document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
+			if (window.location.toString().match(/(gay|fur)/i)) {
+				document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
+			} else {
+				document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
+			}
 
 		break;
 
@@ -45,34 +48,45 @@ function clearData(Value) {
 			document.getElementById("lock").href = "";
 			document.getElementById("download").href = "";
 			document.getElementById("download").download = "";
-			document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
+			if (window.location.toString().match(/(gay|fur)/i)) {
+				document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
+			} else {
+				document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
+			}
 		break;
 	}
 }
 
-function windowload() {
+function windowload (isMoveInfoZone,databaseType) {
 
-	document.getElementById("InfoZone").onmousedown = function (e) {
-		//on mouse press on the element, calc the element XY.
-		var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
-		var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
-		document.onmousemove = function (e) {
-			//move the element.
-			var tX = e.clientX - disX;
-			var tY = e.clientY - disY;
-			if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
-				document.getElementById("InfoZone").style.left = tX + 'px';
+	if (isMoveInfoZone === "false") {
+		console.log("將不會讓InfoZone可拖動。");
+	} else if (isMoveInfoZone == "true") {
+		console.log("將會讓InfoZone可拖動。");
+		document.getElementById("InfoZone").onmousedown = function (e) {
+			//on mouse press on the element, calc the element XY.
+			var disX = e.clientX - document.getElementById("InfoZone").offsetLeft;
+			var disY = e.clientY - document.getElementById("InfoZone").offsetTop;
+			document.onmousemove = function (e) {
+				//move the element.
+				var tX = e.clientX - disX;
+				var tY = e.clientY - disY;
+				if (tX >= 0 && tX <= window.innerWidth - document.getElementById("InfoZone").offsetWidth) {
+					document.getElementById("InfoZone").style.left = tX + 'px';
+				}
+				if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
+					document.getElementById("InfoZone").style.top = tY + 'px';
+				}
 			}
-			if (tY >= 0 && tY <= window.innerHeight - document.getElementById("InfoZone").offsetHeight) {
-				document.getElementById("InfoZone").style.top = tY + 'px';
+			//cancel event when mouse up.
+			document.onmouseup = document.body.onmouseup = function () {
+				document.onmousemove = null;
+				document.onmouseup = null;
 			}
-		};
-		//cancel event when mouse up.
-		document.onmouseup = document.body.onmouseup = function () {
-			document.onmousemove = null;
-			document.onmouseup = null;
-		};
+		}
 	}
+
+
 
 	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean|lowSuccessRateRaw.
 	document.getElementById("picNum").innerHTML = "INFO: 正在載入銫圖列表";
@@ -81,8 +95,14 @@ function windowload() {
 		alert(window.location.protocol + "下无法加载DataBase");
 		console.log(window.location.protocol + "下无法加载DataBase");
 	} else {
-		var requestURL = "./database/ColorImg.txt";
-		var request = new XMLHttpRequest();
+
+		if (window.location.toString().match(/(gay|fur)/i)) {
+			requestURL = "../database/"+databaseType+".txt";
+		} else {
+			requestURL = "./database/"+databaseType+".txt";
+		}
+
+		request = new XMLHttpRequest();
 		request.open("GET", requestURL, true);
 		request.send();
 		request.onerror = function () {
@@ -94,11 +114,10 @@ function windowload() {
 		}
 		request.onload = function () {
 			ColorImgJson = JSON.parse(request.response);
-			FileMax = ColorImgJson.fileNum - 1;
 			//var PicNumMax
 
-			API1 = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/";
-			API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/";
+			API1 = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
+			API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/"+databaseType+"/";
 			GetImgAPI = API1;
 			//var APIs
 
@@ -130,18 +149,22 @@ function Load(img) {
 	if (img == "") {
 		// Random img load
 		console.log("隨機圖像模式");
-		picNum = random("0",FileMax);
-		picName = ColorImgJson.pics[picNum].name;
+		picName = ColorImgJson.pics[(random("0",(ColorImgJson.fileNum - 1)))].name;
 		picLink = GetImgAPI + picName;
 	} else if (!img == "") {
 		// Specify img load
 		console.log("指定圖像Name模式.");
-		picLink = GetImgAPI + img;
 		picName = img;
+		picLink = GetImgAPI + img;
 	} else {
 		console.error("數·值·錯·誤·!");
-		document.getElementById("colorPic").src = "./images/error.svg";
-		document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
+		if (window.location.toString().match(/(gay|fur)/i)) {
+			document.getElementById("colorPic").src = "../images/error.svg";
+			document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+		} else {
+			document.getElementById("colorPic").src = "./images/error.svg";
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
+		}
 		return null;
 	}
 	clearData("load");
@@ -154,8 +177,15 @@ function Load(img) {
 		document.getElementById("colorPic").onload = null;
 
 		clearData("");
-		document.getElementById("colorPic").src = "./images/error.svg";
-		document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
+
+		if (window.location.toString().match(/(gay|fur)/i)) {
+			document.getElementById("colorPic").src = "../images/error.svg";
+			document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+		} else {
+			document.getElementById("colorPic").src = "./images/error.svg";
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
+		}
+
 
 		try {
 			if (GetImgAPI == API1) {
@@ -177,7 +207,15 @@ function Load(img) {
 		} catch (err) {
 			document.getElementById("picNum").innerHTML = "ERROR: 無法切換API.";
 			console.error("無法切換API.");
-			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
+
+
+			if (window.location.toString().match(/(gay|fur)/i)) {
+				document.getElementById("colorPic").src = "../images/error.svg";
+				document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
+			} else {
+				document.getElementById("colorPic").src = "./images/error.svg";
+				document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
+			}
 		}
 	}
 
@@ -189,8 +227,13 @@ function Load(img) {
 		document.getElementById("download").href = picLink;
 		document.getElementById("download").download = picName;
 
-		document.getElementById("picNum").innerHTML = "圖像成功載入...您要的銫圖 [ " + picName + " ]";
-		document.getElementById("CheckImg").style.backgroundImage = "url(./images/check.svg)";
+		document.getElementById("picNum").innerHTML = "您要的銫圖 [ " + picName + " ]";
+
+		if (window.location.toString().match(/(gay|fur)/i)) {
+			document.getElementById("CheckImg").style.backgroundImage = "url(../images/check.svg)";
+		} else {
+			document.getElementById("CheckImg").style.backgroundImage = "url(./images/check.svg)";
+		}
 
 		console.log("INFO: 圖像成功載入...您要的銫圖!")
 	}

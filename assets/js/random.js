@@ -62,9 +62,7 @@ function rePutInt() {
 }
 
 function TIMESPP () {
-	var Times = document.getElementById("calcTime").innerHTML;
-	Times++;
-	document.getElementById("calcTime").innerHTML = Times;
+	document.getElementById("calcTime").innerHTML++;
 }
 
 function rrddnnoo (intmin,intmax) {

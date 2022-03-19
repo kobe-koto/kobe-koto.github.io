@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<link href="../images/info.svg" rel="icon" id="favicon">
+	<script src="../js/colorImgBeta.js"></script>
+	<title>koto醬的11~! | kobe koto</title>
+	<style>
+		body {
+			background-color: #303030;
+			background-image: none;
+			overflow-y: scroll;
+			padding: 0;
+			margin: 0;
+		}
+		* {
+			font-family: 'Segoe UI', 'Segoe WP', Arial, Sans-Serif, system-ui;
+		}
+		a:link,a:visited {
+			text-decoration: none;
+			border: 2px #000000;
+			border-bottom-style: dotted;
+			color: #000;
+		}
+		a:link:hover,a:visited:hover {
+			border-bottom-style: solid;
+		}
+		::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background: linear-gradient(45deg,#f284ff 16%,#31cae6 57%,#20a53a 150%);
+
+			border-style: solid;
+			border-width: 2px;
+			box-sizing: border-box;
+			border-color: #232323;
+		}
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+			background-color: #232323;
+		}
+		::-webkit-scrollbar-corner {
+			background: #000;
+		}
+		::-webkit-scrollbar-track {
+			opacity: 0;
+			border-radius: 10px;
+		}
+		::-webkit-scrollbar-button{
+			width: 10px;
+			height: 10px;
+			background-color: #606060;
+			border-radius: 50%;
+
+			border-style: solid;
+			border-width: 3px;
+			box-sizing: border-box;
+			border-color: #232323;
+		}
+
+		.InfoZone {
+			height: auto;
+			padding: 10px 10px 10px 20px;
+			color: rgb(0, 0, 0);
+			background-color: rgba(172,255,218,0.7);
+
+
+			user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+		}
+
+		#InfoZone a,a:link:hover,a:visited:hover,a:link,a:visited {
+			text-decoration: none;
+			border: none;
+		}
+		.imgButton {
+			display: inline-block;
+			padding: 10px;
+			margin: 10px 10px 0 0;
+
+			background-position: center;
+			background-size: 50px 50px;
+			background-repeat: no-repeat;
+			width: 50px;
+			height: 50px;
+
+			border-radius: 3em;
+			background-color: rgba(35, 35, 35, 0.55);
+			backdrop-filter: blur(3px);
+			user-select: none;
+			overflow: hidden;
+			color: #ffffff;
+
+			transition: all 0.45s cubic-bezier(0.5,0,0.5,1);
+		}
+		/* dont touch it 👆 */
+
+		#colorPic {
+			width: 100%;
+			height: auto;
+			user-select: none;
+		}
+		#non-js {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 1145141919810;
+			width: 100%;
+			height: auto;
+			user-select: none;
+			background: #ff0000;
+			color: #ffffff;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+
+	<noscript>
+		<div id="non-js">
+			<p>PlEASE ENABLE JAVASCRIPT TO VISIT OR USE THIS PAGE ON KOTO.EU.ORG.</p>
+			<p>請打開 JavaScript 以繼續使用此頁面.</p>
+			<p>或使用 功能極其受限的 <a href="compatible.html">non-js頁面</a> .</p>
+		</div>
+	</noscript>
+
+	<div class="InfoZone">
+
+		<p id="picNum"></p>
+
+		<a>
+			<span class="imgButton" id="CheckImg" style="background-image:url(../images/load.svg);cursor: not-allowed;"></span>
+		</a>
+
+		<a href="javascript:alert('image is not load done.')" id="download" download="" title="下載原始圖像">
+			<span class="imgButton" style="background-image:url(../images/download.svg)"></span>
+		</a>
+		<a href="javascript:alert('image is not load done.')" id="raw" title="查看原始圖像">
+			<span class="imgButton" style="background-image:url(../images/eye.svg)"></span>
+		</a>
+		<a href="javascript:copyPicShareLink()" id="share" title="複製當前圖像的分享連結">
+			<span class="imgButton" style="background-image:url(../images/link.svg)"></span>
+		</a>
+		<a href="javascript:alert('image is not load done.')" id="lock" title="鎖定當前圖像">
+			<span class="imgButton" style="background-image:url(../images/lock.svg)"></span>
+		</a>
+		<a href="https://github.com/kobe-koto/kobe-koto.github.io/" id="GitHub" title="Open Source Code">
+			<span class="imgButton" style="background-image:url(../images/GitHubMarkLight.png)"></span>
+		</a>
+		<a href="/" id="Copy" title="Copyright kobe-koto">
+			<span class="imgButton" style="background-image:url(../images/icon-r.png)"></span>
+		</a>
+
+	</div>
+
+
+	<img src="../images/load.svg" alt="" id="colorPic" onclick="Load('false');" />
+	<!--<div class="demo"></div>-->
+
+	<div class="InfoZone" style="text-align: center;" id="InfoZone">
+
+		<h6>
+			使用
+			&nbsp;
+			<a href="./float.html">InfoZone浮動的頁面</a>
+			&nbsp;&nbsp;
+			<a href="./index.html">普通頁面</a>
+		</h6>
+		<h5>Copyright kobe-koto | <a href="https://github.com/kobe-koto/kobe-koto.github.io/">Open Source Code</a> | Under <a href="/LICENSE.html">AGPL-3.0</a></h5>
+		<!-- <h6>Good News! 該網頁不支持IE9及以下</h6> -->
+	</div>
+
+	<script>
+		windowload("false","gay");
+	</script>s
+</body>
+</html>
