@@ -274,16 +274,17 @@ body {
 <!--EncryptedEnd-->
 
 <!--GuestUploadStart-->
-                <div class="mdui-typo mdui-shadow-3" style="padding: 20px;margin: 20px 0;text-align: center;">
-                <div id="upload_btns" align="center">
-                    <select onchange="document.getElementById('upload_file').webkitdirectory=this.value;">
-                        <option value=""><!--constStr@UploadFile--></option>
-                        <option value="1"><!--constStr@UploadFolder--></option>
-                    </select>
-                    <input id="upload_file" type="file" name="upload_filename" multiple="multiple">
-                    <input id="upload_submit" onclick="preup();" value="<!--constStr@Upload-->" type="button">
-                </div>
-                </div>
+<div class="mdui-typo mdui-shadow-3" style="padding: 20px;margin: 20px 0;text-align: center;">
+  <h3 style="display: inline-block;">
+    該檔案夾允許訪客自由上傳，但訪客無法查看任何文件，只能在上傳后複製檔案連結。
+  </h3>
+  <select onchange="document.getElementById('upload_file').webkitdirectory=this.value;">
+    <option value=""><!--constStr@UploadFile--></option>
+    <option value="1"><!--constStr@UploadFolder--></option>
+  </select>
+  <input id="upload_file" type="file" name="upload_filename" multiple="multiple">
+  <input id="upload_submit" onclick="preup();" value="<!--constStr@Upload-->" type="button">
+</div>
 <!--GuestUploadEnd-->
 
   <!--IsFolderStart-->
