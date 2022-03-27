@@ -80,6 +80,7 @@ function Load(img) {
 		}
 		return null;
 	}
+
 	clearData("load");
 
 	ShareLink = window.location.protocol + "//" + window.location.host + window.location.pathname + "?img=" + picName;
@@ -99,48 +100,38 @@ function Load(img) {
 			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
 		}
 
-
-		try {
-			if (GetImgAPI == API1) {
-				document.getElementById("colorPic").onload = null;
-				document.getElementById("picNum").innerHTML = "ERROR: API1 或許不可用, 將嘗試 API2.";
-				console.error("API1 或許不可用, 將嘗試 API2.");
-				GetImgAPI = API2;
-				Load(img);
-			} else if (GetImgAPI == API2) {
-				document.getElementById("colorPic").onload = null;
-				document.getElementById("picNum").innerHTML = "ERROR: API1 && API2 均不可用, 或是您的網路配置有問題, 亦可能是您無法鏈接至 API1 && API2.";
-				console.error("API1 && API2 均不可用, 或是您的網路配置有問題, 亦可能是您無法連綫至 API1 && API2.");
+		request = new XMLHttpRequest();
+		request.open("GET", picLink, true);
+		request.send();
+		request.onerror = request.onload = function () {
+			if (!img == "" && !request.status == '200' && window.navigator.onLine == true) {
+				document.getElementById("picNum").innerHTML = "ERROR: 可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.";
+				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.");
+				return null;
+			} else if (window.navigator.onLine == false) {
+				document.getElementById("picNum").innerHTML = "ERROR: 您似乎未連接上網際網路";
+				console.error("似乎未連接上網際網路");
 				return null;
 			} else {
-				document.getElementById("picNum").innerHTML = "ERROR: 圖像無法載入, 所設置的 API 與 API1["+API1+"] 和API2 ["+API2+"] 均不匹配, 或是遇到未知錯誤, 這通常是kobekoto以外的人未經同意修改了程式碼.";
-				console.error("圖像無法載入, 所設置的 API 與 API1["+API1+"] 和API2 ["+API2+"] 均不匹配, 或是遇到未知錯誤, 這通常是kobekoto以外的人未經同意修改了程式碼.");
+				document.getElementById("picNum").innerHTML = "ERROR: 未知錯誤, 請打開瀏覽器F12調試器, 轉到控制臺截下全部内容並在GitHub或者發郵件到admin@koto.cc進行反饋.";
+				console.error("未知錯誤, 請打開瀏覽器F12調試器, 轉到控制臺截下全部内容並在GitHub或者發郵件到admin@koto.cc進行反饋.");
 				return null;
 			}
-		} catch (err) {
-			document.getElementById("picNum").innerHTML = "ERROR: 無法切換API.";
-			console.error("無法切換API.");
 
-
-			if (window.location.toString().match(/(gay|fur)/i)) {
-				document.getElementById("colorPic").src = "../images/error.svg";
-				document.getElementById("CheckImg").style.backgroundImage = "url(../images/error.svg)";
-			} else {
-				document.getElementById("colorPic").src = "./images/error.svg";
-				document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
-			}
 		}
+
 	}
 
 	// load done
 	document.getElementById("colorPic").onload = function () {
+		document.getElementById("colorPic").onerror = null;
 
 		document.getElementById("raw").href = picLink;
 		document.getElementById("lock").href = ShareLink;
 		document.getElementById("download").href = picLink;
 		document.getElementById("download").download = picName;
 
-		document.getElementById("picNum").innerHTML = "您要的銫圖 [ " + picName + " ]";
+		document.getElementById("picNum").innerHTML = "您要的銫圖 「" + picName + "」‼";
 
 		if (window.location.toString().match(/(gay|fur)/i)) {
 			document.getElementById("CheckImg").style.backgroundImage = "url(../images/check.svg)";
@@ -210,10 +201,8 @@ function windowload (isMoveInfoZone,databaseType) {
 			//parse data as JSON.
 			ColorImgJson = JSON.parse(request.response);
 
-			//var APIs.
-			API1 = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
-			API2 = "https://image-koto.000webhostapp.com/?/Image/GetColorImg/"+databaseType+"/";
-			GetImgAPI = API1;
+			//var API.
+			GetImgAPI = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
 
 
 			console.log("INFO: 成功載入了列表!");
