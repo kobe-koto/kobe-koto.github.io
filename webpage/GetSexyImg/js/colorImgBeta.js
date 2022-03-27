@@ -104,13 +104,17 @@ function Load(img) {
 		request.open("GET", picLink, true);
 		request.send();
 		request.onerror = request.onload = function () {
-			if (!img == "" && !request.status == '200' && window.navigator.onLine == true) {
-				document.getElementById("picNum").innerHTML = "ERROR: 可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.";
-				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.");
+			if (request.status == '404') {
+				document.getElementById("picNum").innerHTML = "ERROR: 請求的圖像不·存·在·!";
+				console.error("請求的圖像不·存·在·!");
 				return null;
 			} else if (window.navigator.onLine == false) {
-				document.getElementById("picNum").innerHTML = "ERROR: 您似乎未連接上網際網路";
-				console.error("似乎未連接上網際網路");
+				document.getElementById("picNum").innerHTML = "ERROR: 您似乎未連接上網際網路.";
+				console.error("似乎未連接上網際網路.");
+				return null;
+			} else if (!GetQueryString("img") == "" && request.status != '200' && window.navigator.onLine == true) {
+				document.getElementById("picNum").innerHTML = "ERROR: 可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.";
+				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.");
 				return null;
 			} else {
 				document.getElementById("picNum").innerHTML = "ERROR: 未知錯誤, 請打開瀏覽器F12調試器, 轉到控制臺截下全部内容並在GitHub或者發郵件到admin@koto.cc進行反饋.";
@@ -202,7 +206,7 @@ function windowload (isMoveInfoZone,databaseType) {
 			ColorImgJson = JSON.parse(request.response);
 
 			//var API.
-			GetImgAPI = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
+			GetImgAPI = "https://file.koto.cc/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
 
 
 			console.log("INFO: 成功載入了列表!");
