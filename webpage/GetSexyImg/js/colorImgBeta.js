@@ -26,24 +26,20 @@ function copyPicShareLink() {
 
 function clearData(Value) {
 	//clear old data,use for reload a new img
-	switch (Value) {
 
-
-
-		case "":
-		default:
-			document.getElementById("raw").href = "";
-			document.getElementById("lock").href = "";
-			document.getElementById("download").href = "";
-			document.getElementById("download").download = "";
-			if (window.location.toString().match(/(gay|fur)/i)) {
-				document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
-			} else {
-				document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
-			}
-		case "load":
-			document.getElementById("picNum").innerHTML = "INFO: 載入中";
-			break;
+	if (Value === "load") {
+		document.getElementById("picNum").innerHTML = "INFO: 載入中";
+	}
+	document.getElementById("raw").href = "";
+	document.getElementById("lock").href = "";
+	document.getElementById("download").href = "";
+	document.getElementById("download").download = "";
+	if (window.location.toString().match(/(gay\/|fur\/)/i)) {
+		document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
+	} else if (window.location.toString().match(/(gay|fur)/i)) {
+		document.getElementById("CheckImg").style.backgroundImage = "url(../images/load.svg)";
+	} else {
+		document.getElementById("CheckImg").style.backgroundImage = "url(./images/load.svg)";
 	}
 }
 function GetQueryString(name) {

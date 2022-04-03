@@ -60,7 +60,7 @@ function windowload() {
 	//on window loaded,request ColorImg database(?) & auto parse data,support n/r|r,n|clean.
 	document.getElementById("picNum").innerHTML = "loading files list data";
 	
-	var requestURL = "./database/fur.txt";
+	var requestURL = "../database/fur.txt";
 	var request = new XMLHttpRequest();
 	request.open("GET", requestURL,true);
 	request.send(null);
