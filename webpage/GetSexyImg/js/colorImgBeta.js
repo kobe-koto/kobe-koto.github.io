@@ -15,7 +15,7 @@ function random (intmin,intmax) {
 
 function copyPicShareLink() {
 	try {
-		navigator.clipboard.writeText(ShareLink);
+		navigator.clipboard.writeText(ShareLink).then();
 		console.log("successful.");
 		alert("successful.");
 	} catch (err) {
@@ -45,13 +45,12 @@ function clearData(Value) {
 function GetQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
-	var context = "";
 
-	if (r != null)
-		context = r[2];
-	reg = null;
-	r = null;
-	return context == null || context == "" || context == "undefined" ? "" : context;
+	if (r != null) {
+		return r[2];
+	} else {
+		return "";
+	}
 }
 function Load(img) {
 	//load a new Img from varied API.
@@ -95,7 +94,6 @@ function Load(img) {
 			document.getElementById("colorPic").src = "./images/error.svg";
 			document.getElementById("CheckImg").style.backgroundImage = "url(./images/error.svg)";
 		}
-
 		request = new XMLHttpRequest();
 		request.open("GET", picLink, true);
 		request.send();
@@ -110,7 +108,7 @@ function Load(img) {
 				return null;
 			} else if (!GetQueryString("img") == "" && request.status != '200' && window.navigator.onLine == true) {
 				document.getElementById("picNum").innerHTML = "ERROR: 可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.";
-				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.");
+				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API .");
 				return null;
 			} else {
 				document.getElementById("picNum").innerHTML = "ERROR: 未知錯誤, 請打開瀏覽器F12調試器, 轉到控制臺截下全部内容並在GitHub或者發郵件到admin@koto.cc進行反饋.";
@@ -144,6 +142,12 @@ function Load(img) {
 }
 
 function windowload (isMoveInfoZone,databaseType) {
+
+	window.onresize = function () {
+		document.getElementById("InfoZone").style.top = "15px";
+		document.getElementById("InfoZone").style.left = "15px";
+	}
+
 
 	if (isMoveInfoZone === "false") {
 		console.log("將不會讓InfoZone可拖動。");
@@ -200,6 +204,9 @@ function windowload (isMoveInfoZone,databaseType) {
 		request.onload = function () {
 			//parse data as JSON.
 			ColorImgJson = JSON.parse(request.response);
+
+			//get %PicCount, put it on $PicCount.
+			document.getElementById("PicCount").innerHTML = "隨機色圖"+databaseType+"目前已收錄"+ColorImgJson.fileNum+"張色圖!!"
 
 			//var API.
 			GetImgAPI = "https://file.koto.cc/api/raw/?path=/Image/GetColorImg/"+databaseType+"/";
