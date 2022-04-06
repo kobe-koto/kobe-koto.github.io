@@ -59,7 +59,7 @@ function Load(img) {
 		console.log("隨機圖像模式");
 		picName = ColorImgJson.pics[(random("0",(ColorImgJson.fileNum - 1)))].name;
 		picLink = GetImgAPI + picName;
-	} else if (!img == "") {
+	} else if (img != null) {
 		// Specify img load
 		console.log("指定圖像Name模式.");
 		picName = img;
@@ -106,7 +106,7 @@ function Load(img) {
 				document.getElementById("picNum").innerHTML = "ERROR: 您似乎未連接上網際網路.";
 				console.error("似乎未連接上網際網路.");
 				return null;
-			} else if (!GetQueryString("img") == "" && request.status != '200' && window.navigator.onLine == true) {
+			} else if (GetQueryString("img") != null && request.status != '200' && window.navigator.onLine == true) {
 				document.getElementById("picNum").innerHTML = "ERROR: 可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.";
 				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API .");
 				return null;
@@ -215,7 +215,7 @@ function windowload (isMoveInfoZone,databaseType) {
 			console.log("INFO: 成功載入了列表!");
 
 			//mode auto,support Specify & Random.
-			if (!GetQueryString("img").toString() == "") {
+			if (GetQueryString("img").toString() != null) {
 				var img = GetQueryString("img");
 				Load(img);
 			} else {
