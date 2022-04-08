@@ -57,8 +57,19 @@ function Load(img) {
 	if (img == "") {
 		// Random img load
 		console.log("隨機圖像模式");
-		picName = ColorImgJson.pics[(random("0",(ColorImgJson.fileNum - 1)))].name;
-		picLink = GetImgAPI + picName;
+		while (true) {
+			picName = ColorImgJson.pics[(Math.round((ColorImgJson.fileNum) * Math.random()))].name;
+			if (picName != "LetMeFixThisErrorButDoNotThinkSoItIsWorkGood?.jpg") {
+				picLink = GetImgAPI + picName;
+				break;
+			}
+		}
+
+		/* picName = ColorImgJson.pics[(random("0",(ColorImgJson.fileNum - 1)))].name;
+		 * picLink = GetImgAPI + picName;
+		 */
+
+
 	} else if (img != null) {
 		// Specify img load
 		console.log("指定圖像Name模式.");
@@ -107,8 +118,8 @@ function Load(img) {
 				console.error("似乎未連接上網際網路.");
 				return null;
 			} else if (GetQueryString("img") != null && request.status != '200' && window.navigator.onLine == true) {
-				document.getElementById("picNum").innerHTML = "ERROR: 可能是傳入的圖像name未找到, 或是您無法鏈接至 API1 && API2.";
-				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API .");
+				document.getElementById("picNum").innerHTML = "ERROR: 可能是傳入的圖像name未找到, 或是您無法鏈接至 API.";
+				console.error("可能是傳入的圖像name未找到, 或是您無法鏈接至 API.");
 				return null;
 			} else {
 				document.getElementById("picNum").innerHTML = "ERROR: 未知錯誤, 請打開瀏覽器F12調試器, 轉到控制臺截下全部内容並在GitHub或者發郵件到admin@koto.cc進行反饋.";
