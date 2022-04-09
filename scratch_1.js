@@ -177,14 +177,16 @@ addEventListener('fetch', event => {
 				while (true) {
 					const name = ColorImgJson.pics[(Math.round((ColorImgJson.fileNum - 1) * Math.random()))].name;
 					if (name != "LetMeFixThisErrorButDoNotThinkSoItIsWorkGood?.jpg") {
-						const url = originatorAPI+type+"/" + name;
+						const url = originatorAPI + type + "/" + name;
 						const count = ColorImgJson.fileNum;
-						const returnData = "{\"code\":\"200\",\"msg\":\"OK\",\"type\":\""+type+"\",\"count\":\""+count+"\",\"name\":\""+name+"\",\"url\":\""+url+"\"}";
+						const urlPreview = "https://drive.koto.cc/Main/Image/GetColorImg/" + type + "/" + name + "?preview";
+						const returnData = "{\"code\":\"200\",\"msg\":\"OK\",\"type\":\"" + type + "\",\"count\":\""+count+"\",\"name\":\""+name+"\",\"url\":\""+url+"\",\"urlPreview\":\""+urlPreview+"\"}";
 						//return new Response(returnData);
 						return new Response(returnData, {
 							headers: {
 								'content-type': 'application/json;charset=UTF-8',
 								'Access-Control-Allow-Origin': '*',
+								'Cache-Control': 'no-store',
 							},
 						})
 					}

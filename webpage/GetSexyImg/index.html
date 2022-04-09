@@ -102,10 +102,12 @@
 		table {
 			background-color: #ffffff;
 			color: #ffffff;
-			font-weight: bolder;
 		}
 		tbody {
 			background-color: #232323;
+		}
+		td {
+			padding: 2px;
 		}
 
 	</style>
@@ -145,19 +147,22 @@
 		<p>我使用 Cloudflare Workers 提供了一個隨機色圖的 API, 下面是個傳回數值的定義.</p>
 		<p>一共有以下幾個傳回值.</p>
 		<table>
-			<tr><td>返回數值名</td><td>描述</td><td>示例</td></tr>
-			<tr><td>code</td><td>請求狀態碼</td><td>200</td></tr>
-			<tr><td>msg</td><td>請求信息</td><td>OK</td></tr>
-			<tr><td>type</td><td>請求的數據庫</td><td>fur或gay</td></tr>
-			<tr><td>count</td><td>指示數據庫收入了多少張圖片</td><td>1000</td></tr>
-			<tr><td>name</td><td>圖像檔案名</td><td>E788MZNVEAgPJqA.jpeg</td></tr>
-			<tr><td>url</td><td>指向圖像的連結</td><td>https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/fur/E788MZNVEAgPJqA.jpeg</td></tr>
+			<tbody>
+				<tr><td>返回數值名</td><td>描述</td><td>示例</td></tr>
+				<tr><td>code</td><td>請求狀態碼</td><td>200</td></tr>
+				<tr><td>msg</td><td>請求信息</td><td>OK</td></tr>
+				<tr><td>type</td><td>請求的數據庫</td><td>fur或gay</td></tr>
+				<tr><td>count</td><td>指示數據庫收入了多少張圖片</td><td>1000</td></tr>
+				<tr><td>name</td><td>圖像檔案名</td><td>IMG_0176-1.JPG</td></tr>
+				<tr><td>url</td><td>指向圖像的連結</td><td>https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/fur/IMG_0176-1.JPG</td></tr>
+				<tr><td>urlPreview</td><td>指向圖像的預覽用鏈接</td><td>https://drive.koto.cc/Main/Image/GetColorImg/fur/IMG_0176-1.JPG?preview</td></tr>
+			</tbody>
 		</table>
-		<p>返回的數據為JSON格式,示例如下</p>
-		<code>{"code":"200","msg":"OK","type":"fur","count":"1078","name":"E788MZNVEAgPJqA.jpeg","url":"https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/fur/E788MZNVEAgPJqA.jpeg"}</code>
-		<p>要調用此 API - fur Edition,發送 Get 請求到 fur.random-sexy-img.koto.workers.dev.</p>
-		<p>要調用此 API - gay Edition,發送 Get 請求到 gay.random-sexy-img.koto.workers.dev.</p>
-		<p style="font-size: smaller">另注: API允許跨域請求(Access-Control-Allow-Origin: *)</p>
+		<p>返回的數據為JSON格式, 示例如下</p>
+		<code>{"code":"200","msg":"OK","type":"fur","count":"1078","name":"IMG_0176-1.JPG","url":"https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/fur/IMG_0176-1.JPG","urlPreview":"https://drive.koto.cc/Main/Image/GetColorImg/fur/IMG_0176-1.JPG?preview"}</code>
+		<p>要調用此 API - fur Edition, 發送 Get 請求到 fur.random-sexy-img.koto.workers.dev.</p>
+		<p>要調用此 API - gay Edition, 發送 Get 請求到 gay.random-sexy-img.koto.workers.dev.</p>
+		<p style="font-size: smaller">另注: API允許跨域請求(Access-Control-Allow-Origin: *), 禁止緩存(Cache-Control: no-store)</p>
 	</div>
 
 	<div class="glass_main" style="text-align: center;">
