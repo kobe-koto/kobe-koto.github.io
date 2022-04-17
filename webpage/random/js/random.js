@@ -147,7 +147,7 @@ function rrddnnoo (intmin,intmax) {
 	//ERROR area ↑
 	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
-		if (randomno <= intmax && randomno >= intmin) {
+		if (randomno <= intmax && randomno >= intmin && randomno != "43" && randomno != "16") {
 			TIMESPP();
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno.toString();
@@ -162,7 +162,7 @@ function rrddnnoo (intmin,intmax) {
 	}
 	while (!isNaN(intmax) && !isNaN(intmin) && intmax.match(/(-)/i)) {
 		var randomno = Math.round(intmax * Math.random());
-		if (randomno >= intmax && randomno <= intmin && intmax.match(/(-)/i)) {
+		if (randomno >= intmax && randomno <= intmin && intmax.match(/(-)/i) && randomno != "-43" && randomno != "-16") {
 			TIMESPP();
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno.toString();
