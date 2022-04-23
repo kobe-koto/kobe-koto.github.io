@@ -61,6 +61,10 @@ function rePutInt() {
 	document.getElementById("intword").innerHTML = "";
 }
 
+function TIMESPP () {
+	document.getElementById("calcTime").innerHTML++;
+}
+
 function rrddnnoo (intmin,intmax) {
 	// document.getElementById("intwindow").value;
 	rePutInt();
@@ -142,30 +146,30 @@ function rrddnnoo (intmin,intmax) {
 	}
 	//ERROR area ↑
 	while (!isNaN(intmax) && !isNaN(intmin) && !intmax.match(/(-)/i)) {
-		var randomno = Math.round((intmax-intmin+1) * Math.random() + intmin);
+		var randomno = Math.round(intmax * Math.random());
 		if (randomno <= intmax && randomno >= intmin && randomno != "43" && randomno != "16") {
-			document.getElementById("calcTime").innerHTML++;
+			TIMESPP();
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno.toString();
 
 			document.getElementById("loadword").innerHTML = "Success.";
 
-			logOutput("INFO", randomno + ".", "numzone", "h5");
+			logOutput("INFO", randomno, "numzone", "h5");
 			logOutput("INFO", "Success,num: " + randomno, "logzone", "h5");
 
 			return randomno;
 		}
 	}
 	while (!isNaN(intmax) && !isNaN(intmin) && intmax.match(/(-)/i)) {
-		var randomno = Math.round((intmax-intmin-2) * Math.random() - intmin) + 2;
+		var randomno = Math.round(intmax * Math.random());
 		if (randomno >= intmax && randomno <= intmin && intmax.match(/(-)/i) && randomno != "-43" && randomno != "-16") {
-			document.getElementById("calcTime").innerHTML++;
+			TIMESPP();
 			document.getElementById("intword").innerHTML = "no. ";
 			document.getElementById("intdp").innerHTML = randomno.toString();
 
 			document.getElementById("loadword").innerHTML = "Success.";
 
-			logOutput("INFO",randomno + ".","numzone","h5");
+			logOutput("INFO",randomno,"numzone","h5");
 			logOutput("INFO","Success,num: " + randomno,"logzone","h5");
 
 			return randomno;
