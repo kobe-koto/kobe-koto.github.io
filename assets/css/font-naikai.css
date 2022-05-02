@@ -3,5 +3,15 @@
 /* copyright 2021 kobe-koto */
 @font-face {
 	font-family: 'Naikai';
-	src: local("Naikai"),url("../font/naikai-r.woff2") format("woff");
+	src: local("Naikai"),url("https://koto.cc/assets/font/naikai-r.woff2") format("woff");
 }
+
+@font-face {
+	font-family: 'jinluo';
+	src: local("jinluo"),url("https://koto.cc/assets/font/jinluo130.ttf") format("woff");
+}
+@font-face {
+	font-family: 'xiaolan';
+	src: local("jinluo"),url("https://koto.cc/assets/font/xiaolanw1.ttf") format("woff");
+}
+
