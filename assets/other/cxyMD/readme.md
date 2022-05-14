@@ -1,4 +1,4 @@
-#### &copy; Copyright [Github@kobe-koto](https://github.com/kobe-koto/) & [Bilibili@Chuxueyu](https://space.bilibili.com/535358652).
+### &copy; Copyright [Github@kobe-koto](https://github.com/kobe-koto/) & [Bilibili@Chuxueyu](https://space.bilibili.com/535358652).
 
 How to view our [SharePoint WebSite](https://koto3905.sharepoint.com/sites/chuxueyu) ? Get started down below.
 
