@@ -2,8 +2,6 @@
 <html lang="zh-CN">
   <head>
     <link rel="preconnect" href="https://koto.cc" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" />
 <meta charset="utf-8" />
 <link
   rel="shortcut icon"
@@ -724,7 +722,7 @@ body {
 <!--IsvideoFileEnd-->
 <!--IspdfFileStart-->
     //cdn.bootcss.com/pdf.js/2.4.456/pdf.worker.min.js
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://koto.cc/assets/other/renexmoe-assets/pdf.worker.min.js';
     var loadingTask = pdfjsLib.getDocument({
         url: "<!--FileDownUrl-->",
         cMapUrl: "https://unpkg.com/pdfjs-dist@2.4.456/cmaps/",
@@ -1798,6 +1796,17 @@ body {
     document.getElementById('password1').focus();
 <!--EncryptedEnd-->
 </script>
-<!--LoginStart--><script src="https://www.unpkg.com/js-sha1@0.6.0/src/sha1.js"></script><!--LoginEnd-->
-<!--GuestUploadStart--><script type="text/javascript" src="//cdn.bootcss.com/spark-md5/3.0.0/spark-md5.min.js"></script><!--GuestUploadEnd-->
+<!--LoginStart--><script src="https://koto.cc/assets/other/renexmoe-assets/sha1.js"></script><!--LoginEnd-->
+
+<!--GuestUploadStart--><script type="text/javascript" src="https://koto.cc/assets/other/renexmoe-assets/spark-md5.min.js"></script><!--GuestUploadEnd-->
+
+<!--MdRequireStart--><link rel="stylesheet" href="https://koto.cc/assets/other/renexmoe-assets/github-markdown.css">
+<script type="text/javascript" src="https://koto.cc/assets/other/renexmoe-assets/marked.js"></script><!--MdRequireEnd-->
+
+<!--AliyundriveUploadJsStart--><script src="https://koto.cc/assets/other/renexmoe-assets/bignumber.js"></script>
+<script src="https://koto.cc/assets/other/renexmoe-assets/sha1.js"></script><!--AliyundriveUploadJsEnd-->
+
+<script src="https://koto.cc/assets/other/renexmoe-assets/ionicons.js"></script>
+
+<!--IsFileStart--><!--IspdfFileStart--><script src="https://koto.cc/assets/other/renexmoe-assets/pdf.min.js"></script><!--IspdfFileEnd--><!--IsFileEnd-->
 </html>
