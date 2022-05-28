@@ -294,8 +294,12 @@ body {
       <option value=""><!--constStr@UploadFile--></option>
       <option value="1"><!--constStr@UploadFolder--></option>
     </select>
-    <input id="upload_file" type="file" name="upload_filename" multiple="multiple">
-    <input id="upload_submit" onclick="preup();" value="<!--constStr@Upload-->" type="button">
+    
+    <input id="upload_file" type="file" name="upload_filename" multiple="multiple" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme"></input>
+    
+    <input id="upload_submit" onclick="preup();" value="<!--constStr@Upload-->" type="button" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme">
+      <!--constStr@Upload-->
+    </input>
   </span>
 </div>
 <!--GuestUploadEnd-->
